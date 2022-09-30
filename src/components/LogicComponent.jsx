@@ -26,8 +26,8 @@ const LogicComponent = () => {
                         setQuery(e.target.value);
                     }}
                 />
-                <ButtonGeolocation />
             </form>
+            <ButtonGeolocation />
             {Object.keys(actualCity).length !== 0 ? (
                 <>
                     <h3>Città: {actualCity.city.name}</h3>
