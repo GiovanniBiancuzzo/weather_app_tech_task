@@ -6,4 +6,6 @@
 
 ### implementazione delle chiamate
 
-### implementazione della geolocalizzazione (spostata la logica del controllo-città nella action)
+### geolocalizzazione (spostata la logica del controllo-città nella action)
+
+### button per la geolocalizzazione

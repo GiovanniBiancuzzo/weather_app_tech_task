@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getWeatherInfosAction } from "../redux/actions";
+import ButtonGeolocation from "./ButtonGeolocation";
 
 const LogicComponent = () => {
     const [query, setQuery] = useState("");
@@ -13,26 +14,11 @@ const LogicComponent = () => {
         setQuery(""); //pulisco l'input field
     };
 
-    useEffect(() => {
-        if (navigator.geolocation) {
-            //geolocalizzazione
-            navigator.geolocation.getCurrentPosition(
-                (res) => {
-                    const coords = res.coords;
-                    dispatch(getWeatherInfosAction(coords));
-                    // console.log(latitude, longitude);
-                },
-                () => alert("impossibile ottenere la posizione")
-            );
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
     return (
         <>
             <h2>Componente di prova chiamate</h2>
             <form onSubmit={handleSubmit}>
-                <label>Cerca città</label>
+                <label>Cerca città oppure premi il pulsante accanto </label>
                 <input
                     type="text"
                     value={query}
@@ -40,6 +26,7 @@ const LogicComponent = () => {
                         setQuery(e.target.value);
                     }}
                 />
+                <ButtonGeolocation />
             </form>
             {Object.keys(actualCity).length !== 0 ? (
                 <>
