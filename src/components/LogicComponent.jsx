@@ -1,35 +1,32 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    getActualWeatherAction,
-    getWeatherInfosAction,
-    setQueryAction,
-    setHistoryAction,
-} from "../redux/actions";
+import { getWeatherInfosAction } from "../redux/actions";
 
 const LogicComponent = () => {
     const [query, setQuery] = useState("");
     const actualCity = useSelector((state) => state.weatherInfos.actualCity);
-    const cities = useSelector((state) => state.weatherInfos.cities);
-
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const myQuery = capitalizeFirstLetter(query);
-        dispatch(setHistoryAction(myQuery));
-        dispatch(setQueryAction(myQuery));
-        if (Object.keys(cities).includes(myQuery)) {
-            //controllo se è una citta già cercata
-            dispatch(getActualWeatherAction(cities[myQuery])); //se è già stata cercata, la estraggo dall'elenco delle città nello store
-        } else dispatch(getWeatherInfosAction(myQuery)); //se non è stata già cercata faccio partire la fetch
+        dispatch(getWeatherInfosAction(query));
         setQuery(""); //pulisco l'input field
     };
 
-    const dispatch = useDispatch();
-    // useEffect(() => dispatch(getWeatherInfosAction(query)), []);
+    useEffect(() => {
+        if (navigator.geolocation) {
+            //geolocalizzazione
+            navigator.geolocation.getCurrentPosition(
+                (res) => {
+                    const coords = res.coords;
+                    dispatch(getWeatherInfosAction(coords));
+                    // console.log(latitude, longitude);
+                },
+                () => alert("impossibile ottenere la posizione")
+            );
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>
