@@ -24,32 +24,28 @@ export const getActualWeatherAction = (data) => ({
 
 export const getWeatherInfosAction = (query) => {
     return (dispatch, getState) => {
-        let finalQuery = '';
-        if (typeof (query) === 'string') {
-            finalQuery = `q=${query}`;
-        } else finalQuery = `lat=${query.latitude}&lon=${query.longitude}`;
-        fetch(`${endpointApi}${finalQuery}&appid=${apiKey}&units=metric&lang=it`, {
-            // fetch(`${endpointApi}q=${query}&appid=${apiKey}&units=metric&lang=it`, {
-            //api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-            method: "GET",
-        })
-            .then(res => res.json())
-            .then(data => {
-                const cities = getState().weatherInfos.cities;
-                dispatch(setQueryAction(data.city.name));//conservo la citta nella query di ricerca
-                if (Object.keys(cities).includes(data.city.name)) {//controllo se è una citta già cercata
-                    dispatch(getActualWeatherAction(cities[data.city.name])); //se è già stata cercata, la estraggo dall'elenco delle città nello store
-                } else {//se non è stata già cercata
-                    dispatch(setHistoryAction(data.city.name));//conservo la citta nella history
-                    dispatch({//conservo la citta nello store
+        const finalQuery = query.charAt(0).toUpperCase() + query.slice(1);//preparo la stringa per essere confrontata 
+        const cities = getState().weatherInfos.cities;//recupero la lista delle città già conservate nello store
+        dispatch(setQueryAction(finalQuery));//conservo la citta nella query di ricerca
+        if (Object.keys(cities).includes(finalQuery)) {//controllo se è una citta già cercata
+            dispatch(getActualWeatherAction(cities[finalQuery])); //se è già stata cercata, la estraggo dall'elenco delle città nello store e la setto come città attuale
+        } else {
+            fetch(`${endpointApi}q=${finalQuery}&appid=${apiKey}&units=metric&lang=it`, { //se non è stata già cercata, effettuo una fetch
+                method: "GET",
+            })
+                .then(res => res.json())
+                .then(data => {
+                    dispatch(setHistoryAction(data.city.name));//conservo la città nella history
+                    dispatch({//conservo la città nello store
                         type: GET_WEATHER_INFOS,
                         payload: data
                     });
                     dispatch(getActualWeatherAction(data));//setto la citta attuale
                 }
-            })
-            .catch(error => {
-                console.log(error);
-            });
+                )
+                .catch(error => {
+                    console.log(error);
+                });
+        }
     };
 };

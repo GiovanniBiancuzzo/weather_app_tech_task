@@ -15,3 +15,9 @@
 ### button per la geolocalizzazione
 
 ### react-icons
+
+## API utilizzate
+
+### https://openweathermap.org/ per le informazioni meteorologiche
+
+### https://geocode.xyz/ per il reverse coding delle coordinate gps
