@@ -13,3 +13,5 @@
 ### form per la ricerca con accessibilità e pattern regex
 
 ### button per la geolocalizzazione
+
+### react-icons
