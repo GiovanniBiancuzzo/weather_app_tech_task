@@ -1,18 +1,30 @@
+import { Card, Col, Row } from "react-bootstrap";
+import { getActualWeatherAction } from "../redux/actions";
+import format from "date-fns/format";
+
 const CityCard = ({ cityInfo }) => {
+    const setActualCity = () => getActualWeatherAction(cityInfo);
+
     return (
-        <div style={{ display: "flex", flexDirection: "row" }}>
-            <div style={{ flexDirection: "column" }}>
-                <h3>{cityInfo.city.name}</h3>
-                <h3>{cityInfo.list.dt}</h3>
-                <h3>{cityInfo.list.dt_txt}</h3>
-            </div>
-            <div style={{ flexDirection: "column" }}>
-                {cityInfo.city.lits.weather.icon}
-            </div>
-            <div style={{ flexDirection: "column" }}>
-                {Math.trunc(cityInfo.city.list.main.temp)}°
-            </div>
-        </div>
+        <Card onClick={setActualCity} className="p-3 m-3">
+            <Row>
+                <Col xs={4}>
+                    <h3>{cityInfo.city.name}</h3>
+                    <h6>
+                        {format(new Date(cityInfo.list[0].dt), "EEEE d, LLLL")}
+                    </h6>
+                    <small>
+                        {format(new Date(cityInfo.list[0].dt), "K:m aaaa")}
+                    </small>
+                </Col>
+                <Col xs={4}>
+                    <Card.Img
+                        src={`http://openweathermap.org/img/wn/${cityInfo.list[0].weather[0].icon}@2x.png`}
+                    />
+                </Col>
+                <Col xs={4}>{Math.trunc(cityInfo.list[0].main.temp)}°</Col>
+            </Row>
+        </Card>
     );
 };
 
