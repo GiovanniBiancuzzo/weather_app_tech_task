@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-
+import ButtonGeolocation from "./ButtonGeolocation";
 import FormSearch from "./FormSearch";
 
 const LogicComponent = () => {
@@ -9,6 +9,7 @@ const LogicComponent = () => {
         <>
             <h2>Componente di prova chiamate</h2>
             <FormSearch />
+            <ButtonGeolocation />
             {Object.keys(actualCity).length !== 0 ? (
                 <>
                     <h3>Città: {actualCity.city.name}</h3>
