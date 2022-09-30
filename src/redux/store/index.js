@@ -2,15 +2,27 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import searchReducer from "../reducers/searchReducer";
 import weatherInfosReducer from "../reducers/weatherInfosReducer";
 
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 const mainReducer = combineReducers({
     search: searchReducer,
     weatherInfos: weatherInfosReducer
-
 });
+
+const persistConfig = ({
+    key: 'root',
+    storage,
+});
+
+const persistedReducer = persistReducer(persistConfig, mainReducer);
+
 export const store = configureStore({
-    reducer: mainReducer,
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false,
         }),
 });
+
+export const persistedStore = persistStore(store);

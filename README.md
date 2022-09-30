@@ -2,7 +2,9 @@
 
 ## funzionalità
 
-### implementazione dello store
+### implementazione dello store redux
+
+#### implementazione di redux persist
 
 ### implementazione delle chiamate
 
