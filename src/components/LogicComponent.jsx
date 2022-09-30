@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import ButtonGeolocation from "./ButtonGeolocation";
-import FormSearch from "./FormSearch";
+import ButtonGeolocation from "../features/ButtonGeolocation";
+import FormSearch from "../features/FormSearch";
 
 const LogicComponent = () => {
     const actualCity = useSelector((state) => state.weatherInfos.actualCity);
