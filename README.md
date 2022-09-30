@@ -1,12 +1,12 @@
 # Weather app tech task
 
-## funzionalità
+## features
 
-### implementazione dello store redux
+### store redux
 
-#### implementazione di redux persist
+#### -redux persist
 
-### implementazione delle chiamate
+### fetch gestite con promise che rispondono sia a coordinate sia a query di ricerca
 
 ### geolocalizzazione (spostata la logica del controllo-città nella action)
 
