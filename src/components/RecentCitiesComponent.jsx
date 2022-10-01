@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import CityCard from "./CityCard";
 import { BsPlusSquare } from "react-icons/bs";
-import { Button, Col, Modal, Row } from "react-bootstrap";
+import { Button, Col, Container, Modal, Row } from "react-bootstrap";
 import { useState } from "react";
 import FormSearch from "../features/FormSearch";
 
@@ -18,17 +18,22 @@ const RecentCitiesComponent = () => {
 
     return (
         <>
-            <>
+            <Col>
                 <Row>
                     <h4 onClick={handleShow}>
                         <BsPlusSquare /> Aggiungi città
                     </h4>
                 </Row>
-                {recents &&
-                    recents.map((cityInfo) => (
-                        <CityCard key={cityInfo.city.id} cityInfo={cityInfo} />
-                    ))}
-            </>
+                <Container className="recentCitiesContainer">
+                    {recents &&
+                        recents.map((cityInfo) => (
+                            <CityCard
+                                key={cityInfo.city.id}
+                                cityInfo={cityInfo}
+                            />
+                        ))}
+                </Container>
+            </Col>
 
             <Modal show={show} onHide={handleShow}>
                 <Modal.Header closeButton>

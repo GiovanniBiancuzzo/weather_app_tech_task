@@ -16,7 +16,7 @@
 
 ### react-icons
 
-### bootstrap e react bootastrap
+### bootstrap e react bootstrap
 
 ## API utilizzate
 

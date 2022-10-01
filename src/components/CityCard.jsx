@@ -11,11 +11,18 @@ const CityCard = ({ cityInfo }) => {
                 <Col xs={4}>
                     <h3>{cityInfo.city.name}</h3>
                     <h6>
-                        {format(new Date(cityInfo.list[0].dt), "EEEE d, LLLL")}
+                        {format(
+                            new Date(cityInfo.list[0].dt_txt),
+                            "EEEE d, LLLL"
+                        )}
                     </h6>
-                    <small>
-                        {format(new Date(cityInfo.list[0].dt), "K:m aaaa")}
-                    </small>
+                    {/* <small>
+                        {format(new Date(cityInfo.list[0].dt), "h:mm aaaa")}
+                    </small> */}
+                    {
+                        //meglio la data attuale
+                    }
+                    <small>{format(new Date(), "h:mm aaaa")}</small>
                 </Col>
                 <Col xs={4}>
                     <Card.Img

@@ -9,7 +9,7 @@ function App () {
     <Container >
       <Row>
         <Col ><LogicComponent /></Col>
-        <Col>  <RecentCitiesComponent /></Col>
+        <RecentCitiesComponent />
       </Row>
     </Container>
   );
