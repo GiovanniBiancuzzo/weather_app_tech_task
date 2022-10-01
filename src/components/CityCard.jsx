@@ -1,9 +1,11 @@
 import { Card, Col, Row } from "react-bootstrap";
 import { getActualWeatherAction } from "../redux/actions";
 import format from "date-fns/format";
+import { useDispatch } from "react-redux";
 
 const CityCard = ({ cityInfo }) => {
-    const setActualCity = () => getActualWeatherAction(cityInfo);
+    const dispatch = useDispatch();
+    const setActualCity = () => dispatch(getActualWeatherAction(cityInfo));
 
     return (
         <Card onClick={setActualCity} className="p-3 m-3">

@@ -14,8 +14,6 @@ const RecentCitiesComponent = () => {
 
     const handleShow = () => setShow(!show);
 
-    const addCity = () => {};
-
     return (
         <>
             <Col>
