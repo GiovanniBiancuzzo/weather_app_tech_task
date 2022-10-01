@@ -19,7 +19,7 @@ const RecentCitiesComponent = () => {
     return (
         <>
             <Col>
-                <Row>
+                <Row style={{ textAlign: "center" }}>
                     <h4 onClick={handleShow}>
                         <BsPlusSquare /> Aggiungi città
                     </h4>
