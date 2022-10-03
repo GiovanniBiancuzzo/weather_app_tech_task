@@ -4,13 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LogicComponent from './components/LogicComponent';
 import RecentCitiesComponent from './components/RecentCitiesComponent';
 import MainWeatherCard from './components/MainWeatherCard';
+import SidebarNavbar from './components/SidebarNavbar';
 
 
 function App () {
   return (
     <Row>
       <Col xs={12} md={6} lg={8}><MainWeatherCard /></Col>
-      <RecentCitiesComponent />
+      <SidebarNavbar />
     </Row>
   );
 }

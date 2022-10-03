@@ -8,7 +8,10 @@ const CityCard = ({ cityInfo }) => {
     const setActualCity = () => dispatch(getActualWeatherAction(cityInfo));
 
     return (
-        <Card onClick={setActualCity} className="p-3 m-3">
+        <Card
+            onClick={setActualCity}
+            className="miniContainer shadowCorners mainGradient p-3 m-3"
+        >
             <Row>
                 <Col xs={4}>
                     <h4>{cityInfo.city.name}</h4>

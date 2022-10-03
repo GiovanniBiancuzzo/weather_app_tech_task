@@ -15,15 +15,15 @@ const FormSearch = () => {
     };
 
     return (
-        <Col md={6} lg={4}>
-            <h3>Search</h3>
+        <>
+            <h3 className="titles">Search</h3>
             <Form
                 onSubmit={handleSubmit}
                 role="search"
                 style={{ position: "relative" }}
             >
                 <Form.Control
-                    className="miniContainer"
+                    className="miniContainer shadowCorners"
                     type="search"
                     required
                     autoFocus
@@ -40,7 +40,7 @@ const FormSearch = () => {
                     <BsSearch />
                 </Button>
             </Form>
-        </Col>
+        </>
     );
 };
 

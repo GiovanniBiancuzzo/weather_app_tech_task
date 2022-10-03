@@ -4,6 +4,10 @@
 
 ### card per il meteo principale
 
+### minicard per il meteo delle altre città
+
+### mini componente per la ricerca
+
 ## features
 
 ### store redux

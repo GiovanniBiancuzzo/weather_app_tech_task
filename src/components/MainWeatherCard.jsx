@@ -14,7 +14,10 @@ const MainWeatherCard = () => {
         <>
             <MediaQuery maxWidth={768}></MediaQuery>
             {/* <MediaQuery minWidth={768}> */}
-            <div className="mainCardContainer" style={{ position: "relative" }}>
+            <div
+                className="mainCardContainer shadowCorners"
+                style={{ position: "relative" }}
+            >
                 <div className="temperautureSection mainGradient">
                     <div className="tempFont">
                         {Math.trunc(actualCity.list[0].main.temp)}°
@@ -26,7 +29,9 @@ const MainWeatherCard = () => {
                 </div>
                 <Card className="mainCard">
                     <Card.Body>
-                        <Card.Title as="h4">{actualCity.city.name}</Card.Title>
+                        <Card.Title className="titles">
+                            {actualCity.city.name}
+                        </Card.Title>
                         <Card.Text>
                             {format(
                                 new Date(actualCity.list[0].dt_txt),
