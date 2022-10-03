@@ -7,9 +7,10 @@ import MainWeatherCard from './components/MainWeatherCard';
 
 function App () {
   return (
-    <Container >
-      <MainWeatherCard />
-    </Container>
+    <Row>
+      <Col xs={12} md={6} lg={8}><MainWeatherCard /></Col>
+      <RecentCitiesComponent />
+    </Row>
   );
 }
 
