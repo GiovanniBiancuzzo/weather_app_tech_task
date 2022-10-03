@@ -11,13 +11,13 @@ const CityCard = ({ cityInfo }) => {
         <Card onClick={setActualCity} className="p-3 m-3">
             <Row>
                 <Col xs={4}>
-                    <h3>{cityInfo.city.name}</h3>
-                    <h6>
+                    <h4>{cityInfo.city.name}</h4>
+                    <p>
                         {format(
                             new Date(cityInfo.list[0].dt_txt),
                             "EEEE d, LLLL"
                         )}
-                    </h6>
+                    </p>
                     {/* <small>
                         {format(new Date(cityInfo.list[0].dt), "h:mm aaaa")}
                     </small> */}
