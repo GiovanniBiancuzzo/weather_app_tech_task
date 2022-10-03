@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { getWeatherInfosAction } from "../redux/actions";
@@ -14,10 +15,15 @@ const FormSearch = () => {
     };
 
     return (
-        <div>
+        <Col md={6} lg={4}>
             <h3>Search</h3>
-            <form onSubmit={handleSubmit} role="search">
-                <input
+            <Form
+                onSubmit={handleSubmit}
+                role="search"
+                style={{ position: "relative" }}
+            >
+                <Form.Control
+                    className="miniContainer"
                     type="search"
                     required
                     autoFocus
@@ -29,12 +35,12 @@ const FormSearch = () => {
                     onChange={(e) => {
                         setQuery(e.target.value);
                     }}
-                ></input>
-                <button type="submit">
+                ></Form.Control>
+                <Button className="mainGradient searchBtn" type="submit">
                     <BsSearch />
-                </button>
-            </form>
-        </div>
+                </Button>
+            </Form>
+        </Col>
     );
 };
 
