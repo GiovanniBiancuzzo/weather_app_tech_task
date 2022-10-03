@@ -25,3 +25,5 @@
 ### https://geocode.xyz/ per il reverse coding delle coordinate gps
 
 ### date-fns per la formattazione delle date
+
+### installato react-responsive per gestione responsiveness
