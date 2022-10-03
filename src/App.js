@@ -1,10 +1,17 @@
-import logo from './logo.svg';
+import { Col, Container, Row } from 'react-bootstrap';
 import './App.css';
 import LogicComponent from './components/LogicComponent';
+import RecentCitiesComponent from './components/RecentCitiesComponent';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App () {
   return (
-    <LogicComponent />
+    <Container >
+      <Row>
+        <Col ><LogicComponent /></Col>
+        <RecentCitiesComponent />
+      </Row>
+    </Container>
   );
 }
 

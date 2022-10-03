@@ -2,6 +2,7 @@ export const SET_QUERY = 'SET_QUERY';
 export const PUSH_TO_HISTORY = 'PUSH_TO_HISTORY';
 export const GET_ACTUAL_WEATHER = 'GET_ACTUAL_WEATHER';
 export const GET_WEATHER_INFOS = 'GET_WEATHER_INFOS';
+export const GET_RECENT_CITIES = 'GET_RECENT_CITIES';
 
 const endpointApi = 'https://api.openweathermap.org/data/2.5/forecast?';
 //api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
