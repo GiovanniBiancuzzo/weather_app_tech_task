@@ -1,4 +1,48 @@
+/*note: globali*/
+.mainGradient {
+    background: rgb(89, 127, 233);
+    background: linear-gradient(
+        135deg,
+        rgba(89, 127, 233, 1) 0%,
+        rgba(255, 255, 255, 1) 180%
+    );
+}
+
+.tempFont {
+    font-weight: 900;
+    font-size: 2em;
+    padding: 1em;
+}
+
+/*note: contenitore città*/
 .recentCitiesContainer {
     max-height: 60vh;
     overflow: auto;
+}
+/*note: card del meteo principale*/
+.mainCardContainer {
+    background-image: url("http://architizer-prod.imgix.net/mediadata/projects/072013/b77aa4f3.jpg?q=60&auto=format,compress&w=1680&cs=strip");
+    border-radius: 25px;
+    box-shadow: 5px 5px 50px #888888;
+}
+
+.mainCard {
+    background-color: transparent !important; /*poi metti l'immagine*/
+    color: #01175f;
+    border-color: transparent !important;
+    padding: 20px 160px 120px 80px;
+}
+
+.mainCard h4 {
+    font-weight: bold;
+}
+
+.temperautureSection {
+    color: white;
+    text-align: center;
+    position: absolute;
+    top: 2em;
+    left: -3em;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }

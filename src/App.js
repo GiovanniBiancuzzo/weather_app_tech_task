@@ -3,14 +3,12 @@ import './App.css';
 import LogicComponent from './components/LogicComponent';
 import RecentCitiesComponent from './components/RecentCitiesComponent';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import MainWeatherCard from './components/MainWeatherCard';
 
 function App () {
   return (
     <Container >
-      <Row>
-        <Col ><LogicComponent /></Col>
-        <RecentCitiesComponent />
-      </Row>
+      <MainWeatherCard />
     </Container>
   );
 }

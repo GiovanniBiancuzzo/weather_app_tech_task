@@ -1,5 +1,9 @@
 # Weather app tech task
 
+## components
+
+### card per il meteo principale
+
 ## features
 
 ### store redux
@@ -18,10 +22,16 @@
 
 ### bootstrap e react-bootstrap
 
+### font globale Lato
+
+### gradiente globale
+
 ## API utilizzate
 
 ### https://openweathermap.org/ per le informazioni meteorologiche
 
 ### https://geocode.xyz/ per il reverse coding delle coordinate gps
 
-### date-fns per la formattazione delle date
+### https://date-fns.org/ date-fns per la formattazione delle date
+
+### https://www.npmjs.com/package/react-responsive react responsive per la responsiveness
