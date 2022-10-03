@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import ButtonGeolocation from "../features/ButtonGeolocation";
+import ButtonGeolocation from "./ButtonGeolocation";
 import FormSearch from "./FormSearch";
 
 const LogicComponent = () => {

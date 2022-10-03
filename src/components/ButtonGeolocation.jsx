@@ -22,17 +22,17 @@ const ButtonGeolocation = () => {
     };
 
     return (
-        <div>
+        <>
             <h3 className="titles">Localization</h3>
             <Button
                 onClick={handleGeolocation}
-                className="mainGradient miniContainer"
+                className="mainGradient miniContainer shadowCorners"
                 style={{ border: "none" }}
             >
                 <BsGeoAlt />
                 <p>Add localization</p>
             </Button>
-        </div>
+        </>
     );
 };
 

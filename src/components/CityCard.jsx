@@ -34,7 +34,9 @@ const CityCard = ({ cityInfo }) => {
                         src={`http://openweathermap.org/img/wn/${cityInfo.list[0].weather[0].icon}@2x.png`}
                     />
                 </Col>
-                <Col xs={4}>{Math.trunc(cityInfo.list[0].main.temp)}°</Col>
+                <Col xs={4} className="tempFont">
+                    {Math.trunc(cityInfo.list[0].main.temp)}°
+                </Col>
             </Row>
         </Card>
     );

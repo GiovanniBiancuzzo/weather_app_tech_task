@@ -8,6 +8,8 @@
 
 ### mini componente per la ricerca
 
+### mini componente per la geolocalizzazione
+
 ## features
 
 ### store redux

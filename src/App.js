@@ -10,7 +10,7 @@ import SidebarNavbar from './components/SidebarNavbar';
 function App () {
   return (
     <Row>
-      <Col xs={12} md={6} lg={8}><MainWeatherCard /></Col>
+      <Col xs={12} md={6} lg={9}><MainWeatherCard /></Col>
       <SidebarNavbar />
     </Row>
   );

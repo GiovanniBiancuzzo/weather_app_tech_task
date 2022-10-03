@@ -1,12 +1,14 @@
 import { Col } from "react-bootstrap";
+import ButtonGeolocation from "./ButtonGeolocation";
 import FormSearch from "./FormSearch";
 import RecentCitiesComponent from "./RecentCitiesComponent";
 
 const SidebarNavbar = () => {
     return (
-        <Col md={6} lg={4}>
+        <Col md={6} lg={3}>
             <RecentCitiesComponent />
             <FormSearch />
+            <ButtonGeolocation />
         </Col>
     );
 };
