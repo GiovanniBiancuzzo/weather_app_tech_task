@@ -35,6 +35,14 @@
     margin-bottom: 40px;
 }
 
+/*note: contenitore today*/
+.todayContainer {
+    color: #fff;
+    max-height: 40vh;
+    overflow: auto;
+    margin-bottom: 40px;
+}
+
 /*note: card del meteo principale*/
 .mainCardContainer {
     background-image: url("http://architizer-prod.imgix.net/mediadata/projects/072013/b77aa4f3.jpg?q=60&auto=format,compress&w=1680&cs=strip");
