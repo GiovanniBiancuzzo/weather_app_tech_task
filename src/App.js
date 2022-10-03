@@ -5,14 +5,18 @@ import LogicComponent from './components/LogicComponent';
 import RecentCitiesComponent from './components/RecentCitiesComponent';
 import MainWeatherCard from './components/MainWeatherCard';
 import SidebarNavbar from './components/SidebarNavbar';
+import { BrowserRouter } from 'react-router-dom';
+import HomeComponent from './components/HomeComponent';
 
 
 function App () {
   return (
-    <Row>
-      <Col xs={12} md={6} lg={9}><MainWeatherCard /></Col>
-      <SidebarNavbar />
-    </Row>
+    <BrowserRouter>
+      <Row>
+        <HomeComponent />
+        <SidebarNavbar />
+      </Row>
+    </BrowserRouter>
   );
 }
 

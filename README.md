@@ -32,6 +32,8 @@
 
 ### gradiente globale
 
+### react router
+
 ## API utilizzate
 
 ### https://openweathermap.org/ per le informazioni meteorologiche
