@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import { BsGeoAlt } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { getWeatherInfosAction } from "../redux/actions";
@@ -16,11 +17,15 @@ const ButtonGeolocation = () => {
 
     return (
         <div>
-            <h3>Localization</h3>
-            <button onClick={handleGeolocation}>
+            <h3 className="titles">Localization</h3>
+            <Button
+                onClick={handleGeolocation}
+                className="mainGradient miniContainer"
+                style={{ border: "none" }}
+            >
                 <BsGeoAlt />
                 <p>Add localization</p>
-            </button>
+            </Button>
         </div>
     );
 };
