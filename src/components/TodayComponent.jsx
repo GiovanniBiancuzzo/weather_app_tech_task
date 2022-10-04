@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { Col, ListGroup, ListGroupItem, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { BsFillCircleFill, BsAlignBottom } from "react-icons/bs";
 
