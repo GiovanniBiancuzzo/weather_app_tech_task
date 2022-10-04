@@ -1,11 +1,22 @@
 /*note: globali*/
 .mainGradient {
-    background: rgb(89, 127, 233) !important;
+    background: rgb(89, 127, 233);
     background: linear-gradient(
         135deg,
         rgba(89, 127, 233, 1) 0%,
         rgba(255, 255, 255, 1) 180%
-    ) !important;
+    );
+    color: #fff;
+}
+
+.secondGradient {
+    background: rgb(89, 127, 233);
+    background: linear-gradient(
+        315deg,
+        rgba(89, 127, 233, 1) 00%,
+        rgba(255, 255, 255, 1) 180%
+    );
+    color: #fff;
 }
 
 .tempFont {
@@ -27,9 +38,13 @@
     box-shadow: 20px 20px 30px #888888;
 }
 
+.shadowCornersSecondary {
+    border-radius: 25px !important;
+    box-shadow: 5px 5px 20px #888888;
+}
+
 /*note: contenitore città*/
 .recentCitiesContainer {
-    color: #fff;
     max-height: 40vh;
     overflow: auto;
     margin-bottom: 40px;
@@ -41,7 +56,6 @@
 
 /*note: contenitore today*/
 .todayContainer {
-    color: #fff;
     text-align: center;
     justify-content: space-evenly;
     max-height: 20vh;
@@ -52,6 +66,42 @@
 .todayContainer::-webkit-scrollbar {
     display: none;
 }
+
+/*note: contenitore thisWeekMonth*/
+.thisWeekMonthContainer {
+    text-align: center;
+    justify-content: space-evenly;
+    max-height: 20vh;
+    overflow: auto;
+    padding: 20px;
+}
+
+.weekElement {
+    margin: 0px 20px;
+    padding: 2em;
+
+    text-align: center;
+
+    background: rgb(106, 233, 89);
+    background: linear-gradient(
+        135deg,
+        rgb(228, 89, 233) 0%,
+        rgb(30, 255, 0) 120%
+    );
+    color: #fff;
+}
+
+.weatherCard {
+}
+/* 
+.thisWeekMonthContainer:active {
+    background: rgb(89, 127, 233) !important;
+    background: linear-gradient(
+        135deg,
+        rgba(89, 127, 233, 1) 0%,
+        rgba(255, 255, 255, 1) 180%
+    ) !important;
+} */
 
 /*note: card del meteo principale*/
 .mainCardContainer {
@@ -72,7 +122,6 @@
 }
 
 .temperautureSection {
-    color: white;
     text-align: center;
     position: absolute;
     top: 2em;
