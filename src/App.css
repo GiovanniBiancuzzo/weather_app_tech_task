@@ -1,11 +1,11 @@
 /*note: globali*/
 .mainGradient {
-    background: rgb(89, 127, 233);
+    background: rgb(89, 127, 233) !important;
     background: linear-gradient(
         135deg,
         rgba(89, 127, 233, 1) 0%,
         rgba(255, 255, 255, 1) 180%
-    );
+    ) !important;
 }
 
 .tempFont {
@@ -35,12 +35,22 @@
     margin-bottom: 40px;
 }
 
+.recentCitiesContainer::-webkit-scrollbar {
+    display: none;
+}
+
 /*note: contenitore today*/
 .todayContainer {
     color: #fff;
-    max-height: 40vh;
+    text-align: center;
+    justify-content: space-evenly;
+    max-height: 20vh;
     overflow: auto;
-    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.todayContainer::-webkit-scrollbar {
+    display: none;
 }
 
 /*note: card del meteo principale*/

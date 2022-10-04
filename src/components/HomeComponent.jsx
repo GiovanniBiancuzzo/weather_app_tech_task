@@ -8,8 +8,8 @@ const HomeComponent = () => {
             <Row>
                 <MainWeatherCard />
             </Row>
-            <Row>
-                <Col lg={5}>
+            <Row style={{ justifyContent: "center" }}>
+                <Col xs={8} lg={5}>
                     <TodayComponent />
                 </Col>
                 {/* <Col lg={7}>
