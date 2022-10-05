@@ -8,11 +8,13 @@ import storage from 'redux-persist/lib/storage';
 const mainReducer = combineReducers({
     search: searchReducer,
     weatherInfos: weatherInfosReducer
+    // favourite:favouritesReducer,
 });
 
 const persistConfig = ({
     key: 'root',
-    storage
+    storage,
+    // blacklist: 'weatherInfos'
 });
 
 const persistedReducer = persistReducer(persistConfig, mainReducer);
