@@ -4,22 +4,37 @@
     background: linear-gradient(
         135deg,
         rgba(89, 127, 233, 1) 0%,
-        rgba(255, 255, 255, 1) 180%
+        rgba(255, 255, 255, 1) 300%
     );
+    color: #fff;
+}
+
+.secondGradient {
+    background: rgb(122, 150, 224);
+    background: linear-gradient(
+        135deg,
+        rgba(122, 150, 224, 1) 00%,
+        rgba(255, 255, 255, 1) 300%
+    );
+    color: #fff;
+}
+
+.titles {
+    font-weight: 900 !important;
+    color: #01175f;
+    margin: 1em 0;
 }
 
 .tempFont {
     font-weight: 900;
-    font-size: 2em;
-    padding: 1em;
-    text-align: center;
+    font-size: 2.5em;
 }
 
 .miniContainer {
     height: 120px;
     position: relative;
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 3em;
 }
 
 .shadowCorners {
@@ -27,18 +42,70 @@
     box-shadow: 20px 20px 30px #888888;
 }
 
+.shadowCornersSecondary {
+    border-radius: 25px !important;
+    box-shadow: 5px 5px 20px #888888;
+}
+
 /*note: contenitore città*/
 .recentCitiesContainer {
-    color: #fff;
-    max-height: 40vh;
+    height: 39vh;
     overflow: auto;
-    margin-bottom: 40px;
+}
+
+.miniCard {
+    cursor: pointer;
+    height: 17vh !important;
+    margin-top: 2em;
+}
+
+.miniCard > img {
+    max-width: 20px;
+}
+
+.recentCitiesContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/*note: contenitore today*/
+.todayContainer {
+    text-align: center;
+    justify-content: space-evenly;
+    height: 36vh;
+    overflow: auto;
+    padding: 3em;
+    margin-bottom: 3em;
+}
+
+.todayContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/*note: contenitore thisWeekMonth*/
+
+.thisWeekMonthContainer {
+    margin-top: 2em;
+}
+
+.thisWeekMonthContainer > button {
+    /*todo: sistema i titoli della tab*/
+    color: red;
+}
+
+.weekElement {
+    margin: 0px 20px;
+    padding: 2em;
+    text-align: center;
+}
+
+.weatherCard {
+    height: 100%;
 }
 
 /*note: card del meteo principale*/
 .mainCardContainer {
     background-image: url("http://architizer-prod.imgix.net/mediadata/projects/072013/b77aa4f3.jpg?q=60&auto=format,compress&w=1680&cs=strip");
-    height: 400px;
+    height: 45vh;
 }
 
 .mainCard {
@@ -48,17 +115,12 @@
     padding: 20px 160px 120px 80px;
 }
 
-.titles {
-    font-weight: bold !important;
-    color: #01175f;
-}
-
 .temperautureSection {
-    color: white;
     text-align: center;
+    padding: 1.5em 0.5em;
     position: absolute;
-    top: 2em;
-    left: -3em;
+    top: 5em;
+    left: -2em;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }

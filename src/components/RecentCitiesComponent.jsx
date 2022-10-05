@@ -16,10 +16,18 @@ const RecentCitiesComponent = () => {
 
     return (
         <>
-            <Row style={{ textAlign: "center" }}>
-                <h4 onClick={handleShow} className="titles">
-                    <BsPlusSquare /> Aggiungi città
-                </h4>
+            <Row>
+                <h5
+                    onClick={handleShow}
+                    style={{
+                        fontWeight: "900",
+                        color: "#01175f",
+                        marginTop: "1.5em",
+                        textAlign: "center",
+                    }}
+                >
+                    <BsPlusSquare /> Add city
+                </h5>
             </Row>
             <Container className="recentCitiesContainer">
                 {recents &&
@@ -29,20 +37,10 @@ const RecentCitiesComponent = () => {
             </Container>
 
             <Modal show={show} onHide={handleShow}>
-                <Modal.Header closeButton>
-                    <Modal.Title></Modal.Title>
-                </Modal.Header>
+                <Modal.Header closeButton></Modal.Header>
                 <Modal.Body>
                     <FormSearch />
                 </Modal.Body>
-                {/* <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer> */}
             </Modal>
         </>
     );
