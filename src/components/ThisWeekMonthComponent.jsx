@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Card, Carousel, Col, Row, Tab, Tabs } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import MonthDetails from "./MonthDetails";
-import MonthDetailsAverage from "./MonthDetailsAverage";
 import WeekElementCarousel from "./WeekElementCarousel";
 
 const ThisWeekMonthComponent = () => {
