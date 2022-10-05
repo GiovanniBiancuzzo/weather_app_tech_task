@@ -5,64 +5,12 @@ import MonthDetails from "./MonthDetails";
 import WeekElementCarousel from "./WeekElementCarousel";
 
 const ThisWeekMonthComponent = () => {
-    const calcAverage = (array, element) => {
-        const count = {};
-
-        switch (element) {
-            // case "wind":
-            //     for (const el of array.wind) {
-            //         if (count[el]) {
-            //             count[el] += 1;
-            //         } else {
-            //             count[el] = 1;
-            //         }
-            //     }
-            //     return count.values().sort().slice(0, 1);
-            // case "weather[0]":
-            //     for (const el of element.icon) {
-            //         if (count[el]) {
-            //             count[el] += 1;
-            //         } else {
-            //             count[el] = 1;
-            //         }
-            //     }
-            //     return count.values().sort().slice(0, 1);
-            case "speed":
-                return Math.trunc(
-                    array.reduce((acc, curr) => acc + curr.wind[element], 0) /
-                        array.length
-                );
-            default:
-                return Math.trunc(
-                    array.reduce((acc, curr) => acc + curr.main[element], 0) /
-                        array.length
-                );
-        }
-    };
-
     const actualCity = useSelector(
         (state) => state.weatherInfos.actualCity.list
     );
 
     const actualCityWeek = actualCity.filter((el, index) => index % 8 === 0);
     const [actualCityDay, setActualCityDay] = useState(actualCityWeek[0]);
-
-    const actualCityMonth = {
-        temperature: calcAverage(actualCity, "temp"),
-        lows: calcAverage(actualCity, "temp_min"),
-        highs: calcAverage(actualCity, "temp_max"),
-        humidity: calcAverage(actualCity, "humidity"),
-        windSpeed: calcAverage(actualCity, "speed"),
-        // icon: calcAverage(actualCity, "weather[0]"),
-    };
-    // const averageTemperature = Math.trunc(
-    //     actualCity.reduce((acc, curr) => acc + curr.main.temp, 0) /
-    //         actualCity.length
-    // );
-
-    // const actualCityWeekLength = actualCityWeek.length;
-    // const carouselItemsPages = Math.ceil(actualCityWeek.length / 3);
-    // const actualCityWeekLengthSpare = actualCityWeek.length % 3;
 
     const [key, setKey] = useState("thisWeek");
 
@@ -148,7 +96,6 @@ const ThisWeekMonthComponent = () => {
                 style={{ height: "37vh" }}
             >
                 <MonthDetails day={actualCityDay} />
-                {/* <MonthDetailsAverage month={actualCityMonth} /> */}
             </Tab>
         </Tabs>
     );
