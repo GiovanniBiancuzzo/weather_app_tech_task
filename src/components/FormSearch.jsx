@@ -16,7 +16,7 @@ const FormSearch = () => {
 
     return (
         <>
-            <h3 className="titles">Search</h3>
+            <h4 className="titles">Search</h4>
             <Form
                 onSubmit={handleSubmit}
                 role="search"

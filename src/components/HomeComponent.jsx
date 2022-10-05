@@ -5,7 +5,7 @@ import TodayComponent from "./TodayComponent";
 
 const HomeComponent = () => {
     return (
-        <Col xs={12} md={6} lg={9}>
+        <Col xs={12} md={6} lg={8}>
             <Row>
                 <MainWeatherCard />
             </Row>

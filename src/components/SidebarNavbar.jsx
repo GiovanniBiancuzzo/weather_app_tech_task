@@ -5,7 +5,7 @@ import RecentCitiesComponent from "./RecentCitiesComponent";
 
 const SidebarNavbar = () => {
     return (
-        <Col md={6} lg={3}>
+        <Col md={6} lg={4}>
             <RecentCitiesComponent />
             <FormSearch />
             <ButtonGeolocation />

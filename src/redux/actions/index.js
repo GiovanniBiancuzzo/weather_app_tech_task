@@ -31,7 +31,7 @@ export const getWeatherInfosAction = (query) => {
         if (Object.keys(cities).includes(finalQuery)) {//controllo se è una citta già cercata
             dispatch(getActualWeatherAction(cities[finalQuery])); //se è già stata cercata, la estraggo dall'elenco delle città nello store e la setto come città attuale
         } else {
-            fetch(`${endpointApi}q=${finalQuery}&appid=${apiKey}&units=metric&lang=it`, { //se non è stata già cercata, effettuo una fetch
+            fetch(`${endpointApi}q=${finalQuery}&appid=${apiKey}&units=metric`, { //se non è stata già cercata, effettuo una fetch
                 method: "GET",
             })
                 .then(res => res.json())

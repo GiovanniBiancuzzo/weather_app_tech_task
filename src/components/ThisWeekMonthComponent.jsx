@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Carousel, Col, Row, Tab, Tabs } from "react-bootstrap";
+import { Card, Carousel, Col, Row, Tab, Tabs } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import MonthDetails from "./MonthDetails";
+import MonthDetailsAverage from "./MonthDetailsAverage";
 import WeekElementCarousel from "./WeekElementCarousel";
 
 const ThisWeekMonthComponent = () => {
@@ -27,6 +28,11 @@ const ThisWeekMonthComponent = () => {
             //         }
             //     }
             //     return count.values().sort().slice(0, 1);
+            case "speed":
+                return Math.trunc(
+                    array.reduce((acc, curr) => acc + curr.wind[element], 0) /
+                        array.length
+                );
             default:
                 return Math.trunc(
                     array.reduce((acc, curr) => acc + curr.main[element], 0) /
@@ -40,12 +46,14 @@ const ThisWeekMonthComponent = () => {
     );
 
     const actualCityWeek = actualCity.filter((el, index) => index % 8 === 0);
+    const [actualCityDay, setActualCityDay] = useState(actualCityWeek[0]);
+
     const actualCityMonth = {
         temperature: calcAverage(actualCity, "temp"),
         lows: calcAverage(actualCity, "temp_min"),
         highs: calcAverage(actualCity, "temp_max"),
         humidity: calcAverage(actualCity, "humidity"),
-        windSpeed: calcAverage(actualCity, "wind"),
+        windSpeed: calcAverage(actualCity, "speed"),
         // icon: calcAverage(actualCity, "weather[0]"),
     };
     // const averageTemperature = Math.trunc(
@@ -58,25 +66,20 @@ const ThisWeekMonthComponent = () => {
     // const actualCityWeekLengthSpare = actualCityWeek.length % 3;
 
     const [key, setKey] = useState("thisWeek");
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-    };
 
     return (
         <Tabs
             id="controlled-tab-example"
             activeKey={key}
             onSelect={(k) => setKey(k)}
-            className="mb-3 secondGradient"
+            className=" titles thisWeekMonthContainer"
         >
             <Tab
                 eventKey="thisWeek"
                 title="This week"
-                className="secondGradient"
+                className="mainGradient shadowCorners"
             >
-                <Carousel activeIndex={index} onSelect={handleSelect}>
+                <Carousel>
                     {/* {actualCityWeek.map((pages, index) => (
                         <Carousel.Item
                             className="mainGradient shadowCorners"
@@ -102,7 +105,13 @@ const ThisWeekMonthComponent = () => {
                             {actualCityWeek
                                 .slice(0, 3)
                                 .map((day, indexCarousel) => (
-                                    <Col xs={4}>
+                                    <Col
+                                        xs={4}
+                                        onClick={() => {
+                                            setActualCityDay(day);
+                                            setKey("thisMonth");
+                                        }}
+                                    >
                                         <WeekElementCarousel
                                             day={day}
                                             key={day.dt}
@@ -116,7 +125,13 @@ const ThisWeekMonthComponent = () => {
                             {actualCityWeek
                                 .slice(3, 6)
                                 .map((day, indexCarousel) => (
-                                    <Col xs={4}>
+                                    <Col
+                                        xs={4}
+                                        onClick={() => {
+                                            setActualCityDay(day);
+                                            setKey("thisMonth");
+                                        }}
+                                    >
                                         <WeekElementCarousel
                                             day={day}
                                             key={day.dt}
@@ -130,11 +145,11 @@ const ThisWeekMonthComponent = () => {
             <Tab
                 eventKey="thisMonth"
                 title="This month"
-                className="secondGradient"
+                className="mainGradient shadowCorners p-4"
+                style={{ height: "37vh" }}
             >
-                <div className="p-4">
-                    <MonthDetails month={actualCityMonth} />
-                </div>
+                <MonthDetails day={actualCityDay} />
+                {/* <MonthDetailsAverage month={actualCityMonth} /> */}
             </Tab>
         </Tabs>
     );

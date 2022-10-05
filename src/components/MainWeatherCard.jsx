@@ -1,4 +1,4 @@
-import { Card, Col, Container } from "react-bootstrap";
+import { Card, Col, Container, Image } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import format from "date-fns/format";
 import MediaQuery from "react-responsive";
@@ -26,17 +26,18 @@ const MainWeatherCard = () => {
                             <div className="tempFont">
                                 {Math.trunc(actualCity.list[0].main.temp)}°
                             </div>
-                            <img
+                            <Image
                                 alt="weatherCondition"
                                 src={`http://openweathermap.org/img/wn/${actualCity.list[0].weather[0].icon}@2x.png`}
+                                fluid
                             />
                         </div>
                         <Card className="mainCard">
                             <Card.Body>
-                                <Card.Title className="titles">
+                                <Card.Title className="titles" as="h3">
                                     {actualCity.city.name}
                                 </Card.Title>
-                                <Card.Text>
+                                <Card.Text style={{ fontWeight: "bold" }}>
                                     {format(
                                         new Date(actualCity.list[0].dt_txt),
                                         "EEEE d, LLLL"

@@ -23,7 +23,7 @@ const ButtonGeolocation = () => {
 
     return (
         <>
-            <h3 className="titles">Localization</h3>
+            <h4 className="titles">Localization</h4>
             <Button
                 onClick={handleGeolocation}
                 className="mainGradient miniContainer shadowCorners"

@@ -4,33 +4,37 @@
     background: linear-gradient(
         135deg,
         rgba(89, 127, 233, 1) 0%,
-        rgba(255, 255, 255, 1) 180%
+        rgba(255, 255, 255, 1) 300%
     );
     color: #fff;
 }
 
 .secondGradient {
-    background: rgb(89, 127, 233);
+    background: rgb(122, 150, 224);
     background: linear-gradient(
-        315deg,
-        rgba(89, 127, 233, 1) 00%,
-        rgba(255, 255, 255, 1) 180%
+        135deg,
+        rgba(122, 150, 224, 1) 00%,
+        rgba(255, 255, 255, 1) 300%
     );
     color: #fff;
 }
 
+.titles {
+    font-weight: 900 !important;
+    color: #01175f;
+    margin: 1em 0;
+}
+
 .tempFont {
     font-weight: 900;
-    font-size: 2em;
-    padding: 1em;
-    text-align: center;
+    font-size: 2.5em;
 }
 
 .miniContainer {
     height: 120px;
     position: relative;
     width: 100%;
-    margin-bottom: 40px;
+    margin-bottom: 3em;
 }
 
 .shadowCorners {
@@ -45,9 +49,18 @@
 
 /*note: contenitore città*/
 .recentCitiesContainer {
-    max-height: 40vh;
+    height: 39vh;
     overflow: auto;
-    margin-bottom: 40px;
+}
+
+.miniCard {
+    cursor: pointer;
+    height: 17vh !important;
+    margin-top: 2em;
+}
+
+.miniCard > img {
+    max-width: 20px;
 }
 
 .recentCitiesContainer::-webkit-scrollbar {
@@ -58,9 +71,10 @@
 .todayContainer {
     text-align: center;
     justify-content: space-evenly;
-    max-height: 20vh;
+    height: 36vh;
     overflow: auto;
-    padding: 20px;
+    padding: 3em;
+    margin-bottom: 3em;
 }
 
 .todayContainer::-webkit-scrollbar {
@@ -68,45 +82,30 @@
 }
 
 /*note: contenitore thisWeekMonth*/
+
 .thisWeekMonthContainer {
-    text-align: center;
-    justify-content: space-evenly;
-    max-height: 20vh;
-    overflow: auto;
-    padding: 20px;
+    margin-top: 2em;
+}
+
+.thisWeekMonthContainer > button {
+    /*todo: sistema i titoli della tab*/
+    color: red;
 }
 
 .weekElement {
     margin: 0px 20px;
     padding: 2em;
-
     text-align: center;
-
-    background: rgb(106, 233, 89);
-    background: linear-gradient(
-        135deg,
-        rgb(228, 89, 233) 0%,
-        rgb(30, 255, 0) 120%
-    );
-    color: #fff;
 }
 
 .weatherCard {
+    height: 100%;
 }
-/* 
-.thisWeekMonthContainer:active {
-    background: rgb(89, 127, 233) !important;
-    background: linear-gradient(
-        135deg,
-        rgba(89, 127, 233, 1) 0%,
-        rgba(255, 255, 255, 1) 180%
-    ) !important;
-} */
 
 /*note: card del meteo principale*/
 .mainCardContainer {
     background-image: url("http://architizer-prod.imgix.net/mediadata/projects/072013/b77aa4f3.jpg?q=60&auto=format,compress&w=1680&cs=strip");
-    height: 400px;
+    height: 45vh;
 }
 
 .mainCard {
@@ -116,16 +115,12 @@
     padding: 20px 160px 120px 80px;
 }
 
-.titles {
-    font-weight: bold !important;
-    color: #01175f;
-}
-
 .temperautureSection {
     text-align: center;
+    padding: 1.5em 0.5em;
     position: absolute;
-    top: 2em;
-    left: -3em;
+    top: 5em;
+    left: -2em;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
 }

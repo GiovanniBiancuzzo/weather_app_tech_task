@@ -1,10 +1,12 @@
 import { format } from "date-fns";
-import { useState } from "react";
-import { Carousel, Col, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 const WeekElementCarousel = ({ day }) => {
     return (
-        <Row className="weekElement shadowCorners">
+        <Row
+            className="secondGradient weekElement shadowCorners"
+            style={{ cursor: "pointer" }}
+        >
             <h6>{format(new Date(day.dt_txt), "EEEE")}</h6>
 
             <p className="tempFont">{Math.trunc(day.main.temp)}°</p>
