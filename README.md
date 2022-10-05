@@ -12,6 +12,8 @@
 
 ### today component
 
+### componente per la sezione this week e la sezione this month
+
 ## features
 
 ### store redux
