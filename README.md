@@ -14,11 +14,13 @@
 
 ### componente per la sezione this week e la sezione this month
 
+### gestione preferiti dalla history di ricerca
+
 ## features
 
 ### store redux
 
-#### -redux persist
+#### -redux persist per i preferiti
 
 ### fetch gestite con promise che rispondono sia a coordinate sia a query di ricerca
 

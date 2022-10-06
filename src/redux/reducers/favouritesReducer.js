@@ -1,34 +1,26 @@
-import { GET_ACTUAL_WEATHER, GET_WEATHER_INFOS, GET_RECENT_CITIES } from "../actions";
+import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES, ADD_ERROR } from "../actions";
 
 const initialState = {
-    actualCity: {},//singola città presa in esame
-    cities: {},//oggetto con chiave-> città e valore->oggetto restituiuto dalla fetch
-    recents: []//array con gli oggetti città/meteo
+    list: [],//array con le città preferite
+    error: false,
 };
 
 const favouritesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_ACTUAL_WEATHER:
+        case ADD_TO_FAVOURITES:
             return {
                 ...state,
-                actualCity: action.payload
+                list: [...state.list, action.payload]
             };
-        case GET_WEATHER_INFOS:
+        case REMOVE_FROM_FAVOURITES:
             return {
                 ...state,
-                cities: {
-                    ...state.cities,
-                    [action.payload.city.name]: action.payload
-                }
+                list: [...state.list.slice(0, action.payload), ...state.list.slice(action.payload + 1, ...state.list.length)]
             };
-        case GET_RECENT_CITIES:
-            return {
-                ...state,
-                recents: {
-                    ...state.cities,
-                    [action.payload.city.name]: action.payload
-                }
-            };
+        case ADD_ERROR: return {
+            ...state,
+            error: true
+        };
         default:
             return state;
     }

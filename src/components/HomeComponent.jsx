@@ -1,9 +1,20 @@
 import { Col, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getActualWeatherAction } from "../redux/actions";
 import MainWeatherCard from "./MainWeatherCard";
 import ThisWeekMonthComponent from "./ThisWeekMonthComponent";
 import TodayComponent from "./TodayComponent";
 
 const HomeComponent = () => {
+    const defaultCity = useSelector((state) => state.favourites?.list[0]);
+    const dispatch = useDispatch();
+    if (defaultCity) {
+        dispatch(getActualWeatherAction(defaultCity));
+    }
+    // else {
+    // }
+    //todo: introdurre una gestione degli errori di caricamento e dei loading
+
     return (
         <Col xs={12} md={6} lg={8}>
             <Row>

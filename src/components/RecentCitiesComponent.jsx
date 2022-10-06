@@ -1,47 +1,36 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import CityCard from "./CityCard";
-import { BsPlusSquare } from "react-icons/bs";
-import { Button, Col, Container, Modal, Row } from "react-bootstrap";
-import { useState } from "react";
-import FormSearch from "./FormSearch";
+import { Container } from "react-bootstrap";
+import { addToFavouritesAction } from "../redux/actions";
 
 const RecentCitiesComponent = () => {
     const recents = useSelector((state) =>
         Object.values(state.weatherInfos.cities)
     );
 
-    const [show, setShow] = useState(false);
-
-    const handleShow = () => setShow(!show);
+    const dispatch = useDispatch();
+    const addFavCity = (cityInfo) => dispatch(addToFavouritesAction(cityInfo));
 
     return (
         <>
-            <Row>
-                <h5
-                    onClick={handleShow}
-                    style={{
-                        fontWeight: "900",
-                        color: "#01175f",
-                        marginTop: "1.5em",
-                        textAlign: "center",
-                    }}
-                >
-                    <BsPlusSquare /> Add city
-                </h5>
-            </Row>
             <Container className="recentCitiesContainer">
-                {recents &&
+                {recents.length > 0 ? (
                     recents.map((cityInfo) => (
-                        <CityCard key={cityInfo.city.id} cityInfo={cityInfo} />
-                    ))}
+                        <div
+                            onClick={() => {
+                                addFavCity(cityInfo);
+                            }}
+                        >
+                            <CityCard
+                                key={cityInfo.city.id}
+                                cityInfo={cityInfo}
+                            />
+                        </div>
+                    ))
+                ) : (
+                    <span>Search a city before adding to favourites.</span>
+                )}
             </Container>
-
-            <Modal show={show} onHide={handleShow}>
-                <Modal.Header closeButton></Modal.Header>
-                <Modal.Body>
-                    <FormSearch />
-                </Modal.Body>
-            </Modal>
         </>
     );
 };
