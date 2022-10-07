@@ -31,10 +31,10 @@
 }
 
 .miniContainer {
-    height: 120px;
+    min-height: 12vh;
     position: relative;
     width: 100%;
-    margin-bottom: 3em;
+    margin: 0 auto 3em auto;
 }
 
 .shadowCorners {
@@ -46,16 +46,29 @@
     border-radius: 25px !important;
     box-shadow: 5px 5px 20px #888888;
 }
+.miniNavbar {
+    min-height: 4em;
+}
+
+.activeLinkNavbar {
+    color: #01175f !important;
+    padding-bottom: 90%;
+    border-bottom: 2px solid #01175f;
+}
+
+.inactiveLinkNavbar {
+    color: #888888 !important;
+}
 
 /*note: contenitore città*/
 .recentCitiesContainer {
-    height: 39vh;
+    max-height: 39vh;
     overflow: auto;
 }
 
 .miniCard {
     cursor: pointer;
-    height: 17vh !important;
+    min-height: 10vh;
     margin-top: 2em;
 }
 
@@ -71,7 +84,7 @@
 .todayContainer {
     text-align: center;
     justify-content: space-evenly;
-    height: 36vh;
+    max-height: 36vh;
     overflow: auto;
     padding: 3em;
     margin-bottom: 3em;

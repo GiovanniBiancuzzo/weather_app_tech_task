@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { getWeatherInfosAction } from "../redux/actions";
