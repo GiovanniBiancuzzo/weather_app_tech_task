@@ -6,7 +6,7 @@ import ThisWeekMonthComponent from "./ThisWeekMonthComponent";
 import TodayComponent from "./TodayComponent";
 
 const HomeComponent = () => {
-    const defaultCity = useSelector((state) => state.favourites?.list[0]);
+    const defaultCity = useSelector((state) => state.favourites?.list[0]); //al caricamento dei componenti, se esiste almeno una città preferita salvata nel redux, la carico
     const dispatch = useDispatch();
     if (defaultCity) {
         dispatch(getActualWeatherAction(defaultCity));

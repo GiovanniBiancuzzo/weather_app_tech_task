@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Card, Carousel, Col, Row, Tab, Tabs } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Carousel, Col, Row, Tab, Tabs } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import MonthDetails from "./MonthDetails";
 import WeekElementCarousel from "./WeekElementCarousel";
@@ -15,7 +15,7 @@ const ThisWeekMonthComponent = () => {
         )
     ); //visto che ogni 8 elementi fetchati abbiamo un ciclo di 24 ore
 
-    const [actualCityDay, setActualCityDay] = useState(null);
+    const [actualCityDay, setActualCityDay] = useState(null); //todo: sistemare il this month component
 
     const [key, setKey] = useState("thisWeek");
 
@@ -30,7 +30,8 @@ const ThisWeekMonthComponent = () => {
                 <Tab
                     eventKey="thisWeek"
                     title="This week"
-                    className="mainGradient shadowCorners"
+                    className="mainGradient shadowCorners p-4"
+                    style={{ height: "37vh" }}
                 >
                     <Carousel>
                         {/* {actualCityWeek.map((pages, index) => (
@@ -98,14 +99,15 @@ const ThisWeekMonthComponent = () => {
             ) : (
                 <span>Caricamento</span>
             )}
-            {actualCityDay ? (
+            {actualCityWeek ? (
                 <Tab
                     eventKey="thisMonth"
                     title="This month"
                     className="mainGradient shadowCorners p-4"
                     style={{ height: "37vh" }}
                 >
-                    <MonthDetails day={actualCityDay} />
+                    <p>//todo: sistemare il this month component</p>
+                    {/* <MonthDetails day={actualCityDay} /> */}
                 </Tab>
             ) : (
                 <span>Caricamento</span>
