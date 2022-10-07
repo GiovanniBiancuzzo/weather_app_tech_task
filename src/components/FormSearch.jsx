@@ -3,14 +3,23 @@ import { Button, Form } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { getWeatherInfosAction } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import RecentCitiesComponent from "./RecentCitiesComponent";
 
 const FormSearch = () => {
     const [query, setQuery] = useState("");
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const isDesktopOrLaptop = useMediaQuery({
+        query: "(max-width: 768px)",
+    });
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(getWeatherInfosAction(query));
+        navigate("/");
         setQuery(""); //pulisco l'input field
     };
 
@@ -20,10 +29,11 @@ const FormSearch = () => {
             <Form
                 onSubmit={handleSubmit}
                 role="search"
+                className="miniContainer"
                 style={{ position: "relative" }}
             >
                 <Form.Control
-                    className="miniContainer shadowCorners"
+                    className="searchForm shadowCorners"
                     type="search"
                     required
                     autoFocus
@@ -40,6 +50,12 @@ const FormSearch = () => {
                     <BsSearch />
                 </Button>
             </Form>
+            {isDesktopOrLaptop && (
+                <>
+                    <h4 className="titles">History</h4>
+                    <RecentCitiesComponent />
+                </>
+            )}
         </>
     );
 };

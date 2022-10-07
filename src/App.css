@@ -32,7 +32,6 @@
 
 .miniContainer {
     min-height: 12vh;
-    position: relative;
     width: 100%;
     margin: 0 auto 3em auto;
 }
@@ -46,6 +45,8 @@
     border-radius: 25px !important;
     box-shadow: 5px 5px 20px #888888;
 }
+
+/*note: sidebarNavbar*/
 .miniNavbar {
     min-height: 4em;
 }
@@ -136,6 +137,11 @@
     left: -2em;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
+}
+
+/*note: form search*/
+.searchForm {
+    min-height: 12vh;
 }
 
 .searchBtn {

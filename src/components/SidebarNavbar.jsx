@@ -4,7 +4,7 @@ import FavouritesCitiesComponent from "./FavouritesCitiesComponent";
 import FormSearch from "./FormSearch";
 import { useMediaQuery } from "react-responsive";
 import { BsHouse, BsSearch, BsGeoAlt } from "react-icons/bs";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const SidebarNavbar = () => {
     const location = useLocation();
@@ -12,7 +12,6 @@ const SidebarNavbar = () => {
     const isDesktopOrLaptop = useMediaQuery({
         query: "(min-width: 768px)",
     });
-    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
 
     return (
         <>

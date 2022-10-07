@@ -1,4 +1,4 @@
-import { Col, Container, Row } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SidebarNavbar from './components/SidebarNavbar';

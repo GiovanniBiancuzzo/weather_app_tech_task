@@ -5,7 +5,7 @@ import { addToFavouritesAction } from "../redux/actions";
 
 const RecentCitiesComponent = () => {
     const recents = useSelector((state) =>
-        Object.values(state.weatherInfos.cities)
+        Object.values(state.weatherInfos.cities).reverse()
     );
 
     const dispatch = useDispatch();

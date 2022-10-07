@@ -40,6 +40,14 @@
 
 ### react router
 
+## responsiveness
+
+### sidebarNavbar responsive con pulsanti
+
+### buttonGeolocation responsive
+
+### searchForm responsive
+
 ## API utilizzate
 
 ### https://openweathermap.org/ per le informazioni meteorologiche
