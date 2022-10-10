@@ -59,3 +59,13 @@
 ### https://date-fns.org/ date-fns per la formattazione delle date
 
 ### https://www.npmjs.com/package/react-responsive react responsive per la responsiveness
+
+# ToDos:
+
+## Gestire primo avvio con mancanza di dati
+
+## Gestire caricamenti ed errori
+
+## Gestire componente "thisMonth"
+
+## "Rinfrescare" i dati in qualche modo, altrimenti stanno nel persisted store per troppo tempo e diventano obsoleti
