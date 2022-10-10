@@ -1,5 +1,4 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-// import searchReducer from "../reducers/searchReducer";
 import weatherInfosReducer from "../reducers/weatherInfosReducer";
 import favouritesReducer from "../reducers/favouritesReducer";
 
@@ -7,7 +6,6 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const mainReducer = combineReducers({
-    // search: searchReducer,
     weatherInfos: weatherInfosReducer,
     favourites: favouritesReducer,
 });
