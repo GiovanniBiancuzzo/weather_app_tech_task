@@ -40,9 +40,9 @@
 
 ### react router
 
-## responsiveness e adattabilità come da modello
-
 ## utilizzo di file env per variabili globali
+
+## responsiveness e adattabilità come da modello
 
 ### sidebarNavbar responsive con pulsanti
 
