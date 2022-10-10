@@ -5,17 +5,23 @@ import { BsHeartFill } from "react-icons/bs";
 import RecentCitiesComponent from "./RecentCitiesComponent";
 import { useState } from "react";
 import { getActualWeatherAction } from "../redux/actions";
+import { useNavigate } from "react-router-dom";
 
-const FavouritesCitiesComponent = () => {
+const FavouritesCitiesComponent = (props) => {
     const favourites = useSelector((state) => state.favourites.list);
 
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(!show);
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
-    const setActualCity = (cityInfo) =>
+
+    const setActualCity = (cityInfo) => {
+        console.log("setactualcity");
         dispatch(getActualWeatherAction(cityInfo));
+        // navigate("/");
+    };
 
     return (
         <>
@@ -27,6 +33,7 @@ const FavouritesCitiesComponent = () => {
                         color: "#01175f",
                         marginTop: "1.5em",
                         textAlign: "center",
+                        cursor: "pointer",
                     }}
                 >
                     <BsHeartFill /> Add to favourites
@@ -38,6 +45,7 @@ const FavouritesCitiesComponent = () => {
                         <div
                             onClick={() => {
                                 setActualCity(cityInfo);
+                                props.showHome();
                             }}
                         >
                             <CityCard

@@ -13,7 +13,7 @@ const FormSearch = () => {
     const navigate = useNavigate();
 
     const isDesktopOrLaptop = useMediaQuery({
-        query: "(max-width: 768px)",
+        query: process.env.REACT_APP_RES_TABLET,
     });
 
     const handleSubmit = (e) => {

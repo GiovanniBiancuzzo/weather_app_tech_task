@@ -7,9 +7,9 @@ export const ADD_TO_FAVOURITES = 'ADD_TO_FAVOURITES';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
 export const ADD_ERROR = 'ADD_ERROR';
 
-const endpointApi = 'https://api.openweathermap.org/data/2.5/forecast?';
+const endpointApi = process.env.REACT_APP_ENDPOINT_API;
 //api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-const apiKey = 'b4bf487457c59aad1bf353eadea50057';
+const apiKey = process.env.REACT_APP_PERSONAL_API_KEY;
 
 export const setQueryAction = (query) => ({
     type: SET_QUERY,

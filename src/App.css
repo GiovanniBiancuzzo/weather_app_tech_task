@@ -47,8 +47,18 @@
 }
 
 /*note: sidebarNavbar*/
+.stickyNavbar {
+    position: -webkit-fixed !important ;
+    position: fixed !important ;
+    bottom: 3vh !important ;
+    left: 5%;
+    right: 5%;
+    z-index: 10 !important ;
+}
+
 .miniNavbar {
     min-height: 4em;
+    background-color: #fff;
 }
 
 .activeLinkNavbar {
