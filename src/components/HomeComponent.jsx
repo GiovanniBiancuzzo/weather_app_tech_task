@@ -73,7 +73,7 @@ const HomeComponent = () => {
                     )}
                 {(isDesktopOrLaptop || show) && ( //mostra la home, solo quando siamo sopra i 768px o quando la variabile show è true
                     <Col lg={8}>
-                        <Row>
+                        <Row style={{ justifyContent: "center" }}>
                             <Col xs={12}>
                                 <MainWeatherCard />
                             </Col>
