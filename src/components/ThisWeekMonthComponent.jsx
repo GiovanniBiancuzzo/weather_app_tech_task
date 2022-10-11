@@ -61,7 +61,13 @@ const ThisWeekMonthComponent = () => {
                                 </Row>
                             </Carousel.Item>
                         ))} */}
-                        <Carousel.Item className="mainGradient shadowCorners">
+                        <Carousel.Item
+                            className={
+                                isTabletOrMobile
+                                    ? ""
+                                    : "mainGradient shadowCorners"
+                            }
+                        >
                             <Row>
                                 {actualCityWeek
                                     .slice(0, 3)
@@ -81,7 +87,13 @@ const ThisWeekMonthComponent = () => {
                                     ))}
                             </Row>
                         </Carousel.Item>
-                        <Carousel.Item className="mainGradient shadowCorners">
+                        <Carousel.Item
+                            className={
+                                isTabletOrMobile
+                                    ? ""
+                                    : "mainGradient shadowCorners"
+                            }
+                        >
                             <Row>
                                 {actualCityWeek
                                     .slice(3, 6)
@@ -110,7 +122,9 @@ const ThisWeekMonthComponent = () => {
                 <Tab
                     eventKey="thisMonth"
                     title="This month"
-                    className="mainGradient shadowCorners p-4"
+                    className={
+                        isTabletOrMobile ? "" : "mainGradient shadowCorners p-4"
+                    }
                     style={{ height: "37vh" }}
                 >
                     <p>//todo: sistemare il this month component</p>

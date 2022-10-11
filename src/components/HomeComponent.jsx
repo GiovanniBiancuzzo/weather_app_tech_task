@@ -10,6 +10,7 @@ import MainWeatherCard from "./MainWeatherCard";
 import ThisWeekMonthComponent from "./ThisWeekMonthComponent";
 import TodayComponent from "./TodayComponent";
 import { BsArrowLeft, BsPlusSquare } from "react-icons/bs";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const HomeComponent = () => {
     const defaultCity = useSelector((state) => state.favourites?.list[0]);
@@ -40,6 +41,17 @@ const HomeComponent = () => {
         setShow(!show);
     };
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const params = new URLSearchParams(location.search).get("q");
+
+    useEffect(() => {
+        if (params === "searched") {
+            setShow(true);
+            location.pathname = "/";
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
     return (
         <>
             <Row className={isTabletOrMobile ? "mainGradient" : ""}>
@@ -66,7 +78,7 @@ const HomeComponent = () => {
                                     cursor: "pointer",
                                     fontSize: "1.5em",
                                 }}
-                                onClick={showHome}
+                                onClick={() => navigate("/search")}
                             />
                         </div>
                     )}
@@ -98,10 +110,9 @@ const HomeComponent = () => {
                                         textAlign: "center",
                                         color: "#01175f",
                                     }}
-                                    onClick={showHome}
                                 >
                                     Good morning!
-                                    <p>Mario</p>
+                                    <p>Giovanni</p>
                                 </h2>
                             )}
                             <FavouritesCitiesComponent showHome={showHome} />

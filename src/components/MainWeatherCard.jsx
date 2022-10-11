@@ -27,7 +27,12 @@ const MainWeatherCard = () => {
                 >
                     <Card className="mainCard">
                         <Card.Body>
-                            <Card.Title className="titles" as="h3">
+                            <Card.Title
+                                className={
+                                    isTabletOrMobile ? "themedTitles" : "titles"
+                                }
+                                as="h3"
+                            >
                                 {actualCity.city.name},{" "}
                                 {actualCity.city.country}
                             </Card.Title>

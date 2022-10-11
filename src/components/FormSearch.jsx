@@ -19,12 +19,12 @@ const FormSearch = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(getWeatherInfosAction(query));
-        navigate("/");
+        navigate("/?q=searched");
         setQuery(""); //pulisco l'input field
     };
 
     return (
-        <>
+        <div className="responsivePadding">
             <h4 className="titles">Search</h4>
             <Form
                 onSubmit={handleSubmit}
@@ -56,7 +56,7 @@ const FormSearch = () => {
                     <RecentCitiesComponent />
                 </>
             )}
-        </>
+        </div>
     );
 };
 

@@ -18,7 +18,6 @@ const FavouritesCitiesComponent = (props) => {
     const dispatch = useDispatch();
 
     const setActualCity = (cityInfo) => {
-        console.log("setactualcity");
         dispatch(getActualWeatherAction(cityInfo));
         // navigate("/");
     };

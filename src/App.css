@@ -1,4 +1,8 @@
 /*note: globali*/
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .mainGradient {
     background: rgb(89, 127, 233);
     background: linear-gradient(
@@ -20,8 +24,8 @@
 }
 
 .titles {
-    font-weight: 900 !important;
     color: #01175f;
+    font-weight: 900 !important;
     margin: 1em 0;
 }
 
@@ -166,9 +170,6 @@
 @media screen and (max-width: 768px) {
     /*sotto i 768px*/
     /*note: elementi globali*/
-    .titles {
-        color: #ffffff;
-    }
 
     /*note: card del meteo principale*/
     .mainCardContainer {
@@ -179,9 +180,14 @@
     .mainCard {
         background-color: transparent !important;
         color: #ffffff;
-        border-color: transparent !important;
         padding: 20px;
         text-align: center;
+    }
+
+    .themedTitles {
+        color: #ffffff;
+        font-weight: 900 !important;
+        margin: 1em 0;
     }
 
     .temperautureSection {
@@ -190,9 +196,9 @@
         justify-content: center;
         flex-direction: row-reverse;
         align-items: center;
-        padding: 1.5em 0.5em;
+        padding: 0;
         position: initial;
-        border-radius: initial;
+        font-size: 2em;
     }
 
     /*note: contenitore today*/
@@ -228,5 +234,9 @@
 
     .weatherCard {
         height: 100%;
+    }
+
+    .responsivePadding {
+        padding: 20px;
     }
 }

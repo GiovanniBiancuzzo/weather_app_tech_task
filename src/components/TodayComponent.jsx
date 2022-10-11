@@ -13,8 +13,10 @@ const TodayComponent = () => {
         query: process.env.REACT_APP_RES_SMARTPHONE,
     });
     return (
-        <div>
-            <h4 className="titles">Today</h4>
+        <>
+            <h4 className={isTabletOrMobile ? "themedTitles" : "titles"}>
+                Today
+            </h4>
             <Col
                 className={
                     isTabletOrMobile
@@ -51,7 +53,7 @@ const TodayComponent = () => {
                     <span>caricamento</span>
                 )}
             </Col>
-        </div>
+        </>
     );
 };
 

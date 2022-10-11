@@ -24,7 +24,7 @@ const ButtonGeolocation = () => {
     };
 
     return (
-        <>
+        <div className="responsivePadding">
             <h4 className="titles">Localization</h4>
             <Button
                 onClick={handleGeolocation}
@@ -34,7 +34,7 @@ const ButtonGeolocation = () => {
                 <BsGeoAlt />
                 <p>Add localization</p>
             </Button>
-        </>
+        </div>
     );
 };
 

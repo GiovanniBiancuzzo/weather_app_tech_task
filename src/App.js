@@ -27,6 +27,8 @@ function App () {
             </Route>
             <Route path='/geolocation' element={<ButtonGeolocation />}>
             </Route>
+            <Route path='*' element={<HomeComponent />}>
+            </Route>
           </>)}
       </Routes>
       {!isDesktopOrLaptop && <SidebarNavbar />}
