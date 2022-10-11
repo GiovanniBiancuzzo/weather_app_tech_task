@@ -7,7 +7,8 @@ export const ADD_TO_FAVOURITES = 'ADD_TO_FAVOURITES';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
 export const ADD_ERROR = 'ADD_ERROR';
 
-const endpointApi = process.env.REACT_APP_ENDPOINT_API;
+const weatherInfosApi = process.env.REACT_APP_ENDPOINT_WEATHERINFOS_API;
+const reverseGeolocationApi = process.env.REACT_APP_ENDPOINT_REVERSE_GEOLOCATION_API;
 const apiKey = process.env.REACT_APP_PERSONAL_API_KEY;
 
 export const setQueryAction = (query) => ({
@@ -23,7 +24,7 @@ export const getActualWeatherAction = (data) => ({
 export const getGeolocationAction = (lat, lon) => {
     return (dispatch, getState) => {
         fetch(
-            `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_PERSONAL_API_KEY}`
+            `${reverseGeolocationApi}lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_PERSONAL_API_KEY}`
         ) //attraverso il reverse coding dell'api, otteniamo il nome della città come query di ricerca
             .then((result) => result.json())
             .then((data) =>
@@ -41,7 +42,7 @@ export const getWeatherInfosAction = (query) => {
         if (Object.keys(cities).includes(finalQuery)) {//controllo se è una citta già cercata
             dispatch(getActualWeatherAction(cities[finalQuery])); //se è già stata cercata, la estraggo dall'elenco delle città nello store e la setto come città attuale
         } else {
-            fetch(`${endpointApi}q=${finalQuery}&appid=${apiKey}&units=metric`, { //se non è stata già cercata, effettuo una fetch
+            fetch(`${weatherInfosApi}q=${finalQuery}&appid=${apiKey}&units=metric`, { //se non è stata già cercata, effettuo una fetch
                 method: "GET",
             })
                 .then(res => res.json())
