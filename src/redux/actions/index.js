@@ -20,6 +20,19 @@ export const getActualWeatherAction = (data) => ({
     payload: data
 });
 
+export const getGeolocationAction = (lat, lon) => {
+    return (dispatch, getState) => {
+        fetch(
+            `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_PERSONAL_API_KEY}`
+        ) //attraverso il reverse coding dell'api, otteniamo il nome della città come query di ricerca
+            .then((result) => result.json())
+            .then((data) =>
+                dispatch(getWeatherInfosAction(data[0].name))
+            )
+            .catch((error) => console.log(error));
+    };
+};
+
 export const getWeatherInfosAction = (query) => {
     return (dispatch, getState) => {
         const finalQuery = query.charAt(0).toUpperCase() + query.slice(1);//preparo la stringa per essere confrontata 

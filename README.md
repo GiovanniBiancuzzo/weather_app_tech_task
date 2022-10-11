@@ -52,9 +52,7 @@
 
 ## API utilizzate
 
-### https://openweathermap.org/ per le informazioni meteorologiche
-
-### https://geocode.xyz/ per il reverse coding delle coordinate gps
+### https://openweathermap.org/ per le informazioni meteorologiche e per il reverse coding delle coordinate gps
 
 ### https://date-fns.org/ date-fns per la formattazione delle date
 
