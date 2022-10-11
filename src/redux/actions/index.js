@@ -23,7 +23,7 @@ export const getActualWeatherAction = (data) => ({
 export const getGeolocationAction = (lat, lon) => {
     return (dispatch, getState) => {
         fetch(
-            `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_PERSONAL_API_KEY}`
+            `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_PERSONAL_API_KEY}`
         ) //attraverso il reverse coding dell'api, otteniamo il nome della città come query di ricerca
             .then((result) => result.json())
             .then((data) =>
