@@ -35,7 +35,8 @@ const MainWeatherCard = () => {
                         <Card className="mainCard">
                             <Card.Body>
                                 <Card.Title className="titles" as="h3">
-                                    {actualCity.city.name}
+                                    {actualCity.city.name},{" "}
+                                    {actualCity.city.country}
                                 </Card.Title>
                                 <Card.Text style={{ fontWeight: "bold" }}>
                                     {format(
