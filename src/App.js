@@ -13,7 +13,7 @@ function App () {
     query: process.env.REACT_APP_RES_TABLET,
   });
 
-  // const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  // const isTabletOrMobile = useMediaQuery({ query: process.env.REACT_APP_RES_SMARTPHONE });
 
   return (
     <BrowserRouter>

@@ -50,7 +50,7 @@
 .stickyNavbar {
     position: -webkit-fixed !important ;
     position: fixed !important ;
-    bottom: 3vh !important ;
+    bottom: 1vh !important ;
     left: 5%;
     right: 5%;
     z-index: 10 !important ;
@@ -91,6 +91,29 @@
     display: none;
 }
 
+/*note: card del meteo principale*/
+.mainCardContainer {
+    background-image: url("http://architizer-prod.imgix.net/mediadata/projects/072013/b77aa4f3.jpg?q=60&auto=format,compress&w=1680&cs=strip");
+    height: 45vh;
+}
+
+.mainCard {
+    background-color: transparent !important;
+    color: #01175f;
+    border-color: transparent !important;
+    padding: 20px 160px 120px 80px;
+}
+
+.temperautureSection {
+    text-align: center;
+    padding: 1.5em 0.5em;
+    position: absolute;
+    top: 5em;
+    left: -2em;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
 /*note: contenitore today*/
 .todayContainer {
     text-align: center;
@@ -126,29 +149,6 @@
     height: 100%;
 }
 
-/*note: card del meteo principale*/
-.mainCardContainer {
-    background-image: url("http://architizer-prod.imgix.net/mediadata/projects/072013/b77aa4f3.jpg?q=60&auto=format,compress&w=1680&cs=strip");
-    height: 45vh;
-}
-
-.mainCard {
-    background-color: transparent !important; /*poi metti l'immagine*/
-    color: #01175f;
-    border-color: transparent !important;
-    padding: 20px 160px 120px 80px;
-}
-
-.temperautureSection {
-    text-align: center;
-    padding: 1.5em 0.5em;
-    position: absolute;
-    top: 5em;
-    left: -2em;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
-
 /*note: form search*/
 .searchForm {
     min-height: 12vh;
@@ -161,4 +161,72 @@
     right: 0px;
     border-radius: 25px !important;
     border: transparent !important;
+}
+
+@media screen and (max-width: 768px) {
+    /*sotto i 768px*/
+    /*note: elementi globali*/
+    .titles {
+        color: #ffffff;
+    }
+
+    /*note: card del meteo principale*/
+    .mainCardContainer {
+        background-image: none;
+        height: auto;
+    }
+
+    .mainCard {
+        background-color: transparent !important;
+        color: #ffffff;
+        border-color: transparent !important;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .temperautureSection {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: row-reverse;
+        align-items: center;
+        padding: 1.5em 0.5em;
+        position: initial;
+        border-radius: initial;
+    }
+
+    /*note: contenitore today*/
+    .todayContainer {
+        display: flex;
+        text-align: center;
+        justify-content: space-evenly;
+        overflow-x: auto;
+        padding: 0;
+        margin-bottom: 2em;
+    }
+
+    .todayContainer::-webkit-scrollbar {
+        display: none;
+    }
+
+    /*note: contenitore thisWeekMonth*/
+
+    .thisWeekMonthContainer {
+        margin-top: 2em;
+    }
+
+    .thisWeekMonthContainer > button {
+        /*todo: sistema i titoli della tab*/
+        color: red;
+    }
+
+    .weekElement {
+        margin: 0px 20px;
+        padding: 2em;
+        text-align: center;
+    }
+
+    .weatherCard {
+        height: 100%;
+    }
 }

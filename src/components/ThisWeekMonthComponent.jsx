@@ -3,6 +3,7 @@ import { Carousel, Col, Row, Tab, Tabs } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import MonthDetails from "./MonthDetails";
 import WeekElementCarousel from "./WeekElementCarousel";
+import { useMediaQuery } from "react-responsive";
 
 const ThisWeekMonthComponent = () => {
     // const actualCity = useSelector(
@@ -19,18 +20,24 @@ const ThisWeekMonthComponent = () => {
 
     const [key, setKey] = useState("thisWeek");
 
+    const isTabletOrMobile = useMediaQuery({
+        query: process.env.REACT_APP_RES_SMARTPHONE,
+    });
+
     return (
         <Tabs
             id="controlled-tab-example"
             activeKey={key}
             onSelect={(k) => setKey(k)}
-            className=" titles thisWeekMonthContainer"
+            className="titles thisWeekMonthContainer"
         >
             {actualCityWeek ? (
                 <Tab
                     eventKey="thisWeek"
                     title="This week"
-                    className="mainGradient shadowCorners p-4"
+                    className={
+                        isTabletOrMobile ? "" : "mainGradient shadowCorners p-4"
+                    }
                     style={{ height: "37vh" }}
                 >
                     <Carousel>

@@ -42,57 +42,62 @@ const HomeComponent = () => {
 
     return (
         <>
-            <Row>
+            <Row className={isTabletOrMobile ? "mainGradient" : ""}>
                 {isTabletOrMobile &&
                     show && ( //mostra pulsanti indietro e home, solo quando siamo sotto i 768px e quando la variabile show è true
-                        <>
-                            <div
-                                className="titles"
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                fontWeight: 900,
+                                padding: "24px",
+                            }}
+                        >
+                            <BsArrowLeft
                                 style={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
+                                    cursor: "pointer",
+                                    fontSize: "1.1em",
                                 }}
-                            >
-                                <BsArrowLeft
-                                    style={{
-                                        cursor: "pointer",
-                                        fontSize: "1.5em",
-                                    }}
-                                    onClick={showHome}
-                                />
+                                onClick={showHome}
+                            />
 
-                                <BsPlusSquare
-                                    style={{
-                                        cursor: "pointer",
-                                        fontSize: "1.5em",
-                                    }}
-                                    onClick={showHome}
-                                />
-                            </div>
-                        </>
+                            <BsPlusSquare
+                                style={{
+                                    cursor: "pointer",
+                                    fontSize: "1.5em",
+                                }}
+                                onClick={showHome}
+                            />
+                        </div>
                     )}
                 {(isDesktopOrLaptop || show) && ( //mostra la home, solo quando siamo sopra i 768px o quando la variabile show è true
                     <Col lg={8}>
                         <Row style={{ justifyContent: "center" }}>
-                            <Col xs={12}>
+                            <Col xs={11} md={12}>
                                 <MainWeatherCard />
                             </Col>
-                            <Col xs={8} lg={5}>
+                            <Col xs={11} md={5}>
                                 <TodayComponent />
                             </Col>
-                            <Col xs={8} lg={7}>
+                            <Col xs={11} md={7}>
                                 <ThisWeekMonthComponent />
                             </Col>
                         </Row>
                     </Col>
                 )}
-                <Col lg={4}>
+                <Col
+                    lg={4}
+                    style={isTabletOrMobile ? { backgroundColor: "#fff" } : {}}
+                >
                     {(isDesktopOrLaptop || (isTabletOrMobile && !show)) && ( //mostra le città preferite, solo quando siamo sopra i 768px o siamo sotto i 768px con variabile show false
                         <>
                             {isTabletOrMobile && (
                                 <h2
                                     className="titles"
-                                    style={{ textAlign: "center" }}
+                                    style={{
+                                        textAlign: "center",
+                                        color: "#01175f",
+                                    }}
                                     onClick={showHome}
                                 >
                                     Good morning!

@@ -4,6 +4,12 @@ body {
     font-family: "Lato", sans-serif !important;
 }
 
+@media screen and (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+}
+
 code {
     font-family: "Lato", sans-serif !important;
 }
