@@ -12,8 +12,8 @@ const FormSearch = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const isDesktopOrLaptop = useMediaQuery({
-        query: process.env.REACT_APP_RES_TABLET,
+    const isTabletOrMobile = useMediaQuery({
+        query: process.env.REACT_APP_RES_SMARTPHONE,
     });
 
     const handleSubmit = (e) => {
@@ -50,7 +50,7 @@ const FormSearch = () => {
                     <BsSearch />
                 </Button>
             </Form>
-            {isDesktopOrLaptop && (
+            {isTabletOrMobile && (
                 <>
                     <h4 className="titles">History</h4>
                     <RecentCitiesComponent />
