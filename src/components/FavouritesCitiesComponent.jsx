@@ -13,13 +13,11 @@ const FavouritesCitiesComponent = (props) => {
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(!show);
-    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
     const setActualCity = (cityInfo) => {
         dispatch(getActualWeatherAction(cityInfo));
-        // navigate("/");
     };
 
     return (
@@ -28,17 +26,16 @@ const FavouritesCitiesComponent = (props) => {
                 <h5
                     onClick={handleShow}
                     style={{
-                        fontWeight: "900",
-                        color: "#01175f",
                         marginTop: "1.5em",
                         textAlign: "center",
                         cursor: "pointer",
                     }}
+                    className="titles"
                 >
                     <BsHeartFill /> Add to favourites
                 </h5>
             </Row>
-            <Container className="recentCitiesContainer">
+            <Container className="citiesListContainer">
                 {favourites &&
                     favourites.map((cityInfo) => (
                         <div
@@ -60,7 +57,7 @@ const FavouritesCitiesComponent = (props) => {
                     Click on a city to add it your favourites
                 </Modal.Header>
                 <Modal.Body>
-                    <RecentCitiesComponent />
+                    <RecentCitiesComponent handleShow={handleShow} />
                 </Modal.Body>
             </Modal>
         </>

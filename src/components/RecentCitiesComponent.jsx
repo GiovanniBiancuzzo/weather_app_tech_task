@@ -3,7 +3,7 @@ import CityCard from "./CityCard";
 import { Container } from "react-bootstrap";
 import { addToFavouritesAction } from "../redux/actions";
 
-const RecentCitiesComponent = () => {
+const RecentCitiesComponent = (props) => {
     const recents = useSelector((state) =>
         Object.values(state.weatherInfos.cities).reverse()
     );
@@ -13,12 +13,13 @@ const RecentCitiesComponent = () => {
 
     return (
         <>
-            <Container className="recentCitiesContainer">
+            <Container className="citiesListContainer">
                 {recents.length > 0 ? (
                     recents.map((cityInfo) => (
                         <div
                             onClick={() => {
                                 addFavCity(cityInfo);
+                                props.handleShow();
                             }}
                         >
                             <CityCard

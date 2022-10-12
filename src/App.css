@@ -76,8 +76,8 @@ body::-webkit-scrollbar {
 }
 
 /*note: contenitore città*/
-.recentCitiesContainer {
-    max-height: 39vh;
+.citiesListContainer {
+    min-height: 39vh;
     overflow: auto;
 }
 
@@ -91,9 +91,18 @@ body::-webkit-scrollbar {
     max-width: 20px;
 }
 
-.recentCitiesContainer::-webkit-scrollbar {
+.citiesListContainer::-webkit-scrollbar {
     display: none;
 }
+/* note: contenitore città cercate
+.citiesListContainer {
+    max-height: 39vh;
+    overflow: auto;
+}
+
+.citiesListContainer::-webkit-scrollbar {
+    display: none;
+} */
 
 /*note: card del meteo principale*/
 .mainCardContainer {
@@ -199,6 +208,22 @@ body::-webkit-scrollbar {
         padding: 0;
         position: initial;
         font-size: 2em;
+    }
+
+    /*note: contenitore città*/
+    .citiesListContainer {
+        min-height: 70vh;
+        overflow: auto;
+    }
+
+    .miniCard {
+        cursor: pointer;
+        min-height: 10vh;
+        margin-top: 1em;
+    }
+
+    .miniCard > img {
+        max-width: 20px;
     }
 
     /*note: contenitore today*/
