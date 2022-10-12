@@ -5,7 +5,6 @@ import { BsHeartFill } from "react-icons/bs";
 import RecentCitiesComponent from "./RecentCitiesComponent";
 import { useState } from "react";
 import { getActualWeatherAction } from "../redux/actions";
-import { useNavigate } from "react-router-dom";
 
 const FavouritesCitiesComponent = (props) => {
     const favourites = useSelector((state) => state.favourites.list);
@@ -35,7 +34,7 @@ const FavouritesCitiesComponent = (props) => {
                     <BsHeartFill /> Add to favourites
                 </h5>
             </Row>
-            <Container className="citiesListContainer">
+            <Container className="favouritesCitiesContainer">
                 {favourites &&
                     favourites.map((cityInfo) => (
                         <div

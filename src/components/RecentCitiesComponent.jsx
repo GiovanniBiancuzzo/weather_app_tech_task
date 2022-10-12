@@ -13,7 +13,7 @@ const RecentCitiesComponent = (props) => {
 
     return (
         <>
-            <Container className="citiesListContainer">
+            <Container className="recentCitiesContainer">
                 {recents.length > 0 ? (
                     recents.map((cityInfo) => (
                         <div

@@ -75,9 +75,9 @@ body::-webkit-scrollbar {
     color: #888888 !important;
 }
 
-/*note: contenitore città*/
-.citiesListContainer {
-    min-height: 40vh;
+/*note: contenitore città preferite*/
+.favouritesCitiesContainer {
+    max-height: 40vh;
     overflow: auto;
 }
 
@@ -91,18 +91,18 @@ body::-webkit-scrollbar {
     max-width: 20px;
 }
 
-.citiesListContainer::-webkit-scrollbar {
+.favouritesCitiesContainer::-webkit-scrollbar {
     display: none;
 }
-/* note: contenitore città cercate
-.citiesListContainer {
-    max-height: 39vh;
+/* note: contenitore città cercate*/
+.recentCitiesContainer {
+    min-height: 80vh;
     overflow: auto;
 }
 
-.citiesListContainer::-webkit-scrollbar {
+.recentCitiesContainer::-webkit-scrollbar {
     display: none;
-} */
+}
 
 /*note: card del meteo principale*/
 .mainCardContainer {
@@ -297,10 +297,9 @@ div:hover {
         font-size: 2em;
     }
 
-    /*note: contenitore città*/
-    .citiesListContainer {
+    /*note: contenitore città preferite*/
+    .favouritesCitiesContainer {
         max-height: 70vh;
-        overflow: auto;
     }
 
     .miniCard {
