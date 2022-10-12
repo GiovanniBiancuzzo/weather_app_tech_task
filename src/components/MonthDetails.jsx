@@ -6,7 +6,7 @@ const MonthDetails = ({ day }) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
     return (
-        <Row className="secondGradient shadowCornersSecondary p-3 weatherCard">
+        <Row className="secondGradient shadowCorners p-3 weatherCard">
             <Col xs={5}>
                 <p className="pt-3">
                     {format(new Date(day.dt_txt), "EEEE, d LLLL")}

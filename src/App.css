@@ -25,7 +25,7 @@ body::-webkit-scrollbar {
 
 .titles {
     color: #01175f;
-    font-weight: 900 !important;
+    font-weight: 900;
     margin: 1em 0;
 }
 
@@ -42,13 +42,13 @@ body::-webkit-scrollbar {
 
 .shadowCorners {
     border-radius: 25px !important;
-    box-shadow: 20px 20px 30px #888888;
+    box-shadow: 5px 10px 30px #888888;
 }
 
-.shadowCornersSecondary {
+/* .shadowCornersSecondary {
     border-radius: 25px !important;
     box-shadow: 5px 5px 20px #888888;
-}
+} */
 
 /*note: sidebarNavbar*/
 .stickyNavbar {
