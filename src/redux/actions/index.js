@@ -78,7 +78,7 @@ export const addToFavouritesAction = (data) => {
     };
 };
 
-export const removeFromFavouritesAction = (cityId) => {
+export const removeFromFavouritesAction = (cityId) => {//funzione mai implementata
     return (dispatch, getState) => {
         const citiesIds = (getState().favourites.list.map((cityElement) => cityElement.city.id));//lista delle città nei preferiti
         if (citiesIds.includes(cityId)) {//la città è già nei preferiti?

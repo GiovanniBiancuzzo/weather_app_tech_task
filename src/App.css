@@ -77,14 +77,14 @@ body::-webkit-scrollbar {
 
 /*note: contenitore città*/
 .citiesListContainer {
-    min-height: 39vh;
+    max-height: 40vh;
     overflow: auto;
 }
 
 .miniCard {
     cursor: pointer;
     min-height: 10vh;
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 
 .miniCard > img {
@@ -212,7 +212,7 @@ body::-webkit-scrollbar {
 
     /*note: contenitore città*/
     .citiesListContainer {
-        min-height: 70vh;
+        max-height: 70vh;
         overflow: auto;
     }
 
