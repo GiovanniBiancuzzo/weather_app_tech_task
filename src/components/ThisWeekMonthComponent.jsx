@@ -1,22 +1,15 @@
 import { useState } from "react";
 import { Carousel, Col, Row, Tab, Tabs } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import MonthDetails from "./MonthDetails";
 import WeekElementCarousel from "./WeekElementCarousel";
 import { useMediaQuery } from "react-responsive";
 
-const ThisWeekMonthComponent = () => {
-    // const actualCity = useSelector(
-    //     (state) => state.weatherInfos.actualCity.list
-    // );
-
-    const actualCityWeek = useSelector((state) =>
-        state.weatherInfos.actualCity.list?.filter(
-            (el, index) => index % 8 === 0
-        )
+const ThisWeekMonthComponent = ({ actualCity }) => {
+    const actualCityWeek = actualCity.list.filter(
+        (el, index) => index % 8 === 0
     ); //visto che ogni 8 elementi fetchati abbiamo un ciclo di 24 ore
-
     const [actualCityDay, setActualCityDay] = useState(actualCityWeek[0]); //giorno per giorno, info dettagliate, di default, il primo giorno
+
     const [key, setKey] = useState("thisWeek");
 
     const isTabletOrMobile = useMediaQuery({

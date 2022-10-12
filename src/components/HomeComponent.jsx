@@ -106,13 +106,19 @@ const HomeComponent = () => {
                             {!loading ? (
                                 <>
                                     <Col xs={11} md={12}>
-                                        <MainWeatherCard />
+                                        <MainWeatherCard
+                                            actualCity={actualCity}
+                                        />
                                     </Col>
                                     <Col xs={11} md={5}>
-                                        <TodayComponent />
+                                        <TodayComponent
+                                            actualCity={actualCity}
+                                        />
                                     </Col>
                                     <Col xs={11} md={7}>
-                                        <ThisWeekMonthComponent />
+                                        <ThisWeekMonthComponent
+                                            actualCity={actualCity}
+                                        />
                                     </Col>
                                 </>
                             ) : (

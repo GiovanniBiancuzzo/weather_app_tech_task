@@ -1,11 +1,8 @@
 import { Card, Image } from "react-bootstrap";
-import { useSelector } from "react-redux";
 import format from "date-fns/format";
 import { useMediaQuery } from "react-responsive";
 
-const MainWeatherCard = () => {
-    const actualCity = useSelector((state) => state.weatherInfos.actualCity);
-
+const MainWeatherCard = ({ actualCity }) => {
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
