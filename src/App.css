@@ -38,7 +38,7 @@
 
 .shadowCorners {
     border-radius: 25px !important;
-    box-shadow: 5px 10px 30px #888888;
+    box-shadow: 5px 15px 10px #cfcfcf;
 }
 
 /* .shadowCornersSecondary {
@@ -73,7 +73,7 @@
 
 /*note: contenitore città preferite*/
 .favouritesCitiesContainer {
-    max-height: 40vh;
+    height: 40vh;
     overflow: auto;
 }
 
@@ -170,6 +170,16 @@
     right: 0px;
     border-radius: 25px !important;
     border: transparent !important;
+}
+
+/*note: banner per cookies*/
+.bannerCookies {
+    position: fixed;
+    font-size: 1em !important;
+    top: 32vh;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
 
 /*note: loader*/
@@ -295,7 +305,7 @@ div:hover {
 
     /*note: contenitore città preferite*/
     .favouritesCitiesContainer {
-        max-height: 70vh;
+        height: 60vh;
     }
 
     .miniCard {
@@ -345,5 +355,14 @@ div:hover {
 
     .responsivePadding {
         padding: 20px;
+    }
+
+    .bannerCookies {
+        position: fixed;
+        font-size: 1em !important;
+        /* top: 32vh; */
+        margin: 0 auto;
+        left: 0;
+        right: 0;
     }
 }

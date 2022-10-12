@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import { Col, Row, Toast } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
 import { getGeolocationAction } from "../redux/actions";
@@ -10,6 +10,7 @@ import MainWeatherCard from "./MainWeatherCard";
 import ThisWeekMonthComponent from "./ThisWeekMonthComponent";
 import TodayComponent from "./TodayComponent";
 import { BsArrowLeft, BsSearch } from "react-icons/bs";
+import { BiCookie } from "react-icons/bi";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const HomeComponent = () => {
@@ -22,6 +23,8 @@ const HomeComponent = () => {
 
     const dispatch = useDispatch();
 
+    const [showBanner, setShowBanner] = useState(false);
+
     const fetchDefaultCity = () => {
         //geolocalizzazione approssimativa di default tramite ip, servizio di absractapi
         fetch(
@@ -30,13 +33,14 @@ const HomeComponent = () => {
             .then((res) => res.json())
             .then((data) => {
                 dispatch(getGeolocationAction(data.latitude, data.longitude));
+                //piccolo banner che avvisa della localizzazione tramite ip
             })
             .catch((error) => console.log(error));
     };
 
     useEffect(() => {
         //al caricamento dei componenti geolocalizzo approssimativamente tramite ip, una città e la setto di default
-        fetchDefaultCity();
+
         // if (defaultCity) {
         //     dispatch(getActualWeatherAction(defaultCity));
         // }
@@ -45,6 +49,10 @@ const HomeComponent = () => {
         if (params === "searched") {
             setShow(true);
             location.pathname = "/";
+        } else {
+            showHome();
+            setShowBanner(true);
+            fetchDefaultCity();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -145,23 +153,26 @@ const HomeComponent = () => {
                     lg={4}
                     style={isTabletOrMobile ? { backgroundColor: "#fff" } : {}} //!controlla per background bianco
                 >
-                    {(isDesktopOrLaptop || (isTabletOrMobile && !show)) && ( //mostra le città preferite, solo quando siamo sopra i 768px o siamo sotto i 768px con variabile show false
-                        <>
-                            {isTabletOrMobile && (
-                                <h2
-                                    className="titles"
-                                    style={{
-                                        textAlign: "center",
-                                        color: "#01175f",
-                                    }}
-                                >
-                                    Good morning!
-                                    <p>Giovanni</p>
-                                </h2>
-                            )}
-                            <FavouritesCitiesComponent showHome={showHome} />
-                        </>
-                    )}
+                    {(isDesktopOrLaptop || (isTabletOrMobile && !show)) &&
+                        !loading && ( //mostra le città preferite, solo quando siamo sopra i 768px o siamo sotto i 768px con variabile show false
+                            <>
+                                {isTabletOrMobile && (
+                                    <h2
+                                        className="titles"
+                                        style={{
+                                            textAlign: "center",
+                                            color: "#01175f",
+                                        }}
+                                    >
+                                        Good morning!
+                                        <p>Giovanni</p>
+                                    </h2>
+                                )}
+                                <FavouritesCitiesComponent
+                                    showHome={showHome}
+                                />
+                            </>
+                        )}
                     {isDesktopOrLaptop && ( //mostra la la search bar e il pulsante della geolocalizzazione, solo quando siamo sopra i 768px
                         <>
                             <FormSearch />
@@ -170,6 +181,24 @@ const HomeComponent = () => {
                     )}
                 </Col>
             </Row>
+
+            <Toast
+                onClose={() => setShowBanner(false)} //toast per un banner cookies
+                show={showBanner}
+                className="bannerCookies "
+            >
+                <Toast.Header>
+                    <span>
+                        <BiCookie />
+                    </span>
+                    <strong className="mr-auto">Weather App</strong>
+                    {/* <small>11 mins ago</small> */}
+                </Toast.Header>
+                <Toast.Body>
+                    L'app usa una localizzazione approssimativa per stimare la
+                    tua posizione
+                </Toast.Body>
+            </Toast>
         </>
     );
 };
