@@ -176,6 +176,93 @@ body::-webkit-scrollbar {
     border: transparent !important;
 }
 
+/*note: loader*/
+@-webkit-keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes rotate2 {
+    0% {
+        transform: rotate(0deg);
+        border-top-color: rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        transform: rotate(180deg);
+        border-top-color: rgba(0, 0, 255, 0.5);
+    }
+    100% {
+        transform: rotate(360deg);
+        border-top-color: rgba(0, 0, 0, 0.5);
+    }
+}
+@keyframes rotate2 {
+    0% {
+        transform: rotate(0deg);
+        border-top-color: rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        transform: rotate(180deg);
+        border-top-color: rgba(0, 0, 255, 0.5);
+    }
+    100% {
+        transform: rotate(360deg);
+        border-top-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+.loader {
+    position: relative;
+    margin: 75px auto;
+    width: 150px;
+    height: 150px;
+    display: block;
+    overflow: hidden;
+}
+.loader div {
+    height: 100%;
+}
+.loader3,
+.loader3 div {
+    border-radius: 50%;
+    padding: 8px;
+    border: 2px solid transparent;
+    -webkit-animation: rotate linear 3.5s infinite;
+    animation: rotate linear 3.5s infinite;
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-left-color: rgba(0, 0, 255, 0.5);
+    -webkit-animation-timing-function: cubic-bezier(0.55, 0.38, 0.21, 0.88);
+    animation-timing-function: cubic-bezier(0.55, 0.38, 0.21, 0.88);
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+}
+div:hover {
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.loader,
+.loader * {
+    will-change: transform;
+}
+
 @media screen and (max-width: 768px) {
     /*sotto i 768px*/
     /*note: elementi globali*/

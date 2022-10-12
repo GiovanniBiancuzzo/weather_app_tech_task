@@ -15,61 +15,52 @@ const MainWeatherCard = () => {
     });
 
     return (
-        <>
-            {Object.keys(actualCity).length !== 0 ? (
-                <div
-                    className={
-                        isTabletOrMobile
-                            ? "mainCardContainer"
-                            : "mainCardContainer shadowCorners"
-                    }
-                    style={{ position: "relative" }}
-                >
-                    <Card className="mainCard">
-                        <Card.Body>
-                            <Card.Title
-                                className={
-                                    isTabletOrMobile ? "themedTitles" : "titles"
-                                }
-                                as="h3"
-                            >
-                                {actualCity.city.name},{" "}
-                                {actualCity.city.country}
-                            </Card.Title>
-                            <Card.Text style={{ fontWeight: "bold" }}>
-                                {format(
-                                    new Date(actualCity.list[0].dt_txt),
-                                    "EEEE d, LLLL"
-                                )}
-                            </Card.Text>
-                            <Card.Text>
-                                {capitalizeFirstLetter(
-                                    actualCity.list[0].weather[0].description
-                                )}
-                            </Card.Text>
-                        </Card.Body>
-                    </Card>
-                    <div
-                        className={
-                            isTabletOrMobile
-                                ? "temperautureSection"
-                                : "temperautureSection mainGradient"
-                        }
+        <div
+            className={
+                isTabletOrMobile
+                    ? "mainCardContainer"
+                    : "mainCardContainer shadowCorners"
+            }
+            style={{ position: "relative" }}
+        >
+            <Card className="mainCard">
+                <Card.Body>
+                    <Card.Title
+                        className={isTabletOrMobile ? "themedTitles" : "titles"}
+                        as="h3"
                     >
-                        <div className="tempFont">
-                            {Math.trunc(actualCity.list[0].main.temp)}°
-                        </div>
-                        <Image
-                            alt="weatherCondition"
-                            src={`http://openweathermap.org/img/wn/${actualCity.list[0].weather[0].icon}@2x.png`}
-                            fluid
-                        />
-                    </div>
+                        {actualCity.city.name}, {actualCity.city.country}
+                    </Card.Title>
+                    <Card.Text style={{ fontWeight: "bold" }}>
+                        {format(
+                            new Date(actualCity.list[0].dt_txt),
+                            "EEEE d, LLLL"
+                        )}
+                    </Card.Text>
+                    <Card.Text>
+                        {capitalizeFirstLetter(
+                            actualCity.list[0].weather[0].description
+                        )}
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+            <div
+                className={
+                    isTabletOrMobile
+                        ? "temperautureSection"
+                        : "temperautureSection mainGradient"
+                }
+            >
+                <div className="tempFont">
+                    {Math.trunc(actualCity.list[0].main.temp)}°
                 </div>
-            ) : (
-                <p>Costruire il componente caricamento</p>
-            )}
-        </>
+                <Image
+                    alt="weatherCondition"
+                    src={`http://openweathermap.org/img/wn/${actualCity.list[0].weather[0].icon}@2x.png`}
+                    fluid
+                />
+            </div>
+        </div>
     );
 };
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import { getActualWeatherAction, getGeolocationAction } from "../redux/actions";
+import { getGeolocationAction } from "../redux/actions";
 import ButtonGeolocation from "./ButtonGeolocation";
 import FavouritesCitiesComponent from "./FavouritesCitiesComponent";
 import FormSearch from "./FormSearch";
@@ -14,6 +14,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const HomeComponent = () => {
     const actualCity = useSelector((state) => state.weatherInfos.actualCity);
+    const loading = useSelector((state) => state.weatherInfos.loading);
+    const error = useSelector((state) => state.weatherInfos.error);
     const navigate = useNavigate();
     const location = useLocation();
     const params = new URLSearchParams(location.search).get("q");
@@ -98,29 +100,44 @@ const HomeComponent = () => {
                         />
                     </div>
                 )}
-                {(isDesktopOrLaptop || show) && //mostra la home, solo quando siamo sopra i 768px o quando la variabile show è true
-                Object.keys(actualCity).length !== 0 ? (
+                {(isDesktopOrLaptop || show) && ( //mostra la home, solo quando siamo sopra i 768px o quando la variabile show è true
                     <Col lg={8}>
                         <Row style={{ justifyContent: "center" }}>
-                            <Col xs={11} md={12}>
-                                <MainWeatherCard />
-                            </Col>
-                            <Col xs={11} md={5}>
-                                <TodayComponent />
-                            </Col>
-                            <Col xs={11} md={7}>
-                                <ThisWeekMonthComponent />
-                            </Col>
+                            {!loading ? (
+                                <>
+                                    <Col xs={11} md={12}>
+                                        <MainWeatherCard />
+                                    </Col>
+                                    <Col xs={11} md={5}>
+                                        <TodayComponent />
+                                    </Col>
+                                    <Col xs={11} md={7}>
+                                        <ThisWeekMonthComponent />
+                                    </Col>
+                                </>
+                            ) : (
+                                <div style={{ paddingTop: "20vh" }}>
+                                    <div className="loader loader3">
+                                        <div>
+                                            <div>
+                                                <div>
+                                                    <div>
+                                                        <div>
+                                                            <div></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
                         </Row>
-                    </Col>
-                ) : (
-                    <Col lg={8}>
-                        <Row style={{ justifyContent: "center" }}></Row>
                     </Col>
                 )}
                 <Col
                     lg={4}
-                    style={isTabletOrMobile ? { backgroundColor: "#fff" } : {}}
+                    style={isTabletOrMobile ? { backgroundColor: "#fff" } : {}} //!controlla per background bianco
                 >
                     {(isDesktopOrLaptop || (isTabletOrMobile && !show)) && ( //mostra le città preferite, solo quando siamo sopra i 768px o siamo sotto i 768px con variabile show false
                         <>

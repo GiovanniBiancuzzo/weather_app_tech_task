@@ -24,34 +24,29 @@ const TodayComponent = () => {
                         : "todayContainer mainGradient shadowCorners"
                 }
             >
-                {actualCityToday ? (
-                    actualCityToday.map((day) => (
-                        <Row key={day.dt}>
-                            <Col>{Math.trunc(day.main.temp)}°</Col> -{" "}
-                            <Col>
-                                {isTabletOrMobile ? (
-                                    <Row
-                                        style={{
-                                            flexWrap: "nowrap",
-                                        }}
-                                    >
-                                        <BsFillCircleFill />
-                                        <BsAlignEnd />
-                                    </Row>
-                                ) : (
-                                    <Row>
-                                        <BsFillCircleFill />
-                                        <BsAlignBottom />
-                                    </Row>
-                                )}
-                            </Col>{" "}
-                            -{" "}
-                            <Col>{format(new Date(day.dt_txt), "h aaaa")}</Col>
-                        </Row>
-                    ))
-                ) : (
-                    <span>caricamento</span>
-                )}
+                {actualCityToday.map((day) => (
+                    <Row key={day.dt}>
+                        <Col>{Math.trunc(day.main.temp)}°</Col> -{" "}
+                        <Col>
+                            {isTabletOrMobile ? (
+                                <Row
+                                    style={{
+                                        flexWrap: "nowrap",
+                                    }}
+                                >
+                                    <BsFillCircleFill />
+                                    <BsAlignEnd />
+                                </Row>
+                            ) : (
+                                <Row>
+                                    <BsFillCircleFill />
+                                    <BsAlignBottom />
+                                </Row>
+                            )}
+                        </Col>{" "}
+                        - <Col>{format(new Date(day.dt_txt), "h aaaa")}</Col>
+                    </Row>
+                ))}
             </Col>
         </>
     );

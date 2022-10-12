@@ -40,6 +40,8 @@
 
 ### react router
 
+### implementato caricamento
+
 ## utilizzo di file env per variabili globali
 
 ## responsiveness e adattabilità come da modello
@@ -64,7 +66,7 @@
 
 ## Gestire primo avvio con mancanza di dati
 
-## Gestire caricamenti ed errori
+## Gestire errori
 
 ## Gestire componente "thisMonth"
 

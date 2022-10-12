@@ -2,6 +2,8 @@ export const SET_QUERY = 'SET_QUERY';
 export const PUSH_TO_HISTORY = 'PUSH_TO_HISTORY';
 export const GET_ACTUAL_WEATHER = 'GET_ACTUAL_WEATHER';
 export const GET_WEATHER_INFOS = 'GET_WEATHER_INFOS';
+export const LOADING = 'LOADING';
+export const LOADING_ERROR = 'LOADING_ERROR';
 export const GET_RECENT_CITIES = 'GET_RECENT_CITIES';
 export const ADD_TO_FAVOURITES = 'ADD_TO_FAVOURITES';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
@@ -53,10 +55,20 @@ export const getWeatherInfosAction = (query) => {
                         payload: data
                     });
                     dispatch(getActualWeatherAction(data));//setto la citta attuale
+                    setTimeout(() => {
+                        dispatch({
+                            type: LOADING,
+                        });
+                    }, 1000);
                 }
                 )
                 .catch(error => {
                     console.log(error);
+                    dispatch({
+                        type: LOADING,
+                    }); dispatch({
+                        type: LOADING_ERROR,
+                    });
                 });
         }
     };
