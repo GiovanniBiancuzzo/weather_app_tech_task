@@ -16,26 +16,28 @@ function App () {
   // const isTabletOrMobile = useMediaQuery({ query: process.env.REACT_APP_RES_SMARTPHONE });
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {//sopra i 768px tutte le routes portano alla home, non è un modo elegante di farlo, lo so 😅
-          isDesktopOrLaptop ? (<Route path='*' element={<HomeComponent />}>
-          </Route>) : (<>
-            <Route path='/' element={<HomeComponent />}>
-            </Route>
-            <Route path='/search' element={<FormSearch />}>
-            </Route>
-            <Route path='/geolocation' element={<ButtonGeolocation />}>
-            </Route>
-            <Route path='*' element={<HomeComponent />}>
-            </Route>
-          </>)}
-      </Routes>
-      {!isDesktopOrLaptop && <SidebarNavbar />}
-      {
-        //sidebar deve scomparire oltre i 768px
-      }
-    </BrowserRouter>
+    <div className='app'>
+      <BrowserRouter>
+        <Routes>
+          {//sopra i 768px tutte le routes portano alla home, non è un modo elegante di farlo, lo so 😅
+            isDesktopOrLaptop ? (<Route path='*' element={<HomeComponent />}>
+            </Route>) : (<>
+              <Route path='/' element={<HomeComponent />}>
+              </Route>
+              <Route path='/search' element={<FormSearch />}>
+              </Route>
+              <Route path='/geolocation' element={<ButtonGeolocation />}>
+              </Route>
+              <Route path='*' element={<HomeComponent />}>
+              </Route>
+            </>)}
+        </Routes>
+        {!isDesktopOrLaptop && <SidebarNavbar />}
+        {
+          //sidebar deve scomparire oltre i 768px
+        }
+      </BrowserRouter>
+    </div>
   );
 }
 

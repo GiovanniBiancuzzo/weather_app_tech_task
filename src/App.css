@@ -1,8 +1,4 @@
 /*note: globali*/
-body::-webkit-scrollbar {
-    display: none;
-}
-
 .mainGradient {
     background: rgb(86, 122, 232);
     background: linear-gradient(
