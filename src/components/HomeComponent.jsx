@@ -9,7 +9,7 @@ import FormSearch from "./FormSearch";
 import MainWeatherCard from "./MainWeatherCard";
 import ThisWeekMonthComponent from "./ThisWeekMonthComponent";
 import TodayComponent from "./TodayComponent";
-import { BsArrowLeft, BsPlusSquare } from "react-icons/bs";
+import { BsArrowLeft, BsSearch } from "react-icons/bs";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const HomeComponent = () => {
@@ -71,34 +71,33 @@ const HomeComponent = () => {
     // }, []);
     return (
         <>
-            <Row className={isTabletOrMobile ? "mainGradient" : ""}>
-                {isTabletOrMobile &&
-                    show && ( //mostra pulsanti indietro e home, solo quando siamo sotto i 768px e quando la variabile show è true
-                        <div
+            <Row className={isTabletOrMobile && show ? "mainGradient" : ""}>
+                {isTabletOrMobile && ( //mostra pulsanti indietro e home, solo quando siamo sotto i 768px e quando la variabile show è true
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            fontWeight: 900,
+                            padding: "24px",
+                        }}
+                    >
+                        <BsArrowLeft
                             style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                                fontWeight: 900,
-                                padding: "24px",
+                                cursor: "pointer",
+                                fontSize: "1.3em",
                             }}
-                        >
-                            <BsArrowLeft
-                                style={{
-                                    cursor: "pointer",
-                                    fontSize: "1.1em",
-                                }}
-                                onClick={showHome}
-                            />
+                            onClick={showHome}
+                        />
 
-                            <BsPlusSquare
-                                style={{
-                                    cursor: "pointer",
-                                    fontSize: "1.5em",
-                                }}
-                                onClick={() => navigate("/search")}
-                            />
-                        </div>
-                    )}
+                        <BsSearch
+                            style={{
+                                cursor: "pointer",
+                                fontSize: "1.3em",
+                            }}
+                            onClick={() => navigate("/search")}
+                        />
+                    </div>
+                )}
                 {(isDesktopOrLaptop || show) && //mostra la home, solo quando siamo sopra i 768px o quando la variabile show è true
                 Object.keys(actualCity).length !== 0 ? (
                     <Col lg={8}>
