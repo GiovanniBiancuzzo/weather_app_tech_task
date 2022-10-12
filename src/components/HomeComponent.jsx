@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import { getActualWeatherAction } from "../redux/actions";
+import { getActualWeatherAction, getGeolocationAction } from "../redux/actions";
 import ButtonGeolocation from "./ButtonGeolocation";
 import FavouritesCitiesComponent from "./FavouritesCitiesComponent";
 import FormSearch from "./FormSearch";
@@ -13,16 +13,37 @@ import { BsArrowLeft, BsPlusSquare } from "react-icons/bs";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const HomeComponent = () => {
-    const defaultCity = useSelector((state) => state.favourites?.list[0]);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        //al caricamento dei componenti, se esiste almeno una città preferita salvata nel redux, la carico
+    const actualCity = useSelector((state) => state.weatherInfos.actualCity);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const params = new URLSearchParams(location.search).get("q");
 
-        if (defaultCity) {
-            dispatch(getActualWeatherAction(defaultCity));
-        }
+    const dispatch = useDispatch();
+
+    const fetchDefaultCity = () => {
+        //geolocalizzazione approssimativa di default tramite ip, servizio di absractapi
+        fetch(
+            `https://ipgeolocation.abstractapi.com/v1/?api_key=2a8f6ad0cdf04576970f8073ad82e77e`
+        )
+            .then((res) => res.json())
+            .then((data) => {
+                dispatch(getGeolocationAction(data.latitude, data.longitude));
+            })
+            .catch((error) => console.log(error));
+    };
+
+    useEffect(() => {
+        //al caricamento dei componenti geolocalizzo approssimativamente tramite ip, una città e la setto di default
+        fetchDefaultCity();
+        // if (defaultCity) {
+        //     dispatch(getActualWeatherAction(defaultCity));
+        // }
         // else {
         // }
+        if (params === "searched") {
+            setShow(true);
+            location.pathname = "/";
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -41,17 +62,13 @@ const HomeComponent = () => {
         setShow(!show);
     };
 
-    const navigate = useNavigate();
-    const location = useLocation();
-    const params = new URLSearchParams(location.search).get("q");
-
-    useEffect(() => {
-        if (params === "searched") {
-            setShow(true);
-            location.pathname = "/";
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     if (params === "searched") {
+    //         setShow(true);
+    //         location.pathname = "/";
+    //     }
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
     return (
         <>
             <Row className={isTabletOrMobile ? "mainGradient" : ""}>
@@ -82,7 +99,8 @@ const HomeComponent = () => {
                             />
                         </div>
                     )}
-                {(isDesktopOrLaptop || show) && ( //mostra la home, solo quando siamo sopra i 768px o quando la variabile show è true
+                {(isDesktopOrLaptop || show) && //mostra la home, solo quando siamo sopra i 768px o quando la variabile show è true
+                Object.keys(actualCity).length !== 0 ? (
                     <Col lg={8}>
                         <Row style={{ justifyContent: "center" }}>
                             <Col xs={11} md={12}>
@@ -95,6 +113,10 @@ const HomeComponent = () => {
                                 <ThisWeekMonthComponent />
                             </Col>
                         </Row>
+                    </Col>
+                ) : (
+                    <Col lg={8}>
+                        <Row style={{ justifyContent: "center" }}></Row>
                     </Col>
                 )}
                 <Col

@@ -58,6 +58,8 @@
 
 ### https://www.npmjs.com/package/react-responsive react responsive per la responsiveness
 
+### https://www.abstractapi.com/api/ip-geolocation-api per la geolocalizzazione iniziale tramite ip
+
 # ToDos:
 
 ## Gestire primo avvio con mancanza di dati
