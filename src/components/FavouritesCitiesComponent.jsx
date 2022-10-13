@@ -44,7 +44,7 @@ const FavouritesCitiesComponent = () => {
                             color: "#01175f",
                         }}
                     >
-                        Good morning!
+                        Welcome
                         <p>Giovanni</p>
                     </h2>
                 )}
@@ -59,11 +59,27 @@ const FavouritesCitiesComponent = () => {
                 </h5>
             </Row>
             <Container className="favouritesCitiesContainer">
-                {favourites.map((cityInfo) => (
-                    <div onClick={() => setActualCity(cityInfo)}>
-                        <CityCard key={cityInfo.city.id} cityInfo={cityInfo} />
-                    </div>
-                ))}
+                {favourites.length > 0 ? (
+                    favourites.map((cityInfo) => (
+                        <div onClick={() => setActualCity(cityInfo)}>
+                            <CityCard
+                                key={cityInfo.city.id}
+                                cityInfo={cityInfo}
+                            />
+                        </div>
+                    ))
+                ) : (
+                    <h4
+                        className="titles"
+                        style={{
+                            textAlign: "center",
+                            color: "#01175f",
+                        }}
+                    >
+                        Welcome
+                        <p>Giovanni</p>
+                    </h4>
+                )}
             </Container>
 
             <Modal show={recents} onHide={handleRecents}>
