@@ -1,9 +1,43 @@
 import { Card, Col, Image, Row } from "react-bootstrap";
 import format from "date-fns/format";
+import switchGradient from "../functions/switchGradient";
 
 const CityCard = (props) => {
+    // const exactGradient = () => {
+    //     switch (props.cityInfo.list[0].weather[0].icon) {
+    //         case "01d":
+    //         case "01n":
+    //             return "mainGradient";
+    //         case "02d":
+    //         case "02n":
+    //         case "03d":
+    //         case "03n":
+    //         case "04d":
+    //         case "04n":
+    //         case "50d":
+    //         case "50n":
+    //             return "mainGradientClouds";
+    //         case "09d":
+    //         case "09n":
+    //         case "10d":
+    //         case "10n":
+    //         case "11d":
+    //         case "11n":
+    //             return "mainGradientRain";
+    //         case "13d":
+    //         case "13n":
+    //             return "mainGradientSnow";
+    //         default:
+    //             break;
+    //     }
+    // };
+
     return (
-        <Card className="miniCard shadowCorners mainGradient">
+        <Card
+            className={`miniCard shadowCorners ${switchGradient(
+                props.cityInfo.list[0].weather[0].icon
+            )}`}
+        >
             <Card.Body>
                 <Row>
                     <Col xs={4}>

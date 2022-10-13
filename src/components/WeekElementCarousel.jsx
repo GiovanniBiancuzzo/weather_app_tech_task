@@ -1,9 +1,14 @@
 import { format } from "date-fns";
 import { Col, Image, Row } from "react-bootstrap";
+import switchGradient from "../functions/switchGradient";
 
 const WeekElementCarousel = ({ day }) => {
     return (
-        <Row className="secondGradient weekElement shadowCornersSecondary">
+        <Row
+            className={`weekElement shadowCornersSecondary ${switchGradient(
+                day.weather[0].icon
+            )}`}
+        >
             <Col xs={12}>
                 <h6>{format(new Date(day.dt_txt), "EEEE")}</h6>
             </Col>

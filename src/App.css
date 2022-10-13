@@ -9,6 +9,56 @@
     color: #fff;
 }
 
+.mainGradientClear {
+    background: rgb(86, 122, 232);
+    background: linear-gradient(
+        135deg,
+        rgba(86, 122, 232, 1) 0%,
+        rgba(114, 176, 243, 1) 100%
+    );
+    color: #fff;
+}
+
+.mainGradientClouds {
+    background: rgb(79, 86, 109);
+    background: linear-gradient(
+        135deg,
+        rgba(79, 86, 109, 1) 0%,
+        rgba(144, 159, 175, 1) 100%
+    );
+    color: #fff;
+}
+
+.mainGradientRain {
+    background: rgb(10, 34, 100);
+    background: linear-gradient(
+        135deg,
+        rgba(10, 34, 100, 1) 0%,
+        rgba(75, 135, 203, 1) 100%
+    );
+    color: #fff;
+}
+
+.mainGradientThunder {
+    background: rgb(14, 9, 108);
+    background: linear-gradient(
+        90deg,
+        rgba(14, 9, 108, 1) 0%,
+        rgba(20, 94, 177, 1) 100%
+    );
+    color: #fff;
+}
+
+.mainGradientSnow {
+    background: rgb(182, 185, 189);
+    background: linear-gradient(
+        135deg,
+        rgba(182, 185, 189, 1) 0%,
+        rgba(224, 224, 224, 1) 100%
+    );
+    color: #fff;
+}
+
 .secondGradient {
     background: rgb(106, 141, 235);
     background: linear-gradient(

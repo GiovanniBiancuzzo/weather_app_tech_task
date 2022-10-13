@@ -8,6 +8,7 @@ import ThisWeekMonthComponent from "./ThisWeekMonthComponent";
 import TodayComponent from "./TodayComponent";
 import { useLocation } from "react-router-dom";
 import MiniTopNavbar from "./MiniTopNavbar";
+import switchGradient from "../functions/switchGradient";
 
 const HomeComponent = () => {
     const actualCity = useSelector((state) => state.weatherInfos.actualCity); //variabile per il recupero della città attuale
@@ -43,7 +44,16 @@ const HomeComponent = () => {
 
     return (
         <>
-            <Col lg={8} className={isTabletOrMobile ? "mainGradient" : ""}>
+            <Col
+                lg={8}
+                className={
+                    isTabletOrMobile
+                        ? `${switchGradient(
+                              actualCity.list[0].weather[0].icon
+                          )}`
+                        : ""
+                }
+            >
                 {isTabletOrMobile && ( //mostra mininavbar con pulsanti indietro e home, solo quando siamo sotto i 768px
                     <Row>
                         <MiniTopNavbar navigate={"favourites"} />

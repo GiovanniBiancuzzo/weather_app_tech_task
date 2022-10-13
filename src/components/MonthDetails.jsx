@@ -1,12 +1,17 @@
 import { format } from "date-fns";
 import { Col, Image, Row } from "react-bootstrap";
+import switchGradient from "../functions/switchGradient";
 
 const MonthDetails = ({ day }) => {
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
     return (
-        <Row className="secondGradient shadowCornersSecondary p-3">
+        <Row
+            className={`shadowCornersSecondary p-3 ${switchGradient(
+                day.weather[0].icon
+            )}`}
+        >
             <Col xs={5}>
                 <Row style={{ fontWeight: "bold", padding: "16px 0 0 10px" }}>
                     {format(new Date(day.dt_txt), "EEEE, d LLLL")}

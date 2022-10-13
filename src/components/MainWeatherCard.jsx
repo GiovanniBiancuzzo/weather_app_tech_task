@@ -1,6 +1,7 @@
 import { Card, Image } from "react-bootstrap";
 import format from "date-fns/format";
 import { useMediaQuery } from "react-responsive";
+import switchGradient from "../functions/switchGradient";
 
 const MainWeatherCard = ({ actualCity }) => {
     function capitalizeFirstLetter(string) {
@@ -45,7 +46,9 @@ const MainWeatherCard = ({ actualCity }) => {
                 className={
                     isTabletOrMobile
                         ? "temperautureSection"
-                        : "temperautureSection mainGradient"
+                        : `temperautureSection ${switchGradient(
+                              actualCity.list[0].weather[0].icon
+                          )}`
                 }
             >
                 <div className="tempFont">

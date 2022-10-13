@@ -9,7 +9,6 @@ import { useMediaQuery } from 'react-responsive';
 import FavouritesCitiesComponent from './components/FavouritesCitiesComponent';
 import DashboardComponent from './components/DashboardComponent';
 
-
 function App () {
   const isDesktopOrLaptop = useMediaQuery({
     query: process.env.REACT_APP_RES_TABLET,
