@@ -19,7 +19,7 @@ const RecentCitiesComponent = (props) => {
                         <div
                             onClick={() => {
                                 addFavCity(cityInfo);
-                                props.handleShow();
+                                props.handleRecents();
                             }}
                         >
                             <CityCard

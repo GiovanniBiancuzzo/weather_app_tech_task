@@ -3,7 +3,7 @@ import ButtonGeolocation from "./ButtonGeolocation";
 import FavouritesCitiesComponent from "./FavouritesCitiesComponent";
 import FormSearch from "./FormSearch";
 import { useMediaQuery } from "react-responsive";
-import { BsHouse, BsSearch, BsGeoAlt } from "react-icons/bs";
+import { BsHouse, BsSearch, BsGeoAlt, BsHeart } from "react-icons/bs";
 import { NavLink, useLocation } from "react-router-dom";
 import HomeComponent from "./HomeComponent";
 import { useEffect } from "react";
@@ -24,6 +24,18 @@ const SidebarNavbar = () => {
                         }
                     >
                         <BsHouse />
+                    </NavLink>
+                </Navbar.Brand>
+                <Navbar.Brand>
+                    <NavLink
+                        to={"/favourites"}
+                        className={
+                            location.pathname === "/favourites"
+                                ? "activeLinkNavbar"
+                                : "inactiveLinkNavbar"
+                        }
+                    >
+                        <BsHeart />
                     </NavLink>
                 </Navbar.Brand>
                 <Navbar.Brand>

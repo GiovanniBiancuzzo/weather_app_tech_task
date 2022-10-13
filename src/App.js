@@ -6,6 +6,8 @@ import HomeComponent from './components/HomeComponent';
 import FormSearch from './components/FormSearch';
 import ButtonGeolocation from './components/ButtonGeolocation';
 import { useMediaQuery } from 'react-responsive';
+import FavouritesCitiesComponent from './components/FavouritesCitiesComponent';
+import DashboardComponent from './components/DashboardComponent';
 
 
 function App () {
@@ -20,9 +22,11 @@ function App () {
       <BrowserRouter>
         <Routes>
           {//sopra i 768px tutte le routes portano alla home, non è un modo elegante di farlo, lo so 😅
-            isDesktopOrLaptop ? (<Route path='*' element={<HomeComponent />}>
+            isDesktopOrLaptop ? (<Route path='*' element={<DashboardComponent />}>
             </Route>) : (<>
               <Route path='/' element={<HomeComponent />}>
+              </Route>
+              <Route path='/favourites' element={<FavouritesCitiesComponent />}>
               </Route>
               <Route path='/search' element={<FormSearch />}>
               </Route>

@@ -19,7 +19,7 @@ const FormSearch = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(getWeatherInfosAction(query));
-        navigate("/?q=searched");
+        navigate("/");
         setQuery(""); //pulisco l'input field
     };
 

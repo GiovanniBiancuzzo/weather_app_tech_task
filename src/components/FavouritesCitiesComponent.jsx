@@ -5,28 +5,51 @@ import { BsHeartFill } from "react-icons/bs";
 import RecentCitiesComponent from "./RecentCitiesComponent";
 import { useState } from "react";
 import { getActualWeatherAction } from "../redux/actions";
+import MiniTopNavbar from "./MiniTopNavbar";
+import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
 
-const FavouritesCitiesComponent = (props) => {
+const FavouritesCitiesComponent = () => {
     const favourites = useSelector((state) => state.favourites.list);
 
-    const [show, setShow] = useState(false);
-
-    const handleShow = () => setShow(!show);
+    const [recents, setRecents] = useState(false);
+    const handleRecents = () => setRecents(!recents);
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const setActualCity = (cityInfo) => {
         dispatch(getActualWeatherAction(cityInfo));
     };
 
+    const isTabletOrMobile = useMediaQuery({
+        query: process.env.REACT_APP_RES_SMARTPHONE,
+    });
+
     return (
         <>
-            <Row>
+            <Row
+                style={{
+                    textAlign: "center",
+                }}
+            >
+                {isTabletOrMobile && ( //mostra mininavbar con pulsanti indietro e home, solo quando siamo sotto i 768px
+                    <MiniTopNavbar navigate={""} />
+                )}
+                {isTabletOrMobile && (
+                    <h2
+                        className="titles"
+                        style={{
+                            color: "#01175f",
+                        }}
+                    >
+                        Good morning!
+                        <p>Giovanni</p>
+                    </h2>
+                )}
                 <h5
-                    onClick={handleShow}
+                    onClick={handleRecents}
                     style={{
-                        marginTop: "1.5em",
-                        textAlign: "center",
                         cursor: "pointer",
                     }}
                     className="titles"
@@ -40,7 +63,7 @@ const FavouritesCitiesComponent = (props) => {
                         <div
                             onClick={() => {
                                 setActualCity(cityInfo);
-                                props.showHome();
+                                navigate("/");
                             }}
                         >
                             <CityCard
@@ -51,12 +74,12 @@ const FavouritesCitiesComponent = (props) => {
                     ))}
             </Container>
 
-            <Modal show={show} onHide={handleShow}>
+            <Modal show={recents} onHide={handleRecents}>
                 <Modal.Header closeButton>
                     Click on a city to add it your favourites
                 </Modal.Header>
                 <Modal.Body>
-                    <RecentCitiesComponent handleShow={handleShow} />
+                    <RecentCitiesComponent handleRecents={handleRecents} />
                 </Modal.Body>
             </Modal>
         </>
