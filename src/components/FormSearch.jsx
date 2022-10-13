@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Button, Container, Form } from "react-bootstrap";
 import { BsSearch } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { getWeatherInfosAction } from "../redux/actions";
@@ -23,8 +23,16 @@ const FormSearch = () => {
         setQuery(""); //pulisco l'input field
     };
 
+    useEffect(() => {
+        if (!isTabletOrMobile) {
+            navigate("/");
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
-        <div className="responsivePadding">
+        // <div className="responsivePadding">
+        <Container>
             <h4 className="titles">Search</h4>
             <Form
                 onSubmit={handleSubmit}
@@ -56,7 +64,7 @@ const FormSearch = () => {
                     <RecentCitiesComponent />
                 </>
             )}
-        </div>
+        </Container>
     );
 };
 

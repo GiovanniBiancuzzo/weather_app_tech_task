@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import CityCard from "./CityCard";
-import { Container } from "react-bootstrap";
-import { addToFavouritesAction } from "../redux/actions";
+import {
+    addToFavouritesAction,
+    getActualWeatherAction,
+} from "../redux/actions";
+import { useNavigate } from "react-router-dom";
 
 const RecentCitiesComponent = (props) => {
     const recents = useSelector((state) =>
@@ -9,30 +12,25 @@ const RecentCitiesComponent = (props) => {
     );
 
     const dispatch = useDispatch();
-    const addFavCity = (cityInfo) => dispatch(addToFavouritesAction(cityInfo));
+    const navigate = useNavigate();
+    const addFavCity = (cityInfo) => {
+        dispatch(addToFavouritesAction(cityInfo));
+        dispatch(getActualWeatherAction(cityInfo));
+        navigate("/");
+    };
 
     return (
-        <>
-            <Container className="recentCitiesContainer">
-                {recents.length > 0 ? (
-                    recents.map((cityInfo) => (
-                        <div
-                            onClick={() => {
-                                addFavCity(cityInfo);
-                                props.handleRecents();
-                            }}
-                        >
-                            <CityCard
-                                key={cityInfo.city.id}
-                                cityInfo={cityInfo}
-                            />
-                        </div>
-                    ))
-                ) : (
-                    <span>Search a city before adding to favourites.</span>
-                )}
-            </Container>
-        </>
+        <div className="recentCitiesContainer">
+            {recents.length > 0 ? (
+                recents.map((cityInfo) => (
+                    <div onClick={() => addFavCity(cityInfo)}>
+                        <CityCard key={cityInfo.city.id} cityInfo={cityInfo} />
+                    </div>
+                ))
+            ) : (
+                <span>Search a city before adding to favourites.</span>
+            )}
+        </div>
     );
 };
 

@@ -92,7 +92,7 @@
 }
 /* note: contenitore città cercate*/
 .recentCitiesContainer {
-    min-height: 80vh;
+    height: 80vh;
     overflow: auto;
 }
 
@@ -130,7 +130,6 @@
     max-height: 36vh;
     overflow: auto;
     padding: 3em;
-    margin-bottom: 3em;
 }
 
 .todayContainer::-webkit-scrollbar {
@@ -305,7 +304,7 @@ div:hover {
 
     /*note: contenitore città preferite*/
     .favouritesCitiesContainer {
-        height: 60vh;
+        height: 70vh;
     }
 
     .miniCard {
@@ -316,6 +315,11 @@ div:hover {
 
     .miniCard > img {
         max-width: 20px;
+    }
+
+    /*note: contenitore città cercate*/
+    .recentCitiesContainer {
+        height: 58vh;
     }
 
     /*note: contenitore today*/

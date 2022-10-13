@@ -1,7 +1,5 @@
 body {
     background-color: #f1f1f1 !important;
-    padding: 30px;
-    min-height: 100vh !important;
     font-family: "Lato", sans-serif !important;
 }
 
@@ -10,13 +8,21 @@ body::-webkit-scrollbar {
 }
 
 .app {
-    max-width: 1920px;
-    margin: 0 auto;
+    padding: 1.5rem;
 }
 
 @media screen and (max-width: 768px) {
     body {
+        margin: 0 !important;
+    }
+    .app {
         padding: 0;
+    }
+}
+@media screen and (min-width: 1920px) {
+    .app {
+        max-width: 1920px;
+        margin: 0 auto;
     }
 }
 

@@ -20,6 +20,7 @@ const FavouritesCitiesComponent = () => {
 
     const setActualCity = (cityInfo) => {
         dispatch(getActualWeatherAction(cityInfo));
+        navigate("/");
     };
 
     const isTabletOrMobile = useMediaQuery({
@@ -58,20 +59,11 @@ const FavouritesCitiesComponent = () => {
                 </h5>
             </Row>
             <Container className="favouritesCitiesContainer">
-                {favourites &&
-                    favourites.map((cityInfo) => (
-                        <div
-                            onClick={() => {
-                                setActualCity(cityInfo);
-                                navigate("/");
-                            }}
-                        >
-                            <CityCard
-                                key={cityInfo.city.id}
-                                cityInfo={cityInfo}
-                            />
-                        </div>
-                    ))}
+                {favourites.map((cityInfo) => (
+                    <div onClick={() => setActualCity(cityInfo)}>
+                        <CityCard key={cityInfo.city.id} cityInfo={cityInfo} />
+                    </div>
+                ))}
             </Container>
 
             <Modal show={recents} onHide={handleRecents}>
@@ -79,7 +71,7 @@ const FavouritesCitiesComponent = () => {
                     Click on a city to add it your favourites
                 </Modal.Header>
                 <Modal.Body>
-                    <RecentCitiesComponent handleRecents={handleRecents} />
+                    <RecentCitiesComponent />
                 </Modal.Body>
             </Modal>
         </>
