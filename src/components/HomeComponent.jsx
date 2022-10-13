@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Col, Row, Toast } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useMediaQuery } from "react-responsive";
-import { getGeolocationAction } from "../redux/actions";
+import { acceptedCookiesAction, getGeolocationAction } from "../redux/actions";
 import ButtonGeolocation from "./ButtonGeolocation";
 import FavouritesCitiesComponent from "./FavouritesCitiesComponent";
 import FormSearch from "./FormSearch";
@@ -14,16 +14,15 @@ import { BiCookie } from "react-icons/bi";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const HomeComponent = () => {
-    const actualCity = useSelector((state) => state.weatherInfos.actualCity);
-    const loading = useSelector((state) => state.weatherInfos.loading);
+    const actualCity = useSelector((state) => state.weatherInfos.actualCity); //variabile per il recupero della città attuale
+    const loading = useSelector((state) => state.weatherInfos.loading); //variabile per i caricamenti conservata nello store
     const error = useSelector((state) => state.weatherInfos.error);
+    const cookies = useSelector((state) => state.favourites.cookies); //variabile per i cookies conservata nello store persistente
     const navigate = useNavigate();
     const location = useLocation();
     const params = new URLSearchParams(location.search).get("q");
 
     const dispatch = useDispatch();
-
-    const [showBanner, setShowBanner] = useState(false);
 
     const fetchDefaultCity = () => {
         //geolocalizzazione approssimativa di default tramite ip, servizio di absractapi
@@ -33,7 +32,6 @@ const HomeComponent = () => {
             .then((res) => res.json())
             .then((data) => {
                 dispatch(getGeolocationAction(data.latitude, data.longitude));
-                //piccolo banner che avvisa della localizzazione tramite ip
             })
             .catch((error) => console.log(error));
     };
@@ -51,7 +49,6 @@ const HomeComponent = () => {
             location.pathname = "/";
         } else {
             showHome();
-            setShowBanner(true);
             fetchDefaultCity();
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -182,9 +179,9 @@ const HomeComponent = () => {
                 </Col>
             </Row>
 
-            <Toast
-                onClose={() => setShowBanner(false)} //toast per un banner cookies
-                show={showBanner}
+            <Toast //piccolo banner che avvisa della localizzazione tramite ip
+                onClose={() => dispatch(acceptedCookiesAction())}
+                show={cookies}
                 className="bannerCookies "
             >
                 <Toast.Header>

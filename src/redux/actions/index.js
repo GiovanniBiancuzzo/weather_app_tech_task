@@ -7,6 +7,7 @@ export const LOADING_ERROR = 'LOADING_ERROR';
 export const GET_RECENT_CITIES = 'GET_RECENT_CITIES';
 export const ADD_TO_FAVOURITES = 'ADD_TO_FAVOURITES';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
+export const ACCEPTED_COOKIES = 'ACCEPTED_COOKIES';
 export const ADD_ERROR = 'ADD_ERROR';
 
 const weatherInfosApi = process.env.REACT_APP_ENDPOINT_WEATHERINFOS_API;
@@ -101,3 +102,7 @@ export const removeFromFavouritesAction = (cityId) => {//funzione mai implementa
         }
     };
 };
+
+export const acceptedCookiesAction = () => ({
+    type: ACCEPTED_COOKIES
+});
