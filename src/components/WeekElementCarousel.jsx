@@ -1,21 +1,23 @@
 import { format } from "date-fns";
-import { Row } from "react-bootstrap";
+import { Col, Image, Row } from "react-bootstrap";
 
 const WeekElementCarousel = ({ day }) => {
     return (
-        <Row
-            className="secondGradient weekElement shadowCorners"
-            style={{ cursor: "pointer" }}
-        >
-            <h6>{format(new Date(day.dt_txt), "EEEE")}</h6>
+        <Row className="secondGradient weekElement shadowCornersSecondary">
+            <Col xs={12}>
+                <h6>{format(new Date(day.dt_txt), "EEEE")}</h6>
+            </Col>
 
-            <p className="tempFont">{Math.trunc(day.main.temp)}°</p>
+            <Col xs={12} className="tempFontSecondary">
+                {Math.trunc(day.main.temp)}°
+            </Col>
 
-            <img
-                className="d-block w-100"
-                src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
-                alt="weather logo"
-            />
+            <Col xs={12}>
+                <Image
+                    src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+                    alt="weather logo"
+                />
+            </Col>
         </Row>
     );
 };

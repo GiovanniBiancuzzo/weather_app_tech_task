@@ -6,23 +6,26 @@ const MonthDetails = ({ day }) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
     return (
-        <Row className="secondGradient shadowCorners p-3 weatherCard">
+        <Row className="secondGradient shadowCornersSecondary p-3">
             <Col xs={5}>
-                <p className="pt-3">
+                <Row style={{ fontWeight: "bold", padding: "16px 0 0 10px" }}>
                     {format(new Date(day.dt_txt), "EEEE, d LLLL")}
-                </p>
-                <div style={{ width: "100%" }}>
+                </Row>
+                {/* <div style={{ width: "100%" }}> */}
+                <Row>
                     <Image
                         src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
                         alt="weather logo"
-                        fluid
+                        // fluid
                     />
-                </div>
+                </Row>
             </Col>
             <Col xs={7}>
                 <Row>
-                    <p className="tempFont">{Math.trunc(day.main.temp)}°</p>
-                    <p>Felt: {Math.trunc(day.main.feels_like)}°</p>
+                    <p className="tempFontSecondary">
+                        {Math.trunc(day.main.temp)}° (
+                        <span>Felt: {Math.trunc(day.main.feels_like)}°</span>)
+                    </p>
                     <p>{capitalizeFirstLetter(day.weather[0].description)}</p>
                     <p>
                         The high will be {Math.trunc(day.main.temp_max)}°C, the
@@ -31,6 +34,8 @@ const MonthDetails = ({ day }) => {
                     <br />
                     <span>Humidity: {day.main.humidity} %</span>
                     <span>Pressure: {day.main.pressure} hPa</span>
+                    <span>UV: boh</span>
+                    <span>Dew Point: boh °C</span>
                 </Row>
             </Col>
         </Row>

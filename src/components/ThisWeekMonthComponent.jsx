@@ -11,11 +11,19 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
     const [actualCityDay, setActualCityDay] = useState(actualCityWeek[0]); //giorno per giorno, info dettagliate, di default, il primo giorno
 
     const [key, setKey] = useState("thisWeek");
+    const handleDay = (day) => {
+        setActualCityDay(day);
+        setKey("thisMonth");
+    };
 
     const isTabletOrMobile = useMediaQuery({
         query: process.env.REACT_APP_RES_SMARTPHONE,
     });
 
+    // const actualCityTest = actualCityWeek.map((el, index) =>
+    //     Array.fill([actualCityWeek[0]], 0, actualCityWeek % 3)
+    // );
+    // const carousel = document.getElementById("carousel");
     return (
         <Tabs
             id="controlled-tab-example"
@@ -29,45 +37,60 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
                 className={
                     isTabletOrMobile ? "" : "mainGradient shadowCorners p-4"
                 }
-                style={{ height: "37vh" }}
             >
-                <Carousel>
+                <Carousel id="carousel">
                     {/* {actualCityWeek.map((pages, index) => (
-                            <Carousel.Item
-                                className="mainGradient shadowCorners"
-                                key={index}
-                            >
-                                <Row>
-                                    {actualCityWeek
-                                        .slice(
-                                            Math.floor(index / 3) * 3,
-                                            Math.floor(index / 3) * 3 + 3
-                                        )
-                                        .map((day, indexCarousel) => (
+                        <>
+                            if (index % 3 === 0){" "}
+                            {
+                                <Carousel.Item key={index}>
+                                    <Row className="threeDayRow">
+                                        {
+                                            <Col
+                                                xs={4}
+                                                onClick={() =>
+                                                    handleDay(
+                                                        actualCityWeek[index]
+                                                    )
+                                                }
+                                            >
+                                                <WeekElementCarousel
+                                                    day={actualCityWeek[index]}
+                                                    key={
+                                                        actualCityWeek[index].dt
+                                                    }
+                                                />
+                                            </Col>
+                                        }
+                                    </Row>
+                                </Carousel.Item>
+                            }{" "}
+                            else{" "}
+                            {
+                                <Row className="threeDayRow">
+                                    {
+                                        <Col
+                                            xs={4}
+                                            onClick={() =>
+                                                handleDay(actualCityWeek[index])
+                                            }
+                                        >
                                             <WeekElementCarousel
-                                                day={day}
-                                                key={day.dt}
+                                                day={actualCityWeek[index]}
+                                                key={actualCityWeek[index].dt}
                                             />
-                                        ))}
+                                        </Col>
+                                    }
                                 </Row>
-                            </Carousel.Item>
-                        ))} */}
-                    <Carousel.Item
-                        className={
-                            isTabletOrMobile ? "" : "mainGradient shadowCorners"
-                        }
-                    >
-                        <Row>
+                            }
+                        </>
+                    ))} */}
+                    <Carousel.Item>
+                        <Row className="threeDayRow">
                             {actualCityWeek
                                 .slice(0, 3)
                                 .map((day, indexCarousel) => (
-                                    <Col
-                                        xs={4}
-                                        onClick={() => {
-                                            setActualCityDay(day);
-                                            setKey("thisMonth");
-                                        }}
-                                    >
+                                    <Col xs={4} onClick={() => handleDay(day)}>
                                         <WeekElementCarousel
                                             day={day}
                                             key={day.dt}
@@ -76,22 +99,12 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
                                 ))}
                         </Row>
                     </Carousel.Item>
-                    <Carousel.Item
-                        className={
-                            isTabletOrMobile ? "" : "mainGradient shadowCorners"
-                        }
-                    >
-                        <Row>
+                    <Carousel.Item>
+                        <Row className="threeDayRow">
                             {actualCityWeek
                                 .slice(3, 6)
                                 .map((day, indexCarousel) => (
-                                    <Col
-                                        xs={4}
-                                        onClick={() => {
-                                            setActualCityDay(day);
-                                            setKey("thisMonth");
-                                        }}
-                                    >
+                                    <Col xs={4} onClick={() => handleDay(day)}>
                                         <WeekElementCarousel
                                             day={day}
                                             key={day.dt}
@@ -109,7 +122,6 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
                 className={
                     isTabletOrMobile ? "" : "mainGradient shadowCorners p-4"
                 }
-                style={{ height: "37vh" }}
             >
                 <MonthDetails day={actualCityDay} />
             </Tab>

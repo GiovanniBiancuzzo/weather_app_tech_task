@@ -29,6 +29,10 @@
     font-weight: 900;
     font-size: 2.5em;
 }
+.tempFontSecondary {
+    font-weight: 900;
+    font-size: 2em;
+}
 
 .miniContainer {
     min-height: 12vh;
@@ -41,10 +45,10 @@
     box-shadow: 5px 15px 10px #cfcfcf;
 }
 
-/* .shadowCornersSecondary {
+.shadowCornersSecondary {
     border-radius: 25px !important;
-    box-shadow: 5px 5px 20px #888888;
-} */
+    box-shadow: 5px 5px 10px #888888;
+}
 
 /*note: sidebarNavbar*/
 .stickyNavbar {
@@ -147,15 +151,26 @@
     color: red;
 }
 
-.weekElement {
-    margin: 0px 20px;
-    padding: 2em;
+.threeDayRow {
+    /* align-content: space-around; */
+    /* width: 100%; */
+    margin: 0 auto;
+
     text-align: center;
+    padding: 1em;
+    align-items: center;
 }
 
-.weatherCard {
-    height: 100%;
+.weekElement {
+    cursor: pointer;
+    max-width: 9em;
+    min-height: 18em;
+    align-content: space-around;
 }
+/* 
+.weatherCard {
+    padding: 16px;
+} */
 
 /*note: form search*/
 .searchForm {
