@@ -47,9 +47,9 @@ const HomeComponent = () => {
             <Col
                 lg={8}
                 className={
-                    isTabletOrMobile
+                    isTabletOrMobile && !loading
                         ? `${switchGradient(
-                              actualCity.list[0].weather[0].icon
+                              actualCity.list[0]?.weather[0].icon
                           )}`
                         : ""
                 }
