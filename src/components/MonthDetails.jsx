@@ -8,7 +8,7 @@ const MonthDetails = ({ day }) => {
     }
     return (
         <Row
-            className={`shadowCornersSecondary p-3 ${switchGradient(
+            className={`monthWeatherCard shadowCornersSecondary p-3 ${switchGradient(
                 day.weather[0].icon
             )}`}
         >

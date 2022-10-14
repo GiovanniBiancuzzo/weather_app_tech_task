@@ -48,7 +48,7 @@ const HomeComponent = () => {
                 lg={8}
                 className={
                     isTabletOrMobile && !loading
-                        ? `${switchGradient(
+                        ? `homeMobileComponent ${switchGradient(
                               actualCity.list[0].weather[0].icon
                           )}`
                         : ""

@@ -29,13 +29,17 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
             id="controlled-tab-example"
             activeKey={key}
             onSelect={(k) => setKey(k)}
-            className="titles thisWeekMonthContainer"
+            className={`titles thisWeekMonthContainer ${
+                key === "thisWeek" ? "tabWeekActive" : "tabWeekInactive"
+            }`}
         >
             <Tab
                 eventKey="thisWeek"
                 title="This week"
                 className={
-                    isTabletOrMobile ? "" : "mainGradient shadowCorners p-4"
+                    isTabletOrMobile
+                        ? "p-1"
+                        : "mainGradient shadowCornersTabWeek p-3"
                 }
             >
                 <Carousel id="carousel">
@@ -120,7 +124,7 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
                 eventKey="thisMonth"
                 title="This month"
                 className={
-                    isTabletOrMobile ? "" : "mainGradient shadowCorners p-4"
+                    isTabletOrMobile ? "p-2" : "mainGradient shadowCorners p-3"
                 }
             >
                 <MonthDetails day={actualCityDay} />

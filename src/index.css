@@ -1,3 +1,7 @@
+/* html {
+    font-size: calc(15px + 0.390625vw) !important;
+} */
+
 body {
     background-color: #f1f1f1 !important;
     font-family: "Lato", sans-serif !important;
@@ -18,10 +22,21 @@ body::-webkit-scrollbar {
     .app {
         padding: 0;
     }
+
+    /* h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    span {
+        font-size: calc(18px + 0.390625vw) !important;
+    } */
 }
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1366px) {
     .app {
-        max-width: 1920px;
+        max-width: 1366px;
         margin: 0 auto;
     }
 }

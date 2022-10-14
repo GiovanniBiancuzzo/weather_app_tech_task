@@ -1,19 +1,13 @@
-import { Col, Container, Navbar, NavItem } from "react-bootstrap";
-import ButtonGeolocation from "./ButtonGeolocation";
-import FavouritesCitiesComponent from "./FavouritesCitiesComponent";
-import FormSearch from "./FormSearch";
-import { useMediaQuery } from "react-responsive";
+import { Container, Navbar } from "react-bootstrap";
 import { BsHouse, BsSearch, BsGeoAlt, BsHeart } from "react-icons/bs";
 import { NavLink, useLocation } from "react-router-dom";
-import HomeComponent from "./HomeComponent";
-import { useEffect } from "react";
 
 const SidebarNavbar = () => {
     const location = useLocation();
 
     return (
         <Navbar className="stickyNavbar">
-            <Container className="miniNavbar shadowCorners">
+            <Container className="miniNavbar shadowCornersSecondary">
                 <Navbar.Brand>
                     <NavLink
                         to={"/"}
