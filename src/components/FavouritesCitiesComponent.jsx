@@ -59,7 +59,7 @@ const FavouritesCitiesComponent = () => {
                 </h5>
             </Row>
             <Container className="favouritesCitiesContainer">
-                {favourites.length > 0 ? (
+                {favourites.length > 0 || isTabletOrMobile ? (
                     favourites.map((cityInfo) => (
                         <div onClick={() => setActualCity(cityInfo)}>
                             <CityCard
