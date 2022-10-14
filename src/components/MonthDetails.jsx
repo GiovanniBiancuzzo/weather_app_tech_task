@@ -8,7 +8,7 @@ const MonthDetails = ({ day }) => {
     }
     return (
         <Row
-            className={`monthWeatherCard shadowCornersSecondary p-3 ${switchGradient(
+            className={`monthWeatherCard shadowCornersSecondary ${switchGradient(
                 day.weather[0].icon
             )}`}
         >
@@ -27,10 +27,12 @@ const MonthDetails = ({ day }) => {
             </Col>
             <Col xs={7}>
                 <Row>
-                    <p className="tempFontSecondary">
-                        {Math.trunc(day.main.temp)}° (
-                        <span>Felt: {Math.trunc(day.main.feels_like)}°</span>)
-                    </p>
+                    <Row style={{ flexWrap: "nowrap", alignItems: "center" }}>
+                        <Col xs={5} className="tempFontSecondary">
+                            {Math.trunc(day.main.temp)}°C
+                        </Col>
+                        <Col>(Felt: {Math.trunc(day.main.feels_like)}°)</Col>
+                    </Row>
                     <p>{capitalizeFirstLetter(day.weather[0].description)}</p>
                     <p>
                         The high will be {Math.trunc(day.main.temp_max)}°C, the
@@ -39,8 +41,8 @@ const MonthDetails = ({ day }) => {
                     <br />
                     <span>Humidity: {day.main.humidity} %</span>
                     <span>Pressure: {day.main.pressure} hPa</span>
-                    <span>UV: boh</span>
-                    <span>Dew Point: boh °C</span>
+                    {/* <span>UV: boh</span>
+                    <span>Dew Point: boh °C</span> */}
                 </Row>
             </Col>
         </Row>

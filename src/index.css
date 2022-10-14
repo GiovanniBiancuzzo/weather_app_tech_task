@@ -1,6 +1,6 @@
-/* html {
-    font-size: calc(15px + 0.390625vw) !important;
-} */
+html {
+    font-size: 0.9rem !important;
+}
 
 body {
     background-color: #f1f1f1 !important;
@@ -16,6 +16,9 @@ body::-webkit-scrollbar {
 }
 
 @media screen and (max-width: 768px) {
+    html {
+        font-size: 1rem !important;
+    }
     body {
         margin: 0 !important;
     }

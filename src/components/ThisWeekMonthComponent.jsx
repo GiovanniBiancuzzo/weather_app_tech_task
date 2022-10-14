@@ -39,10 +39,10 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
                 className={
                     isTabletOrMobile
                         ? "p-1"
-                        : "mainGradient shadowCornersTabWeek p-3"
+                        : "mainGradient shadowCornersTabWeek p-2"
                 }
             >
-                <Carousel id="carousel">
+                <Carousel>
                     {/* {actualCityWeek.map((pages, index) => (
                         <>
                             if (index % 3 === 0){" "}

@@ -107,31 +107,6 @@
     box-shadow: 5px 5px 10px #6195d1;
 }
 
-/*note: sidebarNavbar*/
-.stickyNavbar {
-    position: -webkit-fixed !important ;
-    position: fixed !important ;
-    bottom: 1vh !important ;
-    left: 5%;
-    right: 5%;
-    z-index: 10 !important ;
-}
-
-.miniNavbar {
-    min-height: 4em;
-    background-color: #fff;
-}
-
-.activeLinkNavbar {
-    color: #01175f !important;
-    padding-bottom: 90%;
-    border-bottom: 2px solid #01175f;
-}
-
-.inactiveLinkNavbar {
-    color: #888888 !important;
-}
-
 /*note: contenitore città preferite*/
 .favouritesCitiesContainer {
     height: 40vh;
@@ -189,9 +164,10 @@
 .todayContainer {
     text-align: center;
     justify-content: space-evenly;
-    max-height: 36vh;
+    /* max-height: 36vh; */
+    height: 33.5vh;
     overflow: auto;
-    padding: 3em;
+    padding: 2em;
 }
 
 .todayContainer::-webkit-scrollbar {
@@ -236,8 +212,9 @@
 .threeDayRow {
     margin: 0 auto;
     text-align: center;
-    padding: 1em;
+    padding: 0 2em;
     align-items: center;
+    height: 31.5vh !important;
 }
 
 .weekElement {
@@ -249,7 +226,9 @@
 
 .monthWeatherCard {
     max-width: 98% !important;
+    height: 30vh !important;
     margin: 0 auto !important;
+    padding: 1.25em;
 }
 
 /*note: form search*/
@@ -380,10 +359,35 @@ div:hover {
 }
 
 @media screen and (max-width: 768px) {
+    /*note: sidebarNavbar*/
+    .stickyNavbar {
+        position: -webkit-fixed !important ;
+        position: fixed !important ;
+        bottom: 1vh !important ;
+        left: 5%;
+        right: 5%;
+        z-index: 10 !important ;
+    }
+
+    .miniNavbar {
+        min-height: 4em;
+        background-color: #fff;
+    }
+
+    .activeLinkNavbar {
+        color: #01175f !important;
+        padding-bottom: 90%;
+        border-bottom: 2px solid #01175f;
+    }
+
+    .inactiveLinkNavbar {
+        color: #888888 !important;
+    }
+
     /*sotto i 768px*/
     /*note: elementi globali*/
     .homeMobileComponent {
-        min-height: 115vh;
+        min-height: 140vh;
     }
 
     /*note: card del meteo principale*/
@@ -438,12 +442,17 @@ div:hover {
 
     /*note: contenitore today*/
     .todayContainer {
+        padding: 0;
+        margin-bottom: 2em;
+    }
+    .todayContainer {
         display: flex;
         text-align: center;
         justify-content: space-evenly;
+        max-height: 36vh;
         overflow-x: auto;
-        padding: 0;
-        margin-bottom: 2em;
+        padding: 1em;
+        max-height: 11em;
     }
 
     .todayContainer::-webkit-scrollbar {
