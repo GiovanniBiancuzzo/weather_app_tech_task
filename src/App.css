@@ -387,7 +387,7 @@ div:hover {
     /*sotto i 768px*/
     /*note: elementi globali*/
     .homeMobileComponent {
-        min-height: 140vh;
+        min-height: 125vh;
     }
 
     /*note: card del meteo principale*/
