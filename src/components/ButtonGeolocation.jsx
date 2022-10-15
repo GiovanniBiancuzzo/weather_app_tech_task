@@ -21,7 +21,10 @@ const ButtonGeolocation = () => {
                 );
                 navigate("/");
             },
-            () => alert("impossibile ottenere la posizione")
+            () =>
+                alert(
+                    "Impossibile ottenere la posizione. Cercare manualmente una città oppure concedere i permessi di geolocalizzazione"
+                )
         );
     };
 
@@ -31,13 +34,13 @@ const ButtonGeolocation = () => {
 
     useEffect(() => {
         if (!isTabletOrMobile) {
+            //quando ci si trova nel componente buttonGeolocation come route e sopra i 768px, si viene ridirezionati alla root. ovvero dashboard componenent
             navigate("/");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
-        // <div className="responsivePadding">
         <Container>
             <h4 className="titles">Localization</h4>
             <Button

@@ -18,20 +18,20 @@ const FormSearch = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(getWeatherInfosAction(query));
-        navigate("/");
+        dispatch(getWeatherInfosAction(query)); //dispatch della ricerca
+        navigate("/"); //finita la ricerca, mi faccio rimandare alla home
         setQuery(""); //pulisco l'input field
     };
 
     useEffect(() => {
         if (!isTabletOrMobile) {
+            //quando ci si trova nel componente formsearch come route e sopra i 768px, si viene ridirezionati alla root. ovvero dashboard componenent
             navigate("/");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
-        // <div className="responsivePadding">
         <Container>
             <h4 className="titles">Search</h4>
             <Form
@@ -44,7 +44,6 @@ const FormSearch = () => {
                     className="searchForm shadowCorners"
                     type="search"
                     required
-                    autoFocus
                     autoComplete="on"
                     aria-label="search city"
                     pattern="^[A-zÀ-ú\s]*$"
