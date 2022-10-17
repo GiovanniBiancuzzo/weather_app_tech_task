@@ -36,7 +36,7 @@
 
 ### font globale Lato
 
-### gradiente globale
+### gradiente globale dinamico
 
 ### ricerca di immagine della città da servizio esterno
 
