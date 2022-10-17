@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { BsFillCircleFill } from "react-icons/bs";
 import { useMediaQuery } from "react-responsive";
 import switchGradient from "../functions/switchGradient";
@@ -43,7 +43,7 @@ const TodayComponent = ({ actualCity }) => {
                     ))}{" "}
                     <div className="solidLine"></div>
                 </Col>
-            </Row>{" "}
+            </Row>
         </>
     );
 };

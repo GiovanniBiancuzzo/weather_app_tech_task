@@ -65,13 +65,3 @@
 ### https://www.abstractapi.com/api/ip-geolocation-api per la geolocalizzazione iniziale tramite ip
 
 ### https://unsplash.com/developers per la ricerca di immagini di città
-
-# ToDos:
-
-## Gestire primo avvio con mancanza di dati
-
-## Gestire errori
-
-## Gestire componente "thisMonth"
-
-## "Rinfrescare" i dati in qualche modo, altrimenti stanno nel persisted store per troppo tempo e diventano obsoleti

@@ -155,9 +155,7 @@
     padding: 1.5em 0.5em;
     position: absolute;
     top: 5em;
-    left: -2em;
-    /* border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px; */
+    left: -3em;
     border-radius: 25px;
 }
 
@@ -382,7 +380,6 @@ div:hover {
         color: #888888 !important;
     }
 
-    /*sotto i 768px*/
     /*note: elementi globali*/
     .homeMobileComponent {
         min-height: 125vh;
@@ -463,7 +460,6 @@ div:hover {
     .bannerCookies {
         position: fixed;
         font-size: 1em !important;
-        /* top: 32vh; */
         margin: 0 auto;
         left: 0;
         right: 0;

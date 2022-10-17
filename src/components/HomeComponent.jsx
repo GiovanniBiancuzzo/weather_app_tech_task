@@ -13,7 +13,6 @@ import switchGradient from "../functions/switchGradient";
 const HomeComponent = () => {
     const actualCity = useSelector((state) => state.weatherInfos.actualCity); //variabile per il recupero della città attuale
     const loading = useSelector((state) => state.weatherInfos.loading); //variabile per i caricamenti conservata nello store
-    const error = useSelector((state) => state.weatherInfos.error); //todo: introdurre una gestione degli errori di caricamento
 
     const location = useLocation();
     const dispatch = useDispatch();
@@ -21,7 +20,7 @@ const HomeComponent = () => {
     const fetchDefaultCity = () => {
         //geolocalizzazione approssimativa di default tramite ip, servizio di absractapi
         fetch(
-            `https://ipgeolocation.abstractapi.com/v1/?api_key=2a8f6ad0cdf04576970f8073ad82e77e`
+            `${process.env.REACT_APP_ABSTRACT_GEOLOCATION_API}api_key=${process.env.REACT_APP_ABSTRACT_API_KEY}`
         )
             .then((res) => res.json())
             .then((data) =>

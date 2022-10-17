@@ -8,9 +8,9 @@ export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
 export const ACCEPTED_COOKIES = 'ACCEPTED_COOKIES';
 export const ADD_ERROR = 'ADD_ERROR';
 
-const weatherInfosApi = process.env.REACT_APP_ENDPOINT_WEATHERINFOS_API;
-const reverseGeolocationApi = process.env.REACT_APP_ENDPOINT_REVERSE_GEOLOCATION_API;
-const apiKey = process.env.REACT_APP_PERSONAL_API_KEY;
+const weatherInfosApi = process.env.REACT_APP_OPENWEATHER_API;
+const reverseGeolocationApi = process.env.REACT_APP_OPENWEATHER_REVERSE_API;
+const apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
 export const setQueryAction = (query) => ({
     type: SET_QUERY,
@@ -25,7 +25,7 @@ export const setActualCityAction = (data) => ({
 export const getGeolocationAction = (lat, lon) => {
     return (dispatch, getState) => {
         fetch(
-            `${reverseGeolocationApi}lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_PERSONAL_API_KEY}`
+            `${reverseGeolocationApi}lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}`
         ) //attraverso il reverse coding dell'api, otteniamo il nome della città come query di ricerca
             .then((result) => result.json())
             .then((data) =>

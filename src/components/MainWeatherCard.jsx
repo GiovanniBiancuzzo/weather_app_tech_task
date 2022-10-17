@@ -2,11 +2,8 @@ import { Card, Image } from "react-bootstrap";
 import format from "date-fns/format";
 import { useMediaQuery } from "react-responsive";
 import switchGradient from "../functions/switchGradient";
-import { useSelector } from "react-redux";
 
 const MainWeatherCard = ({ actualCity }) => {
-    // const actualImage = useSelector((state) => state.weatherInfos.actualImage);
-
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }

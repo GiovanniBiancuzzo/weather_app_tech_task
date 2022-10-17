@@ -23,7 +23,7 @@ const ButtonGeolocation = () => {
             },
             () =>
                 alert(
-                    "Impossibile ottenere la posizione. Cercare manualmente una città oppure concedere i permessi di geolocalizzazione"
+                    "Impossibile ottenere la posizione. Cercare manualmente una città oppure concedere i permessi di geolocalizzazione."
                 )
         );
     };
