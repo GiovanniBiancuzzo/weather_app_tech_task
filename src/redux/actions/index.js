@@ -1,10 +1,8 @@
 export const SET_QUERY = 'SET_QUERY';
-export const PUSH_TO_HISTORY = 'PUSH_TO_HISTORY';
-export const GET_ACTUAL_WEATHER = 'GET_ACTUAL_WEATHER';
+export const SET_ACTUAL_CITY = 'SET_ACTUAL_CITY';
 export const GET_WEATHER_INFOS = 'GET_WEATHER_INFOS';
 export const LOADING = 'LOADING';
 export const LOADING_ERROR = 'LOADING_ERROR';
-export const GET_RECENT_CITIES = 'GET_RECENT_CITIES';
 export const ADD_TO_FAVOURITES = 'ADD_TO_FAVOURITES';
 export const REMOVE_FROM_FAVOURITES = 'REMOVE_FROM_FAVOURITES';
 export const ACCEPTED_COOKIES = 'ACCEPTED_COOKIES';
@@ -19,8 +17,8 @@ export const setQueryAction = (query) => ({
     payload: query
 });
 
-export const getActualWeatherAction = (data) => ({
-    type: GET_ACTUAL_WEATHER,
+export const setActualCityAction = (data) => ({
+    type: SET_ACTUAL_CITY,//setta città come attuale
     payload: data
 });
 
@@ -37,25 +35,40 @@ export const getGeolocationAction = (lat, lon) => {
     };
 };
 
+export const getCityWeatherAction = (data) => ({
+    type: GET_WEATHER_INFOS,
+    payload: data
+});
+
 export const getWeatherInfosAction = (query) => {
     return (dispatch, getState) => {
         const finalQuery = query.charAt(0).toUpperCase() + query.slice(1);//preparo la stringa per essere confrontata 
-        const cities = getState().weatherInfos.cities;//recupero la lista delle città già conservate nello store
+        const cities = getState().weatherInfos.history;//recupero la lista delle città già conservate nello store
         dispatch(setQueryAction(finalQuery));//conservo la citta nella query di ricerca
         if (Object.keys(cities).includes(finalQuery)) {//controllo se è una citta già cercata
-            dispatch(getActualWeatherAction(cities[finalQuery])); //se è già stata cercata, la estraggo dall'elenco delle città nello store e la setto come città attuale
+            dispatch(setActualCityAction(cities[finalQuery])); //se è già stata cercata, la estraggo dall'elenco delle città nello store e la setto come città attuale
         } else {
             fetch(`${weatherInfosApi}q=${finalQuery}&appid=${apiKey}&units=metric`, { //se non è stata già cercata, effettuo una fetch
                 method: "GET",
             })
                 .then(res => res.json())
                 .then(data => {
-                    // dispatch(setHistoryAction(data.city.name));//conservo la città nella history
-                    dispatch({//conservo la città nello store
-                        type: GET_WEATHER_INFOS,
-                        payload: data
-                    });
-                    dispatch(getActualWeatherAction(data));//setto la citta attuale
+                    fetch(
+                        `https://api.unsplash.com/search/photos?query=${data.city.name}&client_id=UzF58mZxjYRKuAQVQcixdSy4BVlF0XuQlHRCObFMf_k`
+                    )
+                        .then((result) => result.json())
+                        .then((res) => {//arricchisco l'oggetto città con l'immagine
+                            if (res.results.length > 0)//se esiste almeno un risultato, lo uso
+                                data.image = res.results[0].urls.regular;
+                            else {//altrimenti immagine default
+                                data.image = 'http://architizer-prod.imgix.net/mediadata/projects/072013/b77aa4f3.jpg?q=60&auto=format,compress&w=1680&cs=strip';
+                            }
+                        })
+                        .then(() => {
+                            dispatch(getCityWeatherAction(data)); //conservo la città nello store, non persistente, la history
+                            dispatch(setActualCityAction(data)); //setto la citta attuale
+                        })
+                        .catch((error) => console.log(error));
                     setTimeout(() => {
                         dispatch({
                             type: LOADING,
@@ -77,10 +90,10 @@ export const getWeatherInfosAction = (query) => {
 
 export const addToFavouritesAction = (data) => {
     return (dispatch, getState) => {
-        const citiesIds = (getState().favourites.list.map((cityElement) => cityElement.city.id));//lista delle città nei preferiti
-        if (!citiesIds.includes(data.city.id)) {//la città non è ancora nei preferiti?
+        const citiesIds = (getState().favourites.cities.map((cityElement) => cityElement.city.id));//lista delle città nei preferiti
+        if (!citiesIds.includes(data.city.id)) {//la città non è ancora nei preferiti?            
             dispatch({
-                type: ADD_TO_FAVOURITES,//aggiungila ai preferiti
+                type: ADD_TO_FAVOURITES,//aggiungi città ai preferiti
                 payload: data
             });
         } else {
@@ -93,7 +106,7 @@ export const addToFavouritesAction = (data) => {
 
 export const removeFromFavouritesAction = (cityId) => {//funzione mai implementata
     return (dispatch, getState) => {
-        const citiesIds = (getState().favourites.list.map((cityElement) => cityElement.city.id));//lista delle città nei preferiti
+        const citiesIds = (getState().favourites.cities.map((cityElement) => cityElement.city.id));//lista delle città nei preferiti
         if (citiesIds.includes(cityId)) {//la città è già nei preferiti?
             dispatch({
                 type: REMOVE_FROM_FAVOURITES,//rimuovila dai preferiti

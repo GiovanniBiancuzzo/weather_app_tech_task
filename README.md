@@ -38,6 +38,8 @@
 
 ### gradiente globale
 
+### ricerca di immagine della città da servizio esterno
+
 ### react router
 
 ### implementato caricamento
@@ -61,6 +63,8 @@
 ### https://www.npmjs.com/package/react-responsive react responsive per la responsiveness
 
 ### https://www.abstractapi.com/api/ip-geolocation-api per la geolocalizzazione iniziale tramite ip
+
+### https://unsplash.com/developers per la ricerca di immagini di città
 
 # ToDos:
 

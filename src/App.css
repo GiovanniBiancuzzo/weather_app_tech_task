@@ -138,8 +138,8 @@
 
 /*note: card del meteo principale*/
 .mainCardContainer {
-    background-image: url("http://architizer-prod.imgix.net/mediadata/projects/072013/b77aa4f3.jpg?q=60&auto=format,compress&w=1680&cs=strip");
     height: 45vh;
+    position: relative;
 }
 
 .mainCard {
@@ -147,6 +147,7 @@
     color: #01175f;
     border-color: transparent !important;
     padding: 20px 160px 120px 80px;
+    text-shadow: 2px 2px #6195d1;
 }
 
 .temperautureSection {
@@ -392,7 +393,6 @@ div:hover {
 
     /*note: card del meteo principale*/
     .mainCardContainer {
-        background-image: none;
         height: auto;
     }
 

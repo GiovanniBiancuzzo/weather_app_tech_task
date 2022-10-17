@@ -1,9 +1,9 @@
 import { ADD_TO_FAVOURITES, REMOVE_FROM_FAVOURITES, ACCEPTED_COOKIES, ADD_ERROR } from "../actions";
 
 const initialState = {
-    list: [],//array con le città preferite
-    cookies: true,
-    error: false,
+    cities: [],//array con le città preferite
+    cookies: true,//variabile per l'accettazione dei cooki
+    error: false,//variabile per un errore nell'aggiunta dei preferiti
 };
 
 const favouritesReducer = (state = initialState, action) => {
@@ -11,12 +11,12 @@ const favouritesReducer = (state = initialState, action) => {
         case ADD_TO_FAVOURITES:
             return {
                 ...state,
-                list: [...state.list, action.payload]
+                cities: [...state.cities, action.payload]
             };
         case REMOVE_FROM_FAVOURITES:
             return {
                 ...state,
-                list: [...state.list.slice(0, action.payload), ...state.list.slice(action.payload + 1, ...state.list.length)]
+                cities: [...state.cities.slice(0, action.payload), ...state.cities.slice(action.payload + 1, ...state.cities.length)]
             };
         case ACCEPTED_COOKIES:
             return {

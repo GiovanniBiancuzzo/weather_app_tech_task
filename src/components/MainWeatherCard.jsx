@@ -2,8 +2,11 @@ import { Card, Image } from "react-bootstrap";
 import format from "date-fns/format";
 import { useMediaQuery } from "react-responsive";
 import switchGradient from "../functions/switchGradient";
+import { useSelector } from "react-redux";
 
 const MainWeatherCard = ({ actualCity }) => {
+    // const actualImage = useSelector((state) => state.weatherInfos.actualImage);
+
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
@@ -16,10 +19,12 @@ const MainWeatherCard = ({ actualCity }) => {
         <div
             className={
                 isTabletOrMobile
-                    ? "mainCardContainer"
+                    ? "mainCardContainer shadowCorners"
                     : "mainCardContainer shadowCorners"
             }
-            style={{ position: "relative" }}
+            style={{
+                backgroundImage: `url(${actualCity.image}) `,
+            }}
         >
             <Card className="mainCard">
                 <Card.Body>

@@ -4,13 +4,13 @@ import CityCard from "./CityCard";
 import { BsHeartFill } from "react-icons/bs";
 import RecentCitiesComponent from "./RecentCitiesComponent";
 import { useState } from "react";
-import { getActualWeatherAction } from "../redux/actions";
+import { setActualCityAction } from "../redux/actions";
 import MiniTopNavbar from "./MiniTopNavbar";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 
 const FavouritesCitiesComponent = () => {
-    const favourites = useSelector((state) => state.favourites.list);
+    const favourites = useSelector((state) => state.favourites.cities);
 
     const [recents, setRecents] = useState(false);
     const handleRecents = () => setRecents(!recents);
@@ -19,7 +19,7 @@ const FavouritesCitiesComponent = () => {
     const navigate = useNavigate();
 
     const setActualCity = (cityInfo) => {
-        dispatch(getActualWeatherAction(cityInfo));
+        dispatch(setActualCityAction(cityInfo));
         navigate("/");
     };
 
