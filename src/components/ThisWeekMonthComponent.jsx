@@ -20,10 +20,6 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
         query: process.env.REACT_APP_RES_SMARTPHONE,
     });
 
-    // const actualCityTest = actualCityWeek.map((el, index) =>
-    //     Array.fill([actualCityWeek[0]], 0, actualCityWeek % 3)
-    // );
-    // const carousel = document.getElementById("carousel");
     return (
         <Tabs
             id="controlled-tab-example"
@@ -43,7 +39,9 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
                 }
             >
                 <Carousel>
-                    {/* {actualCityWeek.map((pages, index) => (
+                    {
+                        //sono consapevole che sicuramente si possa ottimizzare questa parte
+                        /* {actualCityWeek.map((pages, index) => (
                         <>
                             if (index % 3 === 0){" "}
                             {
@@ -88,7 +86,8 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
                                 </Row>
                             }
                         </>
-                    ))} */}
+                    ))} */
+                    }
                     <Carousel.Item>
                         <Row className="threeDayRow">
                             {actualCityWeek
