@@ -355,6 +355,11 @@ div:hover {
 }
 
 @media screen and (max-width: 768px) {
+    /*note: elementi globali*/
+    .homeMobileComponent {
+        min-height: 133vh;
+    }
+
     /*note: sidebarNavbar*/
     .stickyNavbar {
         position: -webkit-fixed !important ;
@@ -378,11 +383,6 @@ div:hover {
 
     .inactiveLinkNavbar {
         color: #888888 !important;
-    }
-
-    /*note: elementi globali*/
-    .homeMobileComponent {
-        min-height: 125vh;
     }
 
     /*note: card del meteo principale*/
