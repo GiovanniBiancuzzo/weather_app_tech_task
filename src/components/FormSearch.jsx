@@ -46,7 +46,7 @@ const FormSearch = () => {
                     required
                     autoComplete="on"
                     aria-label="search city"
-                    pattern="^[A-zÀ-ú\s]*$"
+                    pattern="^[A-zÀ-ú\s\,\-]*$"
                     value={query}
                     placeholder="ex: Miami"
                     onChange={(e) => {
