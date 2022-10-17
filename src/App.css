@@ -164,17 +164,30 @@
 /*note: contenitore today*/
 .todayContainer {
     text-align: center;
-    justify-content: space-evenly;
-    /* max-height: 36vh; */
     height: 33.5vh;
     overflow: auto;
-    padding: 2em;
+    margin: 0 2em;
+    padding: 3em;
+    position: relative;
 }
 
 .todayContainer::-webkit-scrollbar {
     display: none;
 }
 
+.solidLine {
+    border: 2px solid #fff;
+    position: absolute;
+    rotate: 90deg;
+    width: 80%;
+    left: 10%;
+    top: 12em;
+}
+
+.todayElement {
+    align-items: center;
+    padding-bottom: 1em;
+}
 /*note: contenitore thisWeekMonth*/
 
 .thisWeekMonthContainer {
@@ -343,22 +356,6 @@ div:hover {
     will-change: transform;
 }
 
-@media screen and (max-width: 1366px) {
-    /* p,
-    span {
-        font-size: 1vw !important;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-size: 1rem !important;
-    } */
-}
-
 @media screen and (max-width: 768px) {
     /*note: sidebarNavbar*/
     .stickyNavbar {
@@ -441,30 +438,23 @@ div:hover {
     }
 
     /*note: contenitore today*/
-    .todayContainer {
-        padding: 0;
-        margin-bottom: 2em;
-    }
+
     .todayContainer {
         display: flex;
-        text-align: center;
-        justify-content: space-evenly;
-        max-height: 36vh;
-        overflow-x: auto;
         padding: 1em;
-        max-height: 11em;
+        max-height: 15em;
     }
 
     .todayContainer::-webkit-scrollbar {
         display: none;
     }
 
-    /*note: contenitore thisWeekMonth*/
-    /* 
-    .thisWeekMonthContainer {
-        margin-top: 2em;
-    } */
+    .solidLine {
+        rotate: 0deg;
+        top: 6.1em;
+    }
 
+    /*note: contenitore thisWeekMonth*/
     .monthWeatherCard {
         max-width: 98% !important;
         margin: 0 auto !important;

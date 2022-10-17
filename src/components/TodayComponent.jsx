@@ -1,6 +1,6 @@
 import { format } from "date-fns";
-import { Col, Row } from "react-bootstrap";
-import { BsFillCircleFill, BsAlignBottom, BsAlignEnd } from "react-icons/bs";
+import { Col, Container, Row } from "react-bootstrap";
+import { BsFillCircleFill } from "react-icons/bs";
 import { useMediaQuery } from "react-responsive";
 import switchGradient from "../functions/switchGradient";
 
@@ -16,39 +16,34 @@ const TodayComponent = ({ actualCity }) => {
             <h4 className={isTabletOrMobile ? "themedTitles" : "titles"}>
                 Today
             </h4>
-            <Col
+            <Row
                 className={
                     isTabletOrMobile
-                        ? "todayContainer"
-                        : `todayContainer ${switchGradient(
+                        ? ""
+                        : `${switchGradient(
                               actualCity.list[0].weather[0].icon
                           )} shadowCorners`
                 }
             >
-                {actualCityToday.map((day) => (
-                    <Row key={day.dt}>
-                        <Col>{Math.trunc(day.main.temp)}°</Col> -{" "}
-                        <Col>
-                            {isTabletOrMobile ? (
-                                <Row
-                                    style={{
-                                        flexWrap: "nowrap",
-                                    }}
-                                >
-                                    <BsFillCircleFill />
-                                    <BsAlignEnd />
-                                </Row>
-                            ) : (
+                <Col className="todayContainer">
+                    {actualCityToday.map((day) => (
+                        <Row key={day.dt} className="todayElement">
+                            <Col xs={12} md={4}>
+                                {Math.trunc(day.main.temp)}°
+                            </Col>
+                            <Col xs={12} md={4}>
                                 <Row>
                                     <BsFillCircleFill />
-                                    <BsAlignBottom />
                                 </Row>
-                            )}
-                        </Col>{" "}
-                        - <Col>{format(new Date(day.dt_txt), "p")}</Col>
-                    </Row>
-                ))}
-            </Col>
+                            </Col>
+                            <Col xs={12} md={4}>
+                                {format(new Date(day.dt_txt), "p")}
+                            </Col>
+                        </Row>
+                    ))}{" "}
+                    <div className="solidLine"></div>
+                </Col>
+            </Row>{" "}
         </>
     );
 };
