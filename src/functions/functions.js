@@ -1,4 +1,4 @@
-const exactGradient = (icon) => {
+export const switchGradient = (icon) => {
     switch (icon) {
         case "01d":
         case "01n":
@@ -28,4 +28,6 @@ const exactGradient = (icon) => {
     }
 };
 
-export default exactGradient;
+export const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+};

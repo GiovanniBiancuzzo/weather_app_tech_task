@@ -1,6 +1,6 @@
-import { format } from "date-fns";
-import { Col, Image, Row } from "react-bootstrap";
-import switchGradient from "../functions/switchGradient";
+import { format } from 'date-fns';
+import { Col, Image, Row } from 'react-bootstrap';
+import { switchGradient } from '../functions/functions';
 
 const WeekElementCarousel = ({ day }) => {
     return (
@@ -10,7 +10,7 @@ const WeekElementCarousel = ({ day }) => {
             )}`}
         >
             <Col xs={12}>
-                <h6>{format(new Date(day.dt_txt), "EEEE")}</h6>
+                <h6>{format(new Date(day.dt_txt), 'EEEE')}</h6>
             </Col>
 
             <Col xs={12} className="tempFontSecondary">

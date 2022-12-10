@@ -1,28 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
-import CityCard from "./CityCard";
-import { addToFavouritesAction, setActualCityAction } from "../redux/actions";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
+import CityCard from './CityCard';
 
-const RecentCitiesComponent = (props) => {
+const RecentCitiesComponent = () => {
     const recents = useSelector((state) =>
         Object.values(state.weatherInfos.history).reverse()
     );
-
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const addFavCity = (cityInfo) => {
-        dispatch(addToFavouritesAction(cityInfo));
-        dispatch(setActualCityAction(cityInfo));
-        navigate("/");
-    };
 
     return (
         <div className="recentCitiesContainer">
             {recents.length > 0 ? (
                 recents.map((cityInfo) => (
-                    <div onClick={() => addFavCity(cityInfo)}>
-                        <CityCard key={cityInfo.city.id} cityInfo={cityInfo} />
-                    </div>
+                    <CityCard key={cityInfo.city.id} cityInfo={cityInfo} />
                 ))
             ) : (
                 <span>Search a city before adding to favourites.</span>

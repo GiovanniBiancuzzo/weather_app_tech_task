@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
-import { BsSearch } from "react-icons/bs";
-import { useDispatch } from "react-redux";
-import { getWeatherInfosAction } from "../redux/actions";
-import { useNavigate } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
-import RecentCitiesComponent from "./RecentCitiesComponent";
+import { useEffect, useState } from 'react';
+import { Button, Container, Form } from 'react-bootstrap';
+import { BsSearch } from 'react-icons/bs';
+import { useDispatch } from 'react-redux';
+import { getWeatherInfosAction } from '../redux/actions';
+import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+import RecentCitiesComponent from './RecentCitiesComponent';
 
 const FormSearch = () => {
-    const [query, setQuery] = useState("");
+    const [query, setQuery] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -19,14 +19,14 @@ const FormSearch = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(getWeatherInfosAction(query)); //dispatch della ricerca
-        navigate("/"); //finita la ricerca, mi faccio rimandare alla home
-        setQuery(""); //pulisco l'input field
+        navigate('/'); //finita la ricerca, mi faccio rimandare alla home
+        setQuery(''); //pulisco l'input field
     };
 
     useEffect(() => {
         if (!isTabletOrMobile) {
             //quando ci si trova nel componente formsearch come route e sopra i 768px, si viene ridirezionati alla root. ovvero dashboard componenent
-            navigate("/");
+            navigate('/');
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
@@ -38,7 +38,7 @@ const FormSearch = () => {
                 onSubmit={handleSubmit}
                 role="search"
                 className="miniContainer"
-                style={{ position: "relative" }}
+                style={{ position: 'relative' }}
             >
                 <Form.Control
                     className="searchForm shadowCorners"

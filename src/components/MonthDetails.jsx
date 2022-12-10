@@ -1,11 +1,9 @@
-import { format } from "date-fns";
-import { Col, Image, Row } from "react-bootstrap";
-import switchGradient from "../functions/switchGradient";
+import { format } from 'date-fns';
+import { Col, Image, Row } from 'react-bootstrap';
+import { capitalizeFirstLetter } from '../functions/functions';
+import { switchGradient } from '../functions/functions';
 
 const MonthDetails = ({ day }) => {
-    function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
     return (
         <Row
             className={`monthWeatherCard shadowCornersSecondary ${switchGradient(
@@ -13,8 +11,8 @@ const MonthDetails = ({ day }) => {
             )}`}
         >
             <Col xs={5}>
-                <Row style={{ fontWeight: "bold", padding: "16px 0 0 10px" }}>
-                    {format(new Date(day.dt_txt), "EEEE, d LLLL")}
+                <Row style={{ fontWeight: 'bold', padding: '16px 0 0 10px' }}>
+                    {format(new Date(day.dt_txt), 'EEEE, d LLLL')}
                 </Row>
                 {/* <div style={{ width: "100%" }}> */}
                 <Row>
@@ -27,7 +25,7 @@ const MonthDetails = ({ day }) => {
             </Col>
             <Col xs={7}>
                 <Row>
-                    <Row style={{ flexWrap: "nowrap", alignItems: "center" }}>
+                    <Row style={{ flexWrap: 'nowrap', alignItems: 'center' }}>
                         <Col xs={5} className="tempFontSecondary">
                             {Math.trunc(day.main.temp)}°C
                         </Col>

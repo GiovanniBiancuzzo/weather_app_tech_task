@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { Carousel, Col, Row, Tab, Tabs } from "react-bootstrap";
-import MonthDetails from "./MonthDetails";
-import WeekElementCarousel from "./WeekElementCarousel";
-import { useMediaQuery } from "react-responsive";
+import { useState } from 'react';
+import { Tab, Tabs } from 'react-bootstrap';
+import MonthDetails from './MonthDetails';
+import { useMediaQuery } from 'react-responsive';
+import CarouselComponent from './CarouselComponent';
 
 const ThisWeekMonthComponent = ({ actualCity }) => {
     const actualCityWeek = actualCity.list.filter(
@@ -10,10 +10,10 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
     ); //visto che ogni 8 elementi fetchati abbiamo un ciclo di 24 ore
     const [actualCityDay, setActualCityDay] = useState(actualCityWeek[0]); //giorno per giorno, info dettagliate, di default, il primo giorno
 
-    const [key, setKey] = useState("thisWeek");
+    const [key, setKey] = useState('thisWeek');
     const handleDay = (day) => {
         setActualCityDay(day);
-        setKey("thisMonth");
+        setKey('thisMonth');
     };
 
     const isTabletOrMobile = useMediaQuery({
@@ -26,7 +26,7 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
             activeKey={key}
             onSelect={(k) => setKey(k)}
             className={`titles thisWeekMonthContainer ${
-                key === "thisWeek" ? "tabWeekActive" : "tabWeekInactive"
+                key === 'thisWeek' ? 'tabWeekActive' : 'tabWeekInactive'
             }`}
         >
             <Tab
@@ -34,96 +34,22 @@ const ThisWeekMonthComponent = ({ actualCity }) => {
                 title="This week"
                 className={
                     isTabletOrMobile
-                        ? "p-1"
-                        : "mainGradient shadowCornersTabWeek p-2"
+                        ? 'p-1'
+                        : 'mainGradient shadowCornersTabWeek p-2'
                 }
             >
-                <Carousel>
-                    {
-                        //sono consapevole che sicuramente si possa ottimizzare questa parte
-                        /* {actualCityWeek.map((pages, index) => (
-                        <>
-                            if (index % 3 === 0){" "}
-                            {
-                                <Carousel.Item key={index}>
-                                    <Row className="threeDayRow">
-                                        {
-                                            <Col
-                                                xs={4}
-                                                onClick={() =>
-                                                    handleDay(
-                                                        actualCityWeek[index]
-                                                    )
-                                                }
-                                            >
-                                                <WeekElementCarousel
-                                                    day={actualCityWeek[index]}
-                                                    key={
-                                                        actualCityWeek[index].dt
-                                                    }
-                                                />
-                                            </Col>
-                                        }
-                                    </Row>
-                                </Carousel.Item>
-                            }{" "}
-                            else{" "}
-                            {
-                                <Row className="threeDayRow">
-                                    {
-                                        <Col
-                                            xs={4}
-                                            onClick={() =>
-                                                handleDay(actualCityWeek[index])
-                                            }
-                                        >
-                                            <WeekElementCarousel
-                                                day={actualCityWeek[index]}
-                                                key={actualCityWeek[index].dt}
-                                            />
-                                        </Col>
-                                    }
-                                </Row>
-                            }
-                        </>
-                    ))} */
-                    }
-                    <Carousel.Item>
-                        <Row className="threeDayRow">
-                            {actualCityWeek
-                                .slice(0, 3)
-                                .map((day, indexCarousel) => (
-                                    <Col xs={4} onClick={() => handleDay(day)}>
-                                        <WeekElementCarousel
-                                            day={day}
-                                            key={day.dt}
-                                        />
-                                    </Col>
-                                ))}
-                        </Row>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <Row className="threeDayRow">
-                            {actualCityWeek
-                                .slice(3, 6)
-                                .map((day, indexCarousel) => (
-                                    <Col xs={4} onClick={() => handleDay(day)}>
-                                        <WeekElementCarousel
-                                            day={day}
-                                            key={day.dt}
-                                        />
-                                    </Col>
-                                ))}
-                        </Row>
-                    </Carousel.Item>
-                </Carousel>
+                <CarouselComponent
+                    actualCity={actualCity}
+                    setActualCityDay={setActualCityDay}
+                    handleDay={handleDay}
+                />
             </Tab>
 
             <Tab
                 eventKey="thisMonth"
                 title="This month"
                 className={
-                    isTabletOrMobile ? "p-2" : "mainGradient shadowCorners p-3"
+                    isTabletOrMobile ? 'p-2' : 'mainGradient shadowCorners p-3'
                 }
             >
                 <MonthDetails day={actualCityDay} />

@@ -16,7 +16,7 @@ const favouritesReducer = (state = initialState, action) => {
         case REMOVE_FROM_FAVOURITES:
             return {
                 ...state,
-                cities: [...state.cities.slice(0, action.payload), ...state.cities.slice(action.payload + 1, ...state.cities.length)]
+                cities: [...state.cities.slice(0, action.payload), ...state.cities.slice(action.payload + 1, state.cities.length)]
             };
         case ACCEPTED_COOKIES:
             return {

@@ -159,6 +159,15 @@
     border-radius: 25px;
 }
 
+.elapesdTime {
+    position: absolute;
+    bottom: -35%;
+    left: 15%;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: white;
+}
+
 /*note: contenitore today*/
 .todayContainer {
     text-align: center;
@@ -409,9 +418,18 @@ div:hover {
         justify-content: center;
         flex-direction: row-reverse;
         align-items: center;
-        padding: 0;
+        padding: 0 0 2em 0;
         position: initial;
         font-size: 2em;
+    }
+
+    .elapesdTime {
+        position: absolute;
+        bottom: -70%;
+        left: 10%;
+        right: 10%;
+        font-weight: 700;
+        font-size: 1em;
     }
 
     /*note: contenitore città preferite*/

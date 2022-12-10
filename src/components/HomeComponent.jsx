@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import { Col, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { useMediaQuery } from "react-responsive";
-import { getGeolocationAction } from "../redux/actions";
-import MainWeatherCard from "./MainWeatherCard";
-import ThisWeekMonthComponent from "./ThisWeekMonthComponent";
-import TodayComponent from "./TodayComponent";
-import { useLocation } from "react-router-dom";
-import MiniTopNavbar from "./MiniTopNavbar";
-import switchGradient from "../functions/switchGradient";
+import { useEffect } from 'react';
+import { Col, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import { getGeolocationAction } from '../redux/actions';
+import MainWeatherComponent from './MainWeatherComponent';
+import ThisWeekMonthComponent from './ThisWeekMonthComponent';
+import TodayComponent from './TodayComponent';
+import { useLocation } from 'react-router-dom';
+import MiniTopNavbar from './MiniTopNavbar';
+import { switchGradient } from '../functions/functions';
 
 const HomeComponent = () => {
     const actualCity = useSelector((state) => state.weatherInfos.actualCity); //variabile per il recupero della città attuale
@@ -30,7 +30,7 @@ const HomeComponent = () => {
     };
 
     useEffect(() => {
-        if (location.pathname === "/" && loading) {
+        if (location.pathname === '/' && loading) {
             // setShowHome(false);
             fetchDefaultCity();
         }
@@ -50,19 +50,19 @@ const HomeComponent = () => {
                         ? `homeMobileComponent ${switchGradient(
                               actualCity.list[0].weather[0].icon
                           )}`
-                        : ""
+                        : ''
                 }
             >
                 {isTabletOrMobile && ( //mostra mininavbar con pulsanti indietro e home, solo quando siamo sotto i 768px
                     <Row>
-                        <MiniTopNavbar navigate={"favourites"} />
+                        <MiniTopNavbar navigate={'favourites'} />
                     </Row>
                 )}
-                <Row style={{ justifyContent: "center" }}>
+                <Row style={{ justifyContent: 'center' }}>
                     {!loading ? (
                         <>
                             <Col xs={11} md={12}>
-                                <MainWeatherCard actualCity={actualCity} />
+                                <MainWeatherComponent actualCity={actualCity} />
                             </Col>
                             <Col xs={11} md={5}>
                                 <TodayComponent actualCity={actualCity} />
@@ -74,7 +74,7 @@ const HomeComponent = () => {
                             </Col>
                         </>
                     ) : (
-                        <div style={{ paddingTop: "20vh" }}>
+                        <div style={{ paddingTop: '20vh' }}>
                             <div className="loader loader3">
                                 <div>
                                     <div>

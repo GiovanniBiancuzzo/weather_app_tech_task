@@ -1,18 +1,12 @@
-import { Col, Row, Toast } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { useMediaQuery } from "react-responsive";
-import { acceptedCookiesAction } from "../redux/actions";
-import ButtonGeolocation from "./ButtonGeolocation";
-import FavouritesCitiesComponent from "./FavouritesCitiesComponent";
-import FormSearch from "./FormSearch";
-import { BiCookie } from "react-icons/bi";
-import HomeComponent from "./HomeComponent";
+import { Col, Row } from 'react-bootstrap';
+import { useMediaQuery } from 'react-responsive';
+import ButtonGeolocation from './ButtonGeolocation';
+import FavouritesCitiesComponent from './FavouritesCitiesComponent';
+import FormSearch from './FormSearch';
+import HomeComponent from './HomeComponent';
+import CookieToastComponent from './CookieToastComponent';
 
 const DashboardComponent = () => {
-    const cookies = useSelector((state) => state.favourites.cookies); //variabile per i cookies conservata nello store persistente
-
-    const dispatch = useDispatch();
-
     const isDesktopOrLaptop = useMediaQuery({
         query: process.env.REACT_APP_RES_TABLET,
     });
@@ -34,23 +28,7 @@ const DashboardComponent = () => {
                 </Col>
             </Row>
 
-            <Toast //piccolo banner che avvisa della localizzazione tramite ip
-                onClose={() => dispatch(acceptedCookiesAction())}
-                show={cookies}
-                className="bannerCookies "
-            >
-                <Toast.Header>
-                    <span>
-                        <BiCookie />
-                    </span>
-                    <strong className="mr-auto">Weather App</strong>
-                    {/* <small>11 mins ago</small> */}
-                </Toast.Header>
-                <Toast.Body>
-                    L'app usa una localizzazione approssimativa per stimare la
-                    tua posizione
-                </Toast.Body>
-            </Toast>
+            <CookieToastComponent />
         </>
     );
 };
