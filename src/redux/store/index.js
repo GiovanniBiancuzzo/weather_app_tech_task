@@ -11,7 +11,7 @@ const mainReducer = combineReducers({
     favourites: favouritesReducer,
 });
 
-const expireTime = 48 * 60 * 60 * 1000; // expire in 48h
+const expireTime = 1 * 60 * 60 * 1000; // expire in 48h, ore * minuti * secondi * millisecondi
 const expirationKey = "expirationKey";
 const persistConfig = ({
     key: 'root',
