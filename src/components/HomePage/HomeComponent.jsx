@@ -53,11 +53,10 @@ const HomeComponent = () => {
                         : ''
                 }
             >
-                {isTabletOrMobile && ( //mostra mininavbar con pulsanti indietro e home, solo quando siamo sotto i 768px
-                    <Row>
-                        <MiniTopNavbar navigate={'favourites'} />
-                    </Row>
-                )}
+                <Row>
+                    <MiniTopNavbar navigate={'favourites'} />
+                </Row>
+
                 <Row style={{ justifyContent: 'center' }}>
                     {!loading ? (
                         <>

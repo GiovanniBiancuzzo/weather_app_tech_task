@@ -1,18 +1,13 @@
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import CityCard from '../Modules/CityCard';
-import { useMediaQuery } from 'react-responsive';
 
 const FavouritesCitiesList = () => {
     const favourites = useSelector((state) => state.favourites.cities);
 
-    const isTabletOrMobile = useMediaQuery({
-        query: process.env.REACT_APP_RES_SMARTPHONE,
-    });
-
     return (
         <Container className="favouritesCitiesContainer">
-            {favourites.length > 0 || isTabletOrMobile ? (
+            {favourites.length > 0 ? (
                 favourites.map((cityInfo) => (
                     <CityCard key={cityInfo.city.id} cityInfo={cityInfo} />
                 ))

@@ -1,15 +1,22 @@
 import { Card, Col, Image, Row } from 'react-bootstrap';
 import format from 'date-fns/format';
 import { switchGradient } from '../../functions/functions';
-import { setActualCityAction } from '../../redux/actions';
+import {
+    addToFavouritesAction,
+    setActualCityAction,
+} from '../../redux/actions';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CityCard = ({ cityInfo }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const setActualCity = (cityInfo) => {
+        if (location.pathname === '/favourites') {
+            dispatch(addToFavouritesAction(cityInfo));
+        }
         dispatch(setActualCityAction(cityInfo));
         navigate('/');
     };
