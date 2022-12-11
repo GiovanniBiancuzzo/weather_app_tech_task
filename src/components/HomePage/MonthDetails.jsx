@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import { Col, Image, Row } from 'react-bootstrap';
-import { capitalizeFirstLetter } from '../functions/functions';
-import { switchGradient } from '../functions/functions';
+import { capitalizeFirstLetter } from '../../functions/functions';
+import { switchGradient } from '../../functions/functions';
 
 const MonthDetails = ({ day }) => {
     return (

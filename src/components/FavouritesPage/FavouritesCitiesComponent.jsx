@@ -1,8 +1,8 @@
 import { Modal, Row } from 'react-bootstrap';
 import { BsHeartFill } from 'react-icons/bs';
-import RecentCitiesComponent from './RecentCitiesComponent';
+import RecentCitiesComponent from '../SearchPage/RecentCitiesComponent';
 import { useState } from 'react';
-import MiniTopNavbar from './MiniTopNavbar';
+import MiniTopNavbar from '../Navigation/MiniTopNavbar';
 import { useMediaQuery } from 'react-responsive';
 import FavouritesCitiesList from './FavouritesCitiesList';
 

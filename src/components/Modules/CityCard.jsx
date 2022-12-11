@@ -1,7 +1,7 @@
 import { Card, Col, Image, Row } from 'react-bootstrap';
 import format from 'date-fns/format';
-import { switchGradient } from '../functions/functions';
-import { setActualCityAction } from '../redux/actions';
+import { switchGradient } from '../../functions/functions';
+import { setActualCityAction } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 

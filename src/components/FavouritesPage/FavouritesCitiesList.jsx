@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import CityCard from './CityCard';
+import CityCard from '../Modules/CityCard';
 import { useMediaQuery } from 'react-responsive';
 
 const FavouritesCitiesList = () => {

@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { Col, Image, Row } from 'react-bootstrap';
-import { switchGradient } from '../functions/functions';
+import { switchGradient } from '../../functions/functions';
 
 const WeekElementCarousel = ({ day }) => {
     return (

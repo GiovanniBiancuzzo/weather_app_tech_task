@@ -1,6 +1,6 @@
 import { Image } from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive';
-import { switchGradient } from '../functions/functions';
+import { switchGradient } from '../../functions/functions';
 
 const FloatingTempMainWeatherCard = ({ today }) => {
     const isTabletOrMobile = useMediaQuery({

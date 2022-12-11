@@ -1,6 +1,6 @@
-import { Col, Row, Toast } from 'react-bootstrap';
+import { Toast } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { acceptedCookiesAction } from '../redux/actions';
+import { acceptedCookiesAction } from '../../redux/actions';
 import { BiCookie } from 'react-icons/bi';
 
 const CookieToastComponent = () => {

@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { getGeolocationAction } from '../redux/actions';
+import { getGeolocationAction } from '../../redux/actions';
 import MainWeatherComponent from './MainWeatherComponent';
 import ThisWeekMonthComponent from './ThisWeekMonthComponent';
 import TodayComponent from './TodayComponent';
 import { useLocation } from 'react-router-dom';
-import MiniTopNavbar from './MiniTopNavbar';
-import { switchGradient } from '../functions/functions';
+import MiniTopNavbar from '../Navigation/MiniTopNavbar';
+import { switchGradient } from '../../functions/functions';
 
 const HomeComponent = () => {
     const actualCity = useSelector((state) => state.weatherInfos.actualCity); //variabile per il recupero della città attuale

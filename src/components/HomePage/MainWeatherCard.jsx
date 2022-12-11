@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap';
 import format from 'date-fns/format';
-import { capitalizeFirstLetter } from '../functions/functions';
+import { capitalizeFirstLetter } from '../../functions/functions';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const MainWeatherCard = (props) => {
