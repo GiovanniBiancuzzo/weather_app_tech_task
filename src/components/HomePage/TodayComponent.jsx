@@ -8,7 +8,7 @@ const TodayComponent = ({ actualCity }) => {
     const actualCityToday = actualCity.list.slice(0, 8); //viste le limitazioni dell'api nella sua versione grauita le informazioni fetchate sono intervallate ogni 3 ore. Per ottenere un ciclo di 24 ore, prenderò i primi 8 oggetti, 3*8=24
 
     const isTabletOrMobile = useMediaQuery({
-        query: process.env.REACT_APP_RES_SMARTPHONE,
+        query: '(max-width: 768px)',
     });
 
     return (

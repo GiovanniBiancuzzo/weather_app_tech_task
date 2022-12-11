@@ -10,7 +10,7 @@ import FavouritesCitiesComponent from './components/FavouritesPage/FavouritesCit
 import DashboardComponent from './components/DashboardComponent';
 
 function App () {
-    const isTabletOrMobile = useMediaQuery({ query: process.env.REACT_APP_RES_SMARTPHONE });
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
     return (
         <div className='app'>

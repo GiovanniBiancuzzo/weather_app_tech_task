@@ -4,7 +4,7 @@ import MainWeatherCard from './MainWeatherCard';
 
 const MainWeatherComponent = ({ actualCity }) => {
     const isTabletOrMobile = useMediaQuery({
-        query: process.env.REACT_APP_RES_SMARTPHONE,
+        query: '(max-width: 768px)',
     });
 
     return (

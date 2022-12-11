@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const MiniTopNavbar = (props) => {
     const isTabletOrMobile = useMediaQuery({
-        query: process.env.REACT_APP_RES_SMARTPHONE,
+        query: '(max-width: 768px)',
     });
     const navigate = useNavigate();
 

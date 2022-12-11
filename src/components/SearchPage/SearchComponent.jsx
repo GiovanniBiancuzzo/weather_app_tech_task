@@ -9,7 +9,7 @@ const SearchComponent = () => {
     const navigate = useNavigate();
 
     const isTabletOrMobile = useMediaQuery({
-        query: process.env.REACT_APP_RES_SMARTPHONE,
+        query: '(max-width: 768px)',
     });
 
     useEffect(() => {
