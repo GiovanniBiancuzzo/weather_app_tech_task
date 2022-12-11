@@ -22,6 +22,8 @@
 
 #### -redux persist per i preferiti
 
+#### https://www.npmjs.com/package/redux-persist-transform-expire-in per rinfrescare i dati dopo un po di tempo
+
 ### fetch gestite con promise che rispondono sia a coordinate sia a query di ricerca
 
 ### geolocalizzazione (spostata la logica del controllo-città nella action)
